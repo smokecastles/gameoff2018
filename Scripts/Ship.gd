@@ -3,6 +3,7 @@ extends Area2D
 const MOVE_SPEED = 200
 
 var velocity = Vector2()
+onready var size = get_node("Sprite").texture.get_size()
 
 # class member variables go here, for example:
 # var a = 2
@@ -30,4 +31,6 @@ func _process(delta):
 		velocity.y = 0
 		
 	position += velocity
+	position.x = clamp(position.x,0+size.x/2, get_viewport().get_visible_rect().size.x-size.x/2)
+	position.y = clamp(position.y,0+size.y/2, get_viewport().get_visible_rect().size.y-size.y/2)
 	pass
