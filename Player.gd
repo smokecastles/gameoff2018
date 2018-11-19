@@ -13,12 +13,12 @@ const ANIM_IDLE = "Idle"
 const ANIM_WALK = "Walk"
 const ANIM_JUMP = "Jump"
 
-var motion = Vector2()
-
 const projectile = preload("res://Projectile.tscn")
 
 onready var sprite = $AnimatedSprite
 onready var projectile_pos = $ProjectilePosition
+
+var motion = Vector2()
 
 func _physics_process(delta):
 	motion.y += GRAVITY

@@ -30,6 +30,7 @@ animations = [ {
 "name": "Walk",
 "speed": 12.0
 } ]
+_sections_unfolded = [ "Resource" ]
 
 [node name="Player" type="KinematicBody2D"]
 
