@@ -5,6 +5,8 @@ const GRAVITY = 40
 const ACCELERATION = 50
 const MAX_SPEED = 500
 const JUMP_HEIGHT = -850
+const JETPACK_DOWN_SPEED = -100
+const JETPACK_HEIGHTDIFF_THRESHOLD = 30
 
 const DAMPING_FLOOR = 0.2
 const DAMPING_SKY = 0.05
@@ -19,6 +21,8 @@ onready var sprite = $AnimatedSprite
 onready var projectile_pos = $ProjectilePosition
 
 var motion = Vector2()
+var falling_down = false
+var latest_height = 0.0
 
 func _physics_process(delta):
 	motion.y += GRAVITY
@@ -44,10 +48,21 @@ func _physics_process(delta):
 		get_parent().add_child(node)
 		node.position = projectile_pos.global_position
 	
+	var prev_falling_down = falling_down
+	falling_down = motion.y > 0
+	
+	if not prev_falling_down and falling_down:
+		latest_height = self.position.y
+		
 	if is_on_floor():
 		if Input.is_action_pressed("ui_up"):
 			motion.y = JUMP_HEIGHT
-	else:
+	elif falling_down:
+		if Input.is_action_just_pressed("ui_up") and self.position.y - latest_height > JETPACK_HEIGHTDIFF_THRESHOLD:
+			motion.y = -300
+		elif Input.is_action_pressed("ui_up"):
+			motion.y = -JETPACK_DOWN_SPEED
+
 		sprite.play(ANIM_JUMP)
 	
 	motion = move_and_slide(motion, UP)
