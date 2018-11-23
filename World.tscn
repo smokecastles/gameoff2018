@@ -32,7 +32,7 @@ gradient = SubResource( 3 )
 width = 2048
 _sections_unfolded = [ "Resource" ]
 
-[node name="World" type="Node"]
+[node name="World" type="Node" index="0"]
 
 _sections_unfolded = [ "Pause" ]
 
