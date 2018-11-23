@@ -11,7 +11,7 @@ config_version=3
 [application]
 
 config/name="Game Off 2018"
-run/main_scene="res://Scenes/SpaceShooterTest/SpaceShooterTest.tscn"
+run/main_scene="res://Scenes/spawner_enemy.tscn"
 config/icon="res://icon.png"
 
 [display]
