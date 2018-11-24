@@ -1,7 +1,7 @@
 extends Node2D
 
 const INVADER = preload("res://Invader.tscn")
-const MAX_COLS = 4
+const MAX_COLS = 8
 
 var invaders = [[]]
 
@@ -10,7 +10,7 @@ func add_invader(invader):
 	for x in range(len(invaders)):
 		for y in range(len(invaders[x])):
 			if not invaders[x][y]:
-				invader.set_pos_in_formation(x,y)
+				invader.set_pos_in_formation(Vector2(x,y))
 				invaders[x][y] = invader
 				return
 	
@@ -27,14 +27,16 @@ func add_invader(invader):
 		invader.set_pos_in_formation(Vector2(0, y_len))
 		invaders[0].append(invader)
 
-func remove_invader(x, y):
+func remove_invader(invader):
+	var x = invader.pos_in_formation.x
+	var y = invader.pos_in_formation.y
 	if len(invaders) > x and len(invaders[x]) > y:
 		invaders[x][y] = null
 
 func get_invader_global_pos(invader):
-	var local_pos = invader.pos_in_formation * invader.get_node("AnimatedSprite").frames.get_frame("default",0).get_size() * invader.scale
+	var frame_size = invader.get_node("AnimatedSprite").frames.get_frame("default",0).get_size()
+	var local_pos = Vector2(0,-frame_size.y * (len(invaders[0]))) + invader.pos_in_formation * frame_size * invader.scale
 	return to_global(local_pos)
-
 
 func _debug_print_invaders():
 	var rows = []

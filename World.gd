@@ -4,6 +4,7 @@ const Invader = preload("res://Invader.tscn")
 
 onready var invaders_pathfollow2d = $"InvadersPath2D/InvadersPathFollow2D"
 onready var invaders_formation = $"InvadersPath2D/InvadersPathFollow2D/InvadersFormation"
+onready var invaders_inline = $"InvadersInLine"
 onready var invaders = $Invaders
 
 func _ready():
@@ -12,7 +13,7 @@ func _ready():
 	invaders.add_child(invader)
 	invaders_formation.add_invader(invader)
 	
-	for i in range(0,5):
+	for i in range(0,1):
 		invader = Invader.instance()
 		invader.global_position = Vector2(0,300)
 		invaders.add_child(invader)
@@ -26,20 +27,22 @@ func _physics_process(delta):
 func move_invader(invader, delta):
 	match invader.state:
 		invader.STATES.SWITCHING_TO_FORMATION:
-			var traversed_distance = invader.SPEED * delta
-			var current_pos = invader.global_position
-			var final_pos = invaders_formation.get_invader_global_pos(invader)
-			
-			var distance_between_pos = current_pos.distance_to(final_pos)
-			
-			if distance_between_pos < 5:
-				invader.state = invader.STATES.IN_FORMATION
-				invaders.remove_child(invader)
-				invaders_formation.add_child(invader)
-				invader.global_position = final_pos
-			else:
-				invader.position = invader.position.linear_interpolate(final_pos, traversed_distance / distance_between_pos)
+			invader.move_to_position(invaders_formation.get_invader_global_pos(invader), delta)
+		invader.STATES.SWITCHING_TO_IN_LINE:
+			invader.move_to_position(invaders_inline.get_invader_global_pos(invader), delta)
 
-func set_invader_transitioning(invader):
-	var cur_position = Vector2(0,0) # TODO
+func set_invader_transitioning_to_formation(invader):
+	var cur_position = invader.global_position
+	invaders_formation.add_invader(invader)
+	invaders_inline.remove_invader(invader)
+	invaders_inline.remove_child(invader)
 	invaders.add_child(invader)
+	invader.global_position = cur_position
+
+func set_invader_transitioning_to_in_line(invader):
+	var cur_position = invader.global_position
+	invaders_inline.add_invader(invader)
+	invaders_formation.remove_invader(invader)
+	invaders_formation.remove_child(invader)
+	invaders.add_child(invader)
+	invader.global_position = cur_position

@@ -7,8 +7,8 @@
 [ext_resource path="res://sprites/background/castle_grey.png" type="Texture" id=5]
 [ext_resource path="res://sprites/background/cloud5.png" type="Texture" id=6]
 [ext_resource path="res://sprites/background/cloud9.png" type="Texture" id=7]
-[ext_resource path="res://Enemy.tscn" type="PackedScene" id=8]
-[ext_resource path="res://InvadersFormation.tscn" type="PackedScene" id=9]
+[ext_resource path="res://InvadersFormation.tscn" type="PackedScene" id=8]
+[ext_resource path="res://InvadersInLine.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Gradient" id=1]
 
@@ -38,7 +38,7 @@ _sections_unfolded = [ "Resource" ]
 
 bake_interval = 5.0
 _data = {
-"points": PoolVector2Array( 0, 0, 45.4263, 25.7825, 562.054, 47.206, -89.7422, 84.7651, 109.062, -122.542, 759.654, -180.269, 0, 0, 157.15, 142.417, 1043.21, 52.7578, -125.109, 27.1321, 129.631, -22.61, 1324.51, -169.316, 0, 0, 162.793, 75.3669, 1639.11, 58.3097, 0, 0, -21.1027, -82.9036, 1770.51, -58.2791, 129.631, -51.2495, -211.027, 105.514, 1318.96, -330.32, 103.021, 92.4114, -77.4982, -210.245, 1035.04, -153.417, 0, 0, -261.508, 28.2379, 759.198, -323.746, 0, 0, -7.36642, 138.734, 504.685, -73.0841, 0, 0, 0, 0, 562.054, 47.206 )
+"points": PoolVector2Array( 0, 0, 45.4263, 25.7825, 578.145, -20.582, -89.7422, 84.7651, 109.062, -122.542, 759.654, -180.269, 0, 0, 157.15, 142.417, 1052.92, -64.114, -125.109, 27.1321, 129.631, -22.61, 1324.51, -169.316, 0, 0, 162.793, 75.3669, 1624.27, -13.7801, 0, 0, -21.1027, -82.9036, 1770.51, -58.2791, 129.631, -51.2495, -211.027, 105.514, 1354.92, -322.585, 103.021, 92.4114, -77.4982, -210.245, 1082.84, -202.872, 0, 0, -261.508, 28.2379, 759.198, -323.746, 0, 0, 0, 0, 576.093, -21.0658 )
 }
 
 [sub_resource type="Animation" id=6]
@@ -67,7 +67,7 @@ _sections_unfolded = [ "Pause" ]
 
 [node name="Player" parent="." index="0" instance=ExtResource( 2 )]
 
-position = Vector2( 228.377, 49.7869 )
+position = Vector2( 227.377, 303.787 )
 
 [node name="TileMap" type="TileMap" parent="." index="1"]
 
@@ -180,23 +180,16 @@ centered = false
 flip_h = true
 _sections_unfolded = [ "Offset" ]
 
-[node name="Enemy1" parent="." index="3" instance=ExtResource( 8 )]
-
-position = Vector2( 905.91, 129.631 )
-
-[node name="Enemy2" parent="." index="4" instance=ExtResource( 8 )]
-
-position = Vector2( 680.088, 397.625 )
-
-[node name="InvadersPath2D" type="Path2D" parent="." index="5"]
+[node name="InvadersPath2D" type="Path2D" parent="." index="3"]
 
 self_modulate = Color( 0.5, 0.6, 1, 0.7 )
-position = Vector2( -26.1763, 233.649 )
+position = Vector2( -15.2933, 186.036 )
 curve = SubResource( 5 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="InvadersPathFollow2D" type="PathFollow2D" parent="InvadersPath2D" index="0"]
 
-position = Vector2( 562.054, 47.206 )
+position = Vector2( 578.145, -20.582 )
 offset = 0.0
 h_offset = 0.0
 v_offset = 0.0
@@ -216,8 +209,12 @@ playback_speed = 1.0
 anims/Move = SubResource( 6 )
 blend_times = [  ]
 
-[node name="InvadersFormation" parent="InvadersPath2D/InvadersPathFollow2D" index="1" instance=ExtResource( 9 )]
+[node name="InvadersFormation" parent="InvadersPath2D/InvadersPathFollow2D" index="1" instance=ExtResource( 8 )]
 
-[node name="Invaders" type="Node" parent="." index="6"]
+[node name="InvadersInLine" parent="." index="4" instance=ExtResource( 9 )]
+
+position = Vector2( 902.925, -393.775 )
+
+[node name="Invaders" type="Node" parent="." index="5"]
 
 
