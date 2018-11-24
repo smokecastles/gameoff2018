@@ -3,7 +3,7 @@ extends KinematicBody2D
 const UP = Vector2(0, -1)
 const GRAVITY = 40
 const ACCELERATION = 20
-const MAX_SPEED = 250
+const MAX_SPEED = 400
 
 const ANIM_WALK = "Walk"
 const ANIM_DEAD = "Dead"
