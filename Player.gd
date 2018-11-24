@@ -5,11 +5,13 @@ const GRAVITY = 40
 const ACCELERATION = 50
 const MAX_SPEED = 500
 const JUMP_HEIGHT = -850
-const JETPACK_DOWN_SPEED = -100
-const JETPACK_HEIGHTDIFF_THRESHOLD = 30
+#const JUMP_HEIGHT = -2000
+const JETPACK_DOWN_SPEED = -220
+const JETPACK_HEIGHTDIFF_THRESHOLD = 10
 
 const DAMPING_FLOOR = 0.2
 const DAMPING_SKY = 0.05
+const DAMPING_FALLING = 0.1
 
 const ANIM_IDLE = "Idle"
 const ANIM_WALK = "Walk"
@@ -22,6 +24,7 @@ onready var projectile_pos = $ProjectilePosition
 
 var motion = Vector2()
 var falling_down = false
+var jetpack_on = false
 var latest_height = 0.0
 
 func _physics_process(delta):
@@ -57,12 +60,14 @@ func _physics_process(delta):
 	if is_on_floor():
 		if Input.is_action_pressed("ui_up"):
 			motion.y = JUMP_HEIGHT
-	elif falling_down:
-		if Input.is_action_just_pressed("ui_up") and self.position.y - latest_height > JETPACK_HEIGHTDIFF_THRESHOLD:
-			motion.y = -300
-		elif Input.is_action_pressed("ui_up"):
-			motion.y = -JETPACK_DOWN_SPEED
-
+	else:
 		sprite.play(ANIM_JUMP)
+		if falling_down and Input.is_action_pressed("ui_up"):
+			motion.y = lerp(motion.y, JETPACK_DOWN_SPEED, DAMPING_FALLING)
+			jetpack_on = true
+		else:
+			jetpack_on = false
+		
+		#print(motion.y)
 	
 	motion = move_and_slide(motion, UP)

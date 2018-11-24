@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://sprites/enemies/shipYellow_manned.png" type="Texture" id=1]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Invader" type="KinematicBody2D"]
+
+scale = Vector2( 0.7, 0.7 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+_sections_unfolded = [ "Transform" ]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
+
+frames = SubResource( 1 )
+animation = "default"
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( 0.118881, -53.4537, 18.1641, -48.6123, 33.1284, -29.2467, 28.7271, -6.80023, 59.0959, 2.88255, 62.6169, 26.2093, 37.9698, 53.4971, -37.732, 54.3774, -62.3791, 28.4099, -59.7383, 2.88255, -29.8097, -3.71935, -35.5314, -27.0461, -18.3664, -50.8129 )
+_sections_unfolded = [ "Transform" ]
+
+
