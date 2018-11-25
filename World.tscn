@@ -66,7 +66,7 @@ tracks/0/keys = {
 custom_solver_bias = 0.0
 extents = Vector2( 768.802, 10 )
 
-[node name="World" type="Node" index="0"]
+[node name="World" type="Node"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]

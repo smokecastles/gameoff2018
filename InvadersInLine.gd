@@ -3,6 +3,11 @@ extends Node2D
 var invaders = []
 
 var H_OFFSET = 200
+var TIME_OFFSET_BETWEEN_SHOTS_MS = 500
+var time = 0
+
+enum SHOOT_TURNS { LEFT, RIGHT }
+var shoot_turn = SHOOT_TURNS.LEFT
 
 onready var path2d = $Path2D
 onready var pathfollow2d = $"Path2D/PathFollow2D"
@@ -35,9 +40,23 @@ func switch_all_to_formation():
 			invaders[x].to_formation()
 
 func _physics_process(delta):
+	var elapsed_time = OS.get_ticks_msec() - time
+	var will_shoot = false
+	if elapsed_time >= TIME_OFFSET_BETWEEN_SHOTS_MS:
+		print(elapsed_time)
+		time = OS.get_ticks_msec()
+		will_shoot = true
+		shoot_turn = SHOOT_TURNS.LEFT if shoot_turn == SHOOT_TURNS.RIGHT else SHOOT_TURNS.RIGHT
+	
 	for invader in invaders:
 		if not invader:
 			continue
+		if will_shoot:
+			var must_shoot = invader.pos_in_line % 2 == 0 and shoot_turn == SHOOT_TURNS.RIGHT
+			must_shoot = must_shoot or invader.pos_in_line % 2 != 0 and shoot_turn == SHOOT_TURNS.LEFT
+			print(must_shoot)
+			if must_shoot:
+				invader.shoot_sidewards(-1 if shoot_turn == SHOOT_TURNS.RIGHT else 1)
 		match invader.state:
 			invader.STATES.IN_LINE:
 				invader.move_to_position(get_invader_global_pos(invader), delta)

@@ -12,7 +12,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Invader" type="KinematicBody2D"]
+[node name="Invader" type="KinematicBody2D" index="0"]
 
 scale = Vector2( 0.7, 0.7 )
 input_pickable = false
@@ -33,5 +33,24 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 build_mode = 0
 polygon = PoolVector2Array( 0.118881, -53.4537, 18.1641, -48.6123, 33.1284, -29.2467, 28.7271, -6.80023, 59.0959, 2.88255, 62.6169, 26.2093, 37.9698, 53.4971, -37.732, 54.3774, -62.3791, 28.4099, -59.7383, 2.88255, -29.8097, -3.71935, -35.5314, -27.0461, -18.3664, -50.8129 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="ProjectilePositionDown" type="Position2D" parent="." index="2"]
+
+position = Vector2( 0, 70 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="ProjectilePositionSide" type="Position2D" parent="." index="3"]
+
+position = Vector2( 87, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="DidShootTimer" type="Timer" parent="." index="4"]
+
+process_mode = 1
+wait_time = 0.5
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="DidShootTimer" to="." method="_on_DidShootTimer_timeout"]
 
 

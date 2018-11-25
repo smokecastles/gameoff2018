@@ -10,14 +10,10 @@ var motion = Vector2()
 func _ready():
 	sprite.play("Idle")
 
-func _on_Area2D_body_entered(body):
-	if used:
-		return
-		
-	if body.get_name() == "Player":
+func _on_Area2D_body_entered(body):	
+	if not used and body.get_name() == "Player":
 		used = true
 		sprite.play("Activated")
 		body.motion.y = -jump_height
-		print(scale)
 		global_position = global_position + Vector2(0, -23) * scale
 		collisionshape.disabled = true
