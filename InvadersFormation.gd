@@ -1,6 +1,5 @@
 extends Node2D
 
-const INVADER = preload("res://Invader.tscn")
 const MAX_COLS = 5
 const TIME_OFFSET_BETWEEN_SHOTS_MS = 500
 
@@ -9,12 +8,15 @@ var time = 0
 
 func add_invader(invader):
 	# First try to fit it in current empty spots
-	for x in range(len(invaders)):
-		for y in range(len(invaders[x])):
-			if not invaders[x][y]:
-				invader.set_pos_in_formation(Vector2(x,y))
-				invaders[x][y] = invader
-				return
+	if len(invaders) > 0:
+		var y_len = len(invaders[0])
+		for y in range(0, y_len):
+			for x in range(len(invaders)):
+				if len(invaders[x]) > y:
+					if not invaders[x][y]:
+						invader.set_pos_in_formation(Vector2(x,y))
+						invaders[x][y] = invader
+						return
 	
 	if len(invaders) < MAX_COLS:
 		invader.set_pos_in_formation(Vector2(len(invaders), 0))

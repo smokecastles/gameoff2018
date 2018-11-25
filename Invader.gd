@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 var SPEED = 700
 
-const projectile = preload("res://Projectile.tscn")
+onready var projectile = Controller.projectile
 
 onready var projectile_pos_down = $ProjectilePositionDown
 onready var projectile_pos_side = $ProjectilePositionSide

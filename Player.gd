@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+signal damage_taken
+
 const UP = Vector2(0, -1)
 const GRAVITY = 40
 const ACCELERATION = 50
@@ -13,19 +15,25 @@ const DAMPING_FLOOR = 0.2
 const DAMPING_SKY = 0.05
 const DAMPING_FALLING = 0.1
 
+const MAX_HEALTH = 4
+
 const ANIM_IDLE = "Idle"
 const ANIM_WALK = "Walk"
 const ANIM_JUMP = "Jump"
 
-const projectile = preload("res://Projectile.tscn")
+onready var projectile = Controller.projectile
 
 onready var sprite = $AnimatedSprite
 onready var projectile_pos = $ProjectilePosition
+onready var invulnerable_after_hit_timer = $"InvulnerableAfterHitTimer"
 
 var motion = Vector2()
 var falling_down = false
 var jetpack_on = false
 var latest_height = 0.0
+
+var health = MAX_HEALTH
+var invulnerable = false
 
 func _physics_process(delta):
 	motion.y += GRAVITY
@@ -46,10 +54,7 @@ func _physics_process(delta):
 		projectile_pos.position.x *= -1
 	
 	if Input.is_action_just_pressed("ui_accept"):
-		var node = projectile.instance()
-		node.set_direction_x(-1 if sprite.flip_h else 1)
-		get_parent().add_child(node)
-		node.position = projectile_pos.global_position
+		shoot()
 	
 	var prev_falling_down = falling_down
 	falling_down = motion.y > 0
@@ -67,7 +72,25 @@ func _physics_process(delta):
 			jetpack_on = true
 		else:
 			jetpack_on = false
-		
-		#print(motion.y)
 	
 	motion = move_and_slide(motion, UP)
+
+func shoot():
+	var node = projectile.instance()
+	node.from_player = true
+	node.set_direction_x(-1 if sprite.flip_h else 1)
+	get_parent().add_child(node)
+	node.position = projectile_pos.global_position
+
+func damage():
+	if not invulnerable:
+		health -= 1
+		emit_signal("damage_taken", health)
+		invulnerable = true
+		modulate = Color(1.0, 1.0, 1.0, 0.5)
+		invulnerable_after_hit_timer.start()
+
+
+func _on_InvulnerableAfterHitTimer_timeout():
+	invulnerable = false
+	modulate = Color(1.0, 1.0, 1.0, 1)

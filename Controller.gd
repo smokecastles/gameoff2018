@@ -1,5 +1,7 @@
 extends Node
 
+var projectile = preload("res://Projectile.tscn")
+
 var current_scene = null
 
 func _ready():
