@@ -1,9 +1,11 @@
 extends Node2D
 
 const INVADER = preload("res://Invader.tscn")
-const MAX_COLS = 8
+const MAX_COLS = 5
+const TIME_OFFSET_BETWEEN_SHOTS_MS = 500
 
 var invaders = [[]]
+var time = 0
 
 func add_invader(invader):
 	# First try to fit it in current empty spots
@@ -22,7 +24,7 @@ func add_invader(invader):
 		for x in range(len(invaders)):
 			if len(invaders[x]) < y_len:
 				invader.set_pos_in_formation(Vector2(x, len(invaders[x])))
-				invaders[x].append(invaders)
+				invaders[x].append(invader)
 				return
 		invader.set_pos_in_formation(Vector2(0, y_len))
 		invaders[0].append(invader)
@@ -35,7 +37,7 @@ func remove_invader(invader):
 
 func get_invader_global_pos(invader):
 	var frame_size = invader.get_node("AnimatedSprite").frames.get_frame("default",0).get_size()
-	var local_pos = Vector2(0,-frame_size.y * (len(invaders[0]))) + invader.pos_in_formation * frame_size * invader.scale
+	var local_pos = Vector2(0,-frame_size.y * invader.scale.y * (len(invaders[0])-1)) + invader.pos_in_formation * frame_size * invader.scale
 	return to_global(local_pos)
 
 func switch_all_to_in_line():
@@ -77,5 +79,13 @@ func createInvader(pos):
 	invader.position = pos * invader.get_node("AnimatedSprite").frames.get_frame("default",0).get_size() * invader.scale
 	add_child(invader)
 
-func _process(delta):
-	pass
+func _physics_process(delta):
+	var elapsed_time = OS.get_ticks_msec() - time
+	var will_shoot = false
+	if elapsed_time >= TIME_OFFSET_BETWEEN_SHOTS_MS:
+		time = OS.get_ticks_msec()
+		# Randomly choose which invader in the lowest row will shoot
+		var shooter_col = randi() % len(invaders)
+		var invader = invaders[shooter_col].back()
+		if invader:
+			invader.shoot_downwards()

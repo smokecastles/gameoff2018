@@ -36,9 +36,19 @@ func shoot_sidewards(x):
 	if x > 0 and projectile_pos_side.position.x < 0 or x < 0 and projectile_pos_side.position.x > 0:
 		projectile_pos_side.position.x *= -1
 	var node = projectile.instance()
-	node.set_direction(x)
+	node.set_direction_x(x)
 	Controller.get_current_scene().add_child(node)
 	node.position = projectile_pos_side.global_position
+	did_shoot = true
+	did_shoot_timer.start()
+
+func shoot_downwards():
+	if did_shoot:
+		return
+	var node = projectile.instance()
+	node.set_direction_y(1)
+	Controller.get_current_scene().add_child(node)
+	node.position = projectile_pos_down.global_position
 	did_shoot = true
 	did_shoot_timer.start()
 

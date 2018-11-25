@@ -226,7 +226,7 @@ blend_times = [  ]
 
 [node name="InvadersInLine" parent="." index="4" instance=ExtResource( 9 )]
 
-position = Vector2( 907.836, -564.43 )
+position = Vector2( 748.863, -854.332 )
 
 [node name="Invaders" type="Node" parent="." index="5"]
 

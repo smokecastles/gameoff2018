@@ -2,8 +2,8 @@ extends Node2D
 
 var invaders = []
 
-var H_OFFSET = 200
-var TIME_OFFSET_BETWEEN_SHOTS_MS = 500
+const H_OFFSET = 400
+const TIME_OFFSET_BETWEEN_SHOTS_MS = 1000
 var time = 0
 
 enum SHOOT_TURNS { LEFT, RIGHT }
@@ -43,7 +43,6 @@ func _physics_process(delta):
 	var elapsed_time = OS.get_ticks_msec() - time
 	var will_shoot = false
 	if elapsed_time >= TIME_OFFSET_BETWEEN_SHOTS_MS:
-		print(elapsed_time)
 		time = OS.get_ticks_msec()
 		will_shoot = true
 		shoot_turn = SHOOT_TURNS.LEFT if shoot_turn == SHOOT_TURNS.RIGHT else SHOOT_TURNS.RIGHT

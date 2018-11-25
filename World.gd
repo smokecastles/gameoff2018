@@ -15,7 +15,7 @@ func _ready():
 	invaders.add_child(invader)
 	invaders_formation.add_invader(invader)
 	
-	for i in range(0,1):
+	for i in range(0,10):
 		invader = Invader.instance()
 		invader.global_position = Vector2(0,300)
 		invaders.add_child(invader)
@@ -36,13 +36,13 @@ func move_invader(invader, delta):
 
 func move_invader_groups_to_follow_player(delta):
 	for node in [invaders_inline, invaders_path2d]:
-		var traversed_distance = 700 * delta
+		var traversed_distance = 400 * delta
 		var current_pos = node.global_position
 		var final_pos = Vector2(player.global_position.x, current_pos.y) 
 	
 		var distance_between_pos = current_pos.distance_to(final_pos)
 	
-		if distance_between_pos < 20:
+		if distance_between_pos < 5:
 			node.global_position = final_pos
 		else:
 			node.global_position = node.global_position.linear_interpolate(final_pos, traversed_distance / distance_between_pos)

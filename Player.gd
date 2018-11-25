@@ -47,7 +47,7 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		var node = projectile.instance()
-		node.set_direction(-1 if sprite.flip_h else 1)
+		node.set_direction_x(-1 if sprite.flip_h else 1)
 		get_parent().add_child(node)
 		node.position = projectile_pos.global_position
 	
