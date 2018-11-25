@@ -81,7 +81,6 @@ velocity = Vector2( 0, 100 )
 
 [node name="Ship" type="Area2D" parent="." index="2"]
 
-editor/display_folded = true
 position = Vector2( 515.444, 364.98 )
 scale = Vector2( 3.9012, 3.24633 )
 input_pickable = true
@@ -92,6 +91,7 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ship" index="0"]
 
@@ -105,5 +105,20 @@ position = Vector2( -0.347017, -0.703963 )
 scale = Vector2( 0.175439, 0.265563 )
 texture = ExtResource( 5 )
 _sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Transform", "Visibility", "Z Index" ]
+
+[node name="Cannons" type="Node2D" parent="Ship" index="2"]
+
+position = Vector2( -132.124, -112.429 )
+scale = Vector2( 0.256331, 0.30804 )
+
+[node name="Left" type="Position2D" parent="Ship/Cannons" index="0"]
+
+position = Vector2( 478.942, 366.805 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Right" type="Position2D" parent="Ship/Cannons" index="1"]
+
+position = Vector2( 547.872, 368.258 )
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 
