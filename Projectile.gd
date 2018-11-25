@@ -1,7 +1,8 @@
 extends Area2D
 
-const SPEED = 1000
+const SPEED = 500
 const Enemy = preload("Enemy.gd")
+const Invader = preload("Invader.gd")
 const explosion_scene = preload("Explosion.tscn")
 
 const motion = Vector2()
@@ -40,7 +41,7 @@ func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
 
 func _on_Projectile_body_entered(body):
-	if body is Enemy:
+	if body is Invader:
 		body.damage()
 		add_explosion()
 	queue_free()

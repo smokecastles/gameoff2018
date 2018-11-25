@@ -4,7 +4,7 @@ const INVADER = preload("res://Invader.tscn")
 const MAX_COLS = 5
 const TIME_OFFSET_BETWEEN_SHOTS_MS = 500
 
-var invaders = [[]]
+var invaders = []
 var time = 0
 
 func add_invader(invader):
@@ -37,7 +37,7 @@ func remove_invader(invader):
 
 func get_invader_global_pos(invader):
 	var frame_size = invader.get_node("AnimatedSprite").frames.get_frame("default",0).get_size()
-	var local_pos = Vector2(0,-frame_size.y * invader.scale.y * (len(invaders[0])-1)) + invader.pos_in_formation * frame_size * invader.scale
+	var local_pos = Vector2(0,-frame_size.y * invader.scale.y * (max(1,len(invaders[0])-1))) + invader.pos_in_formation * frame_size * invader.scale
 	return to_global(local_pos)
 
 func switch_all_to_in_line():
@@ -61,31 +61,36 @@ func _debug_print_invaders():
 		print(row)
 	print("====")
 
-func create_invaders(num):
-	for i in range(num):
-		var invader = INVADER.instance()
-		add_invader(invader)
-	_debug_print_invaders()
-
-func addAsGrid(size):
-	for y in range (size.y):
-		var newPos = Vector2(0, y)
-		for x in range (size.x):
-			newPos.x = x
-			createInvader(newPos)
-
-func createInvader(pos):
-	var invader = INVADER.instance()
-	invader.position = pos * invader.get_node("AnimatedSprite").frames.get_frame("default",0).get_size() * invader.scale
-	add_child(invader)
+func _debug_print_invaders_statis_from_scene():
+	var invaders = Controller.get_current_scene().get_node("Invaders").get_children()
+	for invader in invaders:
+		if invader.pos_in_formation.y < 0:
+			print("OJO!")
+		print(invader.get_name() + " %s" % invader.state)
 
 func _physics_process(delta):
 	var elapsed_time = OS.get_ticks_msec() - time
 	var will_shoot = false
 	if elapsed_time >= TIME_OFFSET_BETWEEN_SHOTS_MS:
+		_debug_print_invaders_statis_from_scene()
 		time = OS.get_ticks_msec()
 		# Randomly choose which invader in the lowest row will shoot
 		var shooter_col = randi() % len(invaders)
-		var invader = invaders[shooter_col].back()
-		if invader:
+		var col_length = len(invaders[shooter_col])
+		if col_length == 0:
+			return
+		var last_index = col_length - 1
+		var invader = invaders[shooter_col][last_index]
+		while not invader and last_index > 0:
+			last_index -= last_index
+			invader = invaders[shooter_col][last_index]
+		if invader and invader.state == invader.STATES.IN_FORMATION:
 			invader.shoot_downwards()
+			
+	for col in invaders:
+		for invader in col:
+			if not invader:
+				continue
+			match invader.state:
+				invader.STATES.IN_FORMATION:
+					invader.move_to_position(get_invader_global_pos(invader), delta)

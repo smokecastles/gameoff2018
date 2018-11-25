@@ -7,25 +7,35 @@ const projectile = preload("res://Projectile.tscn")
 onready var projectile_pos_down = $ProjectilePositionDown
 onready var projectile_pos_side = $ProjectilePositionSide
 onready var did_shoot_timer = $DidShootTimer
+onready var dying_timer = $DyingTimer
+onready var collision_shape = $CollisionPolygon2D
+
+const UP = Vector2(0, -1)
+const GRAVITY = 30
+
+enum STATES { IN_FORMATION, IN_LINE, SWITCHING_TO_FORMATION, SWITCHING_TO_IN_LINE, DYING, DEAD }
 
 var path = Navigation2D.new()
 var pos_in_formation = Vector2(0, 0)
 var pos_in_line = 0
 var did_shoot = false
 
-enum STATES { IN_FORMATION, IN_LINE, SWITCHING_TO_FORMATION, SWITCHING_TO_IN_LINE }
-
 var state = STATES.SWITCHING_TO_FORMATION
+var motion = Vector2()
 
 func _ready():
 	pass
 	
 func _physics_process(delta):
-	pass
-	#if Input.is_action_just_pressed("ui_accept"):
-	#	match state:
-	#		IN_FORMATION, SWITCHING_TO_FORMATION: to_in_line()
-	#		IN_LINE, SWITCHING_TO_IN_LINE: to_formation()
+	#print(get_name() + " %s" % state)
+	match state:
+		DYING:
+			motion.y += GRAVITY
+			motion.x = 0
+	
+			motion = move_and_slide(motion, UP)
+		DEAD:
+			queue_free()
 
 func set_pos_in_formation(pos):
 	self.pos_in_formation = pos
@@ -59,6 +69,10 @@ func move_to_position(pos, delta):
 	var distance_between_pos = current_pos.distance_to(final_pos)
 	if distance_between_pos < 20:
 		global_position = final_pos
+		if state == STATES.SWITCHING_TO_IN_LINE:
+			state = STATES.IN_LINE
+		elif state == STATES.SWITCHING_TO_FORMATION:
+			state = STATES.IN_FORMATION
 	else:
 		global_position = global_position.linear_interpolate(final_pos, traversed_distance / distance_between_pos)
 
@@ -74,5 +88,18 @@ func to_in_line():
 			state = SWITCHING_TO_IN_LINE
 			Controller.get_current_scene().set_invader_transitioning_to_in_line(self)
 
+func damage():
+	state = STATES.DYING
+	motion.y = -500
+	collision_shape.disabled = true
+	z_index = -1
+	var main_scene = Controller.get_current_scene()
+	main_scene.invaders_formation.remove_invader(self)
+	main_scene.invaders_inline.remove_invader(self)
+	dying_timer.start()
+
 func _on_DidShootTimer_timeout():
 	did_shoot = false
+
+func _on_DyingTimer_timeout():
+	state = STATES.DEAD

@@ -20,7 +20,7 @@ collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform", "Z Index" ]
+_sections_unfolded = [ "Collision", "Material", "Transform", "Visibility", "Z Index" ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
@@ -51,6 +51,15 @@ wait_time = 0.5
 one_shot = true
 autostart = false
 
+[node name="DyingTimer" type="Timer" parent="." index="5"]
+
+process_mode = 1
+wait_time = 1.5
+one_shot = true
+autostart = false
+
 [connection signal="timeout" from="DidShootTimer" to="." method="_on_DidShootTimer_timeout"]
+
+[connection signal="timeout" from="DyingTimer" to="." method="_on_DyingTimer_timeout"]
 
 

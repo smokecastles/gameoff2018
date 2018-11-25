@@ -50,12 +50,13 @@ func _physics_process(delta):
 	for invader in invaders:
 		if not invader:
 			continue
+			
 		if will_shoot:
 			var must_shoot = invader.pos_in_line % 2 == 0 and shoot_turn == SHOOT_TURNS.RIGHT
 			must_shoot = must_shoot or invader.pos_in_line % 2 != 0 and shoot_turn == SHOOT_TURNS.LEFT
-			print(must_shoot)
-			if must_shoot:
+			if must_shoot and invader.state == invader.STATES.IN_LINE:
 				invader.shoot_sidewards(-1 if shoot_turn == SHOOT_TURNS.RIGHT else 1)
+		
 		match invader.state:
 			invader.STATES.IN_LINE:
 				invader.move_to_position(get_invader_global_pos(invader), delta)

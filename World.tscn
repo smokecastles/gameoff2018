@@ -39,7 +39,7 @@ _sections_unfolded = [ "Resource" ]
 
 bake_interval = 5.0
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 374.211, 1.31107, 103.821, 147.329, -94.2745, -141.19, 186.855, 1.31107, 0, 0, 0, 0, -0.500589, 1.31107, 100.241, 143.645, -100.241, -146.101, -184.276, 1.31107, 0, 0, 0, 0, -372.825, 0.0833435, 0, 0, 103.821, -143.645, -374.018, 66.3812, 0, 0, 96.6611, 138.734, -185.469, 66.3812, 0, 0, 102.628, -149.784, -0.500589, 66.3812, 0, 0, 105.015, 142.418, 186.855, 67.6089, 0, 0, 0, 0, 375.404, 65.1534, 0, 0, 0, 0, 374.211, 1.31107 )
+"points": PoolVector2Array( 0, 0, 0, 0, 374.211, 1.31107, 103.821, 147.329, -94.2745, -141.19, 186.855, 1.31107, 0, 0, 0, 0, -0.500589, 1.31107, 100.241, 143.645, -100.241, -146.101, -184.276, 1.31107, 0, 0, 0, 0, -372.825, 0.0833435, 0, 0, 103.821, -143.645, -371.492, 34.045, 0, 0, 96.6611, 138.734, -193.7, 29.5325, 0, 0, 102.628, -149.784, 0.337494, 35.85, 0, 0, 105.015, 142.418, 188.057, 31.3375, 0, 0, 0, 0, 372.167, 33.1425, 0, 0, 0, 0, 374.211, 1.31107 )
 }
 
 [sub_resource type="Animation" id=6]
@@ -66,7 +66,7 @@ tracks/0/keys = {
 custom_solver_bias = 0.0
 extents = Vector2( 768.802, 10 )
 
-[node name="World" type="Node"]
+[node name="World" type="Node" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
@@ -196,7 +196,7 @@ _sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform",
 [node name="InvadersPath2D" type="Path2D" parent="." index="3"]
 
 self_modulate = Color( 0.5, 0.6, 1, 0.7 )
-scale = Vector2( 1.02882, 1 )
+position = Vector2( 0, 50 )
 curve = SubResource( 5 )
 _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
@@ -245,19 +245,21 @@ audio_bus_name = "Master"
 position = Vector2( 1248.6, 91.6486 )
 shape = SubResource( 8 )
 
-[node name="Spring" parent="." index="7" instance=ExtResource( 10 )]
+[node name="Springs" type="Node" parent="." index="7"]
+
+[node name="Spring" parent="Springs" index="0" instance=ExtResource( 10 )]
 
 position = Vector2( 1212.4, 367.174 )
 
-[node name="Spring2" parent="." index="8" instance=ExtResource( 10 )]
+[node name="Spring2" parent="Springs" index="1" instance=ExtResource( 10 )]
 
 position = Vector2( 1322.59, 368.534 )
 
-[node name="Spring3" parent="." index="9" instance=ExtResource( 10 )]
+[node name="Spring3" parent="Springs" index="2" instance=ExtResource( 10 )]
 
 position = Vector2( 1438.22, 368.534 )
 
-[node name="Spring4" parent="." index="10" instance=ExtResource( 10 )]
+[node name="Spring4" parent="Springs" index="3" instance=ExtResource( 10 )]
 
 position = Vector2( 1558.46, 367.719 )
 
