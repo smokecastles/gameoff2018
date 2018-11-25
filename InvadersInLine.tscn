@@ -6,7 +6,7 @@
 
 bake_interval = 5.0
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 324.017, 580.093, 0, 0, 0, 0, 320.39, 6.38184 )
+"points": PoolVector2Array( 0, 0, 0, 0, -1.56512, 0.795036, 0, 0, 0, 0, 0.65094, 602.457 )
 }
 
 [node name="InvadersInLine" type="Node2D"]
@@ -22,9 +22,9 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D" index="0"]
 
-position = Vector2( 322.201, 292.859 )
-rotation = -1.57712
-offset = 287.086
+position = Vector2( 0.429784, 542.413 )
+rotation = 1.56711
+offset = 540.15
 h_offset = 0.0
 v_offset = 0.0
 rotate = true

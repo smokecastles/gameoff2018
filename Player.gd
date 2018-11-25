@@ -58,7 +58,7 @@ func _physics_process(delta):
 		latest_height = self.position.y
 		
 	if is_on_floor():
-		if Input.is_action_pressed("ui_up"):
+		if Input.is_action_just_pressed("ui_up"):
 			motion.y = JUMP_HEIGHT
 	else:
 		sprite.play(ANIM_JUMP)

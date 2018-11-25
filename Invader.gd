@@ -33,7 +33,7 @@ func move_to_position(pos, delta):
 	if distance_between_pos < 20:
 		global_position = final_pos
 	else:
-		position = position.linear_interpolate(final_pos, traversed_distance / distance_between_pos)
+		global_position = global_position.linear_interpolate(final_pos, traversed_distance / distance_between_pos)
 
 func to_formation():
 	match state:
