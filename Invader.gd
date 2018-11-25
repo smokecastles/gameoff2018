@@ -14,11 +14,11 @@ func _ready():
 	pass
 	
 func _physics_process(delta):
-	
-	if Input.is_action_just_pressed("ui_accept"):
-		match state:
-			IN_FORMATION, SWITCHING_TO_FORMATION: to_in_line()
-			IN_LINE, SWITCHING_TO_IN_LINE: to_formation()
+	pass
+	#if Input.is_action_just_pressed("ui_accept"):
+	#	match state:
+	#		IN_FORMATION, SWITCHING_TO_FORMATION: to_in_line()
+	#		IN_LINE, SWITCHING_TO_IN_LINE: to_formation()
 
 func set_pos_in_formation(pos):
 	self.pos_in_formation = pos

@@ -35,14 +35,32 @@ func set_invader_transitioning_to_formation(invader):
 	var cur_position = invader.global_position
 	invaders_formation.add_invader(invader)
 	invaders_inline.remove_invader(invader)
-	invaders_inline.remove_child(invader)
-	invaders.add_child(invader)
+	if invader.get_parent() == invaders_inline:
+		invaders_inline.remove_child(invader)
+	if not invader.get_parent():
+		invaders.add_child(invader)
 	invader.global_position = cur_position
 
 func set_invader_transitioning_to_in_line(invader):
 	var cur_position = invader.global_position
 	invaders_inline.add_invader(invader)
 	invaders_formation.remove_invader(invader)
-	invaders_formation.remove_child(invader)
-	invaders.add_child(invader)
+	if invader.get_parent() == invaders_formation:
+		invaders_formation.remove_child(invader)
+	if not invader.get_parent():
+		invaders.add_child(invader)
 	invader.global_position = cur_position
+
+func _on_JumpArea2D_body_entered(body):
+	if body.get_name() == "Player":
+		body.motion.y = -2500
+
+func _on_HeightDetectionArea2D_body_entered(body):
+	if body.get_name() == "Player":
+		if body.motion.y < 0:
+			invaders_formation.switch_all_to_in_line()
+
+func _on_HeightDetectionArea2D_body_exited(body):
+	if body.get_name() == "Player":
+		if body.motion.y > 0:
+			invaders_inline.switch_all_to_formation()

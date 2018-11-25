@@ -4,8 +4,6 @@ const SPEED = 1000
 const Enemy = preload("Enemy.gd")
 const explosion_scene = preload("Explosion.tscn")
 
-onready var explosion_sprite = $ExplosionSprite
-
 const motion = Vector2()
 var direction = 1
 

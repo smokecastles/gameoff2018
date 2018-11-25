@@ -38,6 +38,12 @@ func get_invader_global_pos(invader):
 	var local_pos = Vector2(0,-frame_size.y * (len(invaders[0]))) + invader.pos_in_formation * frame_size * invader.scale
 	return to_global(local_pos)
 
+func switch_all_to_in_line():
+	for x in range(len(invaders)):
+		for y in range(len(invaders[x])):
+			if invaders[x][y]:
+				invaders[x][y].to_in_line()
+
 func _debug_print_invaders():
 	var rows = []
 	for x in range(len(invaders)):

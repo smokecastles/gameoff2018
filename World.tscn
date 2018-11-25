@@ -1,11 +1,11 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://tiles/GroundTiles.tres" type="TileSet" id=3]
-[ext_resource path="res://sprites/background/hills1.png" type="Texture" id=4]
-[ext_resource path="res://sprites/background/castle_grey.png" type="Texture" id=5]
-[ext_resource path="res://sprites/background/cloud5.png" type="Texture" id=6]
+[ext_resource path="res://sprites/background/cloud5.png" type="Texture" id=4]
+[ext_resource path="res://sprites/background/hills1.png" type="Texture" id=5]
+[ext_resource path="res://sprites/background/castle_grey.png" type="Texture" id=6]
 [ext_resource path="res://sprites/background/cloud9.png" type="Texture" id=7]
 [ext_resource path="res://InvadersFormation.tscn" type="PackedScene" id=8]
 [ext_resource path="res://InvadersInLine.tscn" type="PackedScene" id=9]
@@ -60,6 +60,16 @@ tracks/0/keys = {
 "values": [ 0.0, 1.0 ]
 }
 
+[sub_resource type="RectangleShape2D" id=7]
+
+custom_solver_bias = 0.0
+extents = Vector2( 46.9602, 22.8006 )
+
+[sub_resource type="RectangleShape2D" id=8]
+
+custom_solver_bias = 0.0
+extents = Vector2( 768.802, 10 )
+
 [node name="World" type="Node" index="0"]
 
 script = ExtResource( 1 )
@@ -67,7 +77,7 @@ _sections_unfolded = [ "Pause" ]
 
 [node name="Player" parent="." index="0" instance=ExtResource( 2 )]
 
-position = Vector2( 227.377, 303.787 )
+position = Vector2( 594.756, 393.322 )
 
 [node name="TileMap" type="TileMap" parent="." index="1"]
 
@@ -105,16 +115,15 @@ scroll_limit_end = Vector2( 0, 0 )
 scroll_ignore_camera_zoom = true
 _sections_unfolded = [ "Scroll" ]
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
 
 motion_scale = Vector2( 0.5, 0.5 )
 motion_offset = Vector2( 0, 0 )
-motion_mirroring = Vector2( 1024, 0 )
-_sections_unfolded = [ "Material", "Motion", "Transform", "Visibility", "Z Index" ]
+motion_mirroring = Vector2( 1024, 600 )
+_sections_unfolded = [ "Motion" ]
 
-[node name="Sky" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="0"]
+[node name="Sky" type="Sprite" parent="ParallaxBackground/ParallaxLayer3" index="0"]
 
-visible = false
 position = Vector2( 0, -323.054 )
 scale = Vector2( 1, 1.53842 )
 texture = SubResource( 2 )
@@ -123,7 +132,24 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 1024, 600 )
 _sections_unfolded = [ "Animation", "Material", "Offset", "Region" ]
 
-[node name="Ground" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="1"]
+[node name="Cloud3" type="Sprite" parent="ParallaxBackground/ParallaxLayer3" index="1"]
+
+position = Vector2( 304.674, 118.13 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+centered = false
+flip_h = true
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" index="1"]
+
+position = Vector2( 0, 100 )
+motion_scale = Vector2( 0.5, 0.5 )
+motion_offset = Vector2( 0, -100 )
+motion_mirroring = Vector2( 1024, 0 )
+_sections_unfolded = [ "Material", "Motion", "Transform", "Visibility", "Z Index" ]
+
+[node name="Ground" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="0"]
 
 position = Vector2( 0, 300.636 )
 scale = Vector2( 1, 0.885279 )
@@ -133,52 +159,43 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 1024, 600 )
 _sections_unfolded = [ "Animation", "Material", "Offset", "Region" ]
 
-[node name="Hills" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="2"]
+[node name="Hills" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="1"]
 
 modulate = Color( 0.396078, 0.588235, 0.372549, 1 )
 position = Vector2( 512.531, 237.907 )
 scale = Vector2( 1.02601, 1.04418 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 _sections_unfolded = [ "Material", "Offset", "Transform", "Visibility", "Z Index" ]
 
-[node name="Castle" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="3"]
+[node name="Castle" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="2"]
 
 position = Vector2( 660.546, 169.154 )
 rotation = 0.149658
 scale = Vector2( 0.523403, 0.523403 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 _sections_unfolded = [ "Animation", "Offset", "Region", "Visibility", "Z Index" ]
 
-[node name="Cloud3" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="4"]
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground" index="2"]
 
-position = Vector2( 304.674, 118.13 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 6 )
-centered = false
-flip_h = true
-_sections_unfolded = [ "Offset", "Region", "Transform" ]
-
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground" index="1"]
-
-motion_scale = Vector2( 0.8, 0.8 )
-motion_offset = Vector2( 0, 0 )
-motion_mirroring = Vector2( 1024, 0 )
-_sections_unfolded = [ "Motion", "Z Index" ]
+motion_scale = Vector2( 0.5, 0.5 )
+motion_offset = Vector2( 0, -100 )
+motion_mirroring = Vector2( 1024, 700 )
+_sections_unfolded = [ "Motion", "Transform", "Z Index" ]
 
 [node name="Cloud1" type="Sprite" parent="ParallaxBackground/ParallaxLayer2" index="0"]
 
-position = Vector2( 282.261, -56.7862 )
-texture = ExtResource( 6 )
+position = Vector2( 282.261, -130.786 )
+texture = ExtResource( 4 )
 centered = false
-_sections_unfolded = [ "Offset" ]
+_sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
 
 [node name="Cloud2" type="Sprite" parent="ParallaxBackground/ParallaxLayer2" index="1"]
 
-position = Vector2( 815.049, 8.35089 )
+position = Vector2( 815.049, 62.3509 )
 texture = ExtResource( 7 )
 centered = false
 flip_h = true
-_sections_unfolded = [ "Offset" ]
+_sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform", "Visibility", "Z Index" ]
 
 [node name="InvadersPath2D" type="Path2D" parent="." index="3"]
 
@@ -213,8 +230,44 @@ blend_times = [  ]
 
 [node name="InvadersInLine" parent="." index="4" instance=ExtResource( 9 )]
 
-position = Vector2( 902.925, -393.775 )
+position = Vector2( 907.836, -564.43 )
 
 [node name="Invaders" type="Node" parent="." index="5"]
+
+[node name="JumpArea2D" type="Area2D" parent="." index="6"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="JumpCollisionShape2D" type="CollisionShape2D" parent="JumpArea2D" index="0"]
+
+position = Vector2( 1248.78, 371.678 )
+shape = SubResource( 7 )
+
+[node name="HeightDetectionArea2D" type="Area2D" parent="." index="7"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="HeightDetectionCollisionShape2D" type="CollisionShape2D" parent="HeightDetectionArea2D" index="0"]
+
+position = Vector2( 1248.6, 91.6486 )
+shape = SubResource( 8 )
+
+[connection signal="body_entered" from="JumpArea2D" to="." method="_on_JumpArea2D_body_entered"]
+
+[connection signal="body_entered" from="HeightDetectionArea2D" to="." method="_on_HeightDetectionArea2D_body_entered"]
+
+[connection signal="body_exited" from="HeightDetectionArea2D" to="." method="_on_HeightDetectionArea2D_body_exited"]
 
 

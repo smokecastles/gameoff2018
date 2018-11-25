@@ -29,6 +29,11 @@ func get_invader_global_pos(invader):
 	var local_pos = pathfollow2d.position + Vector2(H_OFFSET if even else -H_OFFSET, 0)
 	return to_global(local_pos)
 
+func switch_all_to_formation():
+	for x in range(len(invaders)):
+		if invaders[x]:
+			invaders[x].to_formation()
+
 func _physics_process(delta):
 	for invader in invaders:
 		if not invader:
