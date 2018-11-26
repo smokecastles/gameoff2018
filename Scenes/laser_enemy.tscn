@@ -9,7 +9,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Laser" type="Area2D"]
+[node name="laser_enemy" type="Area2D" index="0"]
 
 position = Vector2( 434.391, 392.53 )
 input_pickable = true
@@ -20,7 +20,7 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
-velocity = Vector2( 0, -350 )
+velocity = Vector2( 0, 350 )
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 

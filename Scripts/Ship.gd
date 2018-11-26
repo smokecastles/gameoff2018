@@ -6,7 +6,7 @@ const scn_laser = preload("res://scenes/laser.tscn")
 
 var velocity = Vector2()
 var timer_shot = 0
-onready var size = get_node("Sprite").texture.get_size()
+onready var size = get_node("sprite").texture.get_size()
 
 
 # class member variables go here, for example:
@@ -45,8 +45,8 @@ func _process(delta):
 	
 func shoot():
 	timer_shot = interval_shot
-	var pos_left = get_node("Cannons/Left").global_position
-	var pos_right= get_node("Cannons/Right").global_position
+	var pos_left = get_node("cannons/left").global_position
+	var pos_right= get_node("cannons/right").global_position
 	create_laser(pos_left)
 	create_laser(pos_right)
 	pass

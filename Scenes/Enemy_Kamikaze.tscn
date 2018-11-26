@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Enemy_Kamikaze" type="Area2D"]
+[node name="enemy_kamikaze" type="Area2D"]
 
 position = Vector2( 246.065, 71.7691 )
 input_pickable = true
@@ -29,7 +29,7 @@ scale = Vector2( 2.38086, 2.41219 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Sprite" type="Sprite" parent="." index="1"]
+[node name="sprite" type="Sprite" parent="." index="1"]
 
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
