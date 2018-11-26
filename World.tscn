@@ -62,12 +62,12 @@ tracks/0/keys = {
 "values": [ 0.0, 1.0 ]
 }
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=7]
 
 custom_solver_bias = 0.0
 extents = Vector2( 768.802, 10 )
 
-[node name="World" type="Node"]
+[node name="World" type="Node" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
@@ -244,7 +244,7 @@ audio_bus_name = "Master"
 [node name="HeightDetectionCollisionShape2D" type="CollisionShape2D" parent="HeightDetectionArea2D" index="0"]
 
 position = Vector2( 1248.6, 91.6486 )
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 
 [node name="Springs" type="Node" parent="." index="7"]
 

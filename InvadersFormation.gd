@@ -66,15 +66,15 @@ func _debug_print_invaders():
 func _debug_print_invaders_statis_from_scene():
 	var invaders = Controller.get_current_scene().get_node("Invaders").get_children()
 	for invader in invaders:
-		if invader.pos_in_formation.y < 0:
-			print("OJO!")
 		print(invader.get_name() + " %s" % invader.state)
 
 func _physics_process(delta):
+	if len(invaders) == 0:
+		return
 	var elapsed_time = OS.get_ticks_msec() - time
 	var will_shoot = false
 	if elapsed_time >= TIME_OFFSET_BETWEEN_SHOTS_MS:
-		_debug_print_invaders_statis_from_scene()
+		#_debug_print_invaders_statis_from_scene()
 		time = OS.get_ticks_msec()
 		# Randomly choose which invader in the lowest row will shoot
 		var shooter_col = randi() % len(invaders)

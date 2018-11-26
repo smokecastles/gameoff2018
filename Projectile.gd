@@ -40,6 +40,7 @@ func set_direction_y(direction_y):
 	self.direction_x = 0
 
 func _on_VisibilityNotifier2D_screen_exited():
+	# TODO allow for off-screen damage... maybe a timer?
 	queue_free()
 
 func _on_Projectile_body_entered(body):
@@ -52,4 +53,5 @@ func _on_Projectile_body_entered(body):
 	if body is Invader:
 		body.damage()
 		add_explosion()
+	
 	queue_free()

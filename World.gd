@@ -15,7 +15,7 @@ func _ready():
 	invaders.add_child(invader)
 	invaders_formation.add_invader(invader)
 	
-	for i in range(0,5):
+	for i in range(0,9):
 		invader = Invader.instance()
 		invader.global_position = Vector2(0,300)
 		invaders.add_child(invader)
