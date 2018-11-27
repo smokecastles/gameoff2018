@@ -17,6 +17,8 @@ const DAMPING_SKY = 0.05
 const DAMPING_FALLING = 0.1
 
 const MAX_HEALTH = 4
+const MAX_JETPACK_ENERGY = 4
+const JETPACK_REGEN_SPEED = 1 # points per sec
 
 const ANIM_IDLE = "Idle"
 const ANIM_WALK = "Walk"
@@ -31,10 +33,13 @@ onready var invulnerable_after_hit_timer = $"InvulnerableAfterHitTimer"
 var motion = Vector2()
 var falling_down = false
 var jetpack_on = false
+var just_superjumped_l_pressed = false
+var just_superjumped_r_pressed = false
 var latest_height = 0.0
 
 var health = MAX_HEALTH
 var invulnerable = false
+var jetpack_energy = 0
 
 func _physics_process(delta):
 	motion.y += GRAVITY
@@ -52,9 +57,13 @@ func _physics_process(delta):
 		motion.x = lerp(motion.x, 0, DAMPING_FLOOR if is_on_floor() else DAMPING_SKY)
 	
 	if Input.is_action_just_released("left_dash"):
-		motion.x = -DASH_DISTANCE
+		if not just_superjumped_l_pressed:
+			motion.x = -DASH_DISTANCE
+		just_superjumped_l_pressed = false
 	elif Input.is_action_just_released("right_dash"):
-		motion.x = DASH_DISTANCE
+		if not just_superjumped_r_pressed:
+			motion.x = DASH_DISTANCE
+		just_superjumped_r_pressed = false
 	
 	if sprite.flip_h and projectile_pos.position.x > 0 or not sprite.flip_h and projectile_pos.position.x < 0:
 		projectile_pos.position.x *= -1
@@ -73,6 +82,8 @@ func _physics_process(delta):
 			motion.y = JUMP_HEIGHT
 		elif Input.is_action_pressed("left_dash") and Input.is_action_pressed("right_dash"):
 			motion.y = SUPER_JUMP_HEIGHT
+			just_superjumped_l_pressed = true
+			just_superjumped_r_pressed = true
 	else:
 		sprite.play(ANIM_JUMP)
 		if falling_down and Input.is_action_pressed("ui_accept"):
@@ -82,6 +93,10 @@ func _physics_process(delta):
 			jetpack_on = false
 	
 	motion = move_and_slide(motion, UP)
+
+func _process(delta):
+	jetpack_energy = min(MAX_HEALTH, jetpack_energy + JETPACK_REGEN_SPEED * delta)
+	print(jetpack_energy)
 
 func shoot():
 	var node = projectile.instance()
