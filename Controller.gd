@@ -1,6 +1,7 @@
 extends Node
 
 var projectile = preload("res://Projectile.tscn")
+var explosion_scene = preload("Explosion.tscn")
 
 var current_scene = null
 

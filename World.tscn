@@ -67,7 +67,7 @@ tracks/0/keys = {
 custom_solver_bias = 0.0
 extents = Vector2( 768.802, 10 )
 
-[node name="World" type="Node" index="0"]
+[node name="World" type="Node"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
@@ -99,6 +99,7 @@ _sections_unfolded = [ "Cell", "Collision", "Material", "Occluder", "Transform",
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="2"]
 
+editor/display_folded = true
 layer = -1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -196,6 +197,7 @@ _sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform",
 
 [node name="InvadersPath2D" type="Path2D" parent="." index="3"]
 
+editor/display_folded = true
 self_modulate = Color( 0.5, 0.6, 1, 0.7 )
 position = Vector2( 0, 50 )
 curve = SubResource( 5 )
@@ -233,6 +235,7 @@ position = Vector2( 748.863, -854.332 )
 
 [node name="HeightDetectionArea2D" type="Area2D" parent="." index="6"]
 
+editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -247,6 +250,8 @@ position = Vector2( 1248.6, 91.6486 )
 shape = SubResource( 7 )
 
 [node name="Springs" type="Node" parent="." index="7"]
+
+editor/display_folded = true
 
 [node name="Spring" parent="Springs" index="0" instance=ExtResource( 10 )]
 
@@ -266,15 +271,21 @@ position = Vector2( 1558.46, 367.719 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="8"]
 
+pause_mode = 2
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+_sections_unfolded = [ "Pause" ]
 
 [node name="GUI" parent="CanvasLayer" index="0" instance=ExtResource( 11 )]
 
 [connection signal="damage_taken" from="Player" to="CanvasLayer/GUI" method="_on_Player_damage_taken"]
+
+[connection signal="energy_spent" from="Player" to="CanvasLayer/GUI" method="_on_Player_energy_spent"]
+
+[connection signal="player_died" from="Player" to="CanvasLayer/GUI" method="_on_Player_player_died"]
 
 [connection signal="body_entered" from="HeightDetectionArea2D" to="." method="_on_HeightDetectionArea2D_body_entered"]
 

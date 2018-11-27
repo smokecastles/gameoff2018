@@ -4,7 +4,6 @@ const SPEED = 500
 const Player = preload("Player.gd")
 const Enemy = preload("Enemy.gd")
 const Invader = preload("Invader.gd")
-const explosion_scene = preload("Explosion.tscn")
 
 const motion = Vector2()
 var direction_x = 1
@@ -21,7 +20,7 @@ func _physics_process(delta):
 	pass
 
 func add_explosion():
-	var explosion = explosion_scene.instance()
+	var explosion = Controller.explosion_scene.instance()
 	explosion.position = position
 	Controller.get_current_scene().add_child(explosion)
 
@@ -40,7 +39,6 @@ func set_direction_y(direction_y):
 	self.direction_x = 0
 
 func _on_VisibilityNotifier2D_screen_exited():
-	# TODO allow for off-screen damage... maybe a timer?
 	queue_free()
 
 func _on_Projectile_body_entered(body):

@@ -1,10 +1,10 @@
 extends Node2D
 
 const MAX_COLS = 5
-const TIME_OFFSET_BETWEEN_SHOTS_MS = 500
+const TIME_OFFSET_BETWEEN_SHOTS_S = 0.5 # half a sec
 
 var invaders = []
-var time = 0
+var elapsed_time = 0
 
 func add_invader(invader):
 	# First try to fit it in current empty spots
@@ -71,11 +71,11 @@ func _debug_print_invaders_statis_from_scene():
 func _physics_process(delta):
 	if len(invaders) == 0:
 		return
-	var elapsed_time = OS.get_ticks_msec() - time
+	elapsed_time += delta
 	var will_shoot = false
-	if elapsed_time >= TIME_OFFSET_BETWEEN_SHOTS_MS:
+	if elapsed_time >= TIME_OFFSET_BETWEEN_SHOTS_S:
 		#_debug_print_invaders_statis_from_scene()
-		time = OS.get_ticks_msec()
+		elapsed_time = 0
 		# Randomly choose which invader in the lowest row will shoot
 		var shooter_col = randi() % len(invaders)
 		var col_length = len(invaders[shooter_col])
