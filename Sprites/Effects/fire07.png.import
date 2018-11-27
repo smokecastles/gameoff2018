@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fire07.png-d2b6719f1bdf86907e54b75d5360631b.stex"
+path="res://.import/fire07.png-1cb0aac7e45ef12143be8d647392443d.stex"
 
 [deps]
 
-source_file="res://Sprites/Effects/fire07.png"
-dest_files=[ "res://.import/fire07.png-d2b6719f1bdf86907e54b75d5360631b.stex" ]
+source_file="res://sprites/Effects/fire07.png"
+dest_files=[ "res://.import/fire07.png-1cb0aac7e45ef12143be8d647392443d.stex" ]
 
 [params]
 

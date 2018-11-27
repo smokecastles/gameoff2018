@@ -7,6 +7,7 @@ const scn_laser = preload("res://scenes/laser.tscn")
 var velocity = Vector2()
 var timer_shot = 0
 onready var size = get_node("sprite").texture.get_size()
+onready var anim = get_node("anim")
 
 
 # class member variables go here, for example:
@@ -14,25 +15,39 @@ onready var size = get_node("sprite").texture.get_size()
 # var b = "textvar"
 
 func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
+	
+	size.x = size.x * get_node("sprite").scale.x
+	size.y = size.y * get_node("sprite").scale.y
 	pass
 
 func _process(delta):
 	
+	var is_idle = true
+	
 	if Input.is_action_pressed("ui_left"):
 		velocity.x = -MOVE_SPEED*delta
+		anim.play("left")
+		is_idle = false
 	elif Input.is_action_pressed("ui_right"):
 		velocity.x = MOVE_SPEED*delta
+		anim.play("right")
+		is_idle = false
 	else:
 		velocity.x = 0
 		
 	if Input.is_action_pressed("ui_up"):
 		velocity.y = -MOVE_SPEED*delta
+		anim.play("up")
+		is_idle = false
 	elif Input.is_action_pressed("ui_down"):
 		velocity.y = MOVE_SPEED*delta
+		anim.play("down")
+		is_idle = false
 	else:
 		velocity.y = 0
+	
+	if is_idle == true:
+		anim.play("idle")
 		
 	if Input.is_key_pressed(32) && timer_shot <= 0:
 		shoot()
