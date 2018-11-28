@@ -1,14 +1,15 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/spawner_enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/purple.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/stars.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/ship.gd" type="Script" id=4]
-[ext_resource path="res://sprites/a-wing_512/A-Wing_still.PNG" type="Texture" id=5]
-[ext_resource path="res://sprites/a-wing_512/A-Wing_turn.PNG" type="Texture" id=6]
-[ext_resource path="res://Sprites/a-wing_512/A-Wing_up.PNG" type="Texture" id=7]
+[ext_resource path="res://sprites/a-wing_512/A-Wing_down.PNG" type="Texture" id=5]
+[ext_resource path="res://sprites/a-wing_512/A-Wing_still.PNG" type="Texture" id=6]
+[ext_resource path="res://sprites/a-wing_512/A-Wing_turn.PNG" type="Texture" id=7]
+[ext_resource path="res://Sprites/a-wing_512/A-Wing_up.PNG" type="Texture" id=8]
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=1]
 
 resource_name = "down"
 length = 1.0
@@ -27,7 +28,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 5 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=2]
 
 resource_name = "idle"
 length = 1.0
@@ -43,10 +44,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 5 ) ]
+"values": [ ExtResource( 6 ) ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
 
 resource_name = "left"
 length = 1.0
@@ -62,38 +63,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 6 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("sprite:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-
-[sub_resource type="Animation" id=3]
-
-resource_name = "right"
-length = 1.0
-loop = false
-step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("sprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ ExtResource( 6 ) ]
+"values": [ ExtResource( 7 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("sprite:flip_h")
@@ -108,9 +78,8 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
 
-resource_name = "up"
 length = 1.0
 loop = false
 step = 0.1
@@ -126,8 +95,39 @@ tracks/0/keys = {
 "update": 1,
 "values": [ ExtResource( 7 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="Animation" id=5]
+
+resource_name = "up"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 8 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=6]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
@@ -210,6 +210,7 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
+armor = 4
 
 [node name="anim" type="AnimationPlayer" parent="ship" index="0"]
 
@@ -218,11 +219,11 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/down = SubResource( 4 )
-anims/idle = SubResource( 5 )
-anims/left = SubResource( 2 )
-anims/right = SubResource( 3 )
-anims/up = SubResource( 6 )
+anims/down = SubResource( 1 )
+anims/idle = SubResource( 2 )
+anims/left = SubResource( 3 )
+anims/right = SubResource( 4 )
+anims/up = SubResource( 5 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
 
@@ -230,7 +231,7 @@ _sections_unfolded = [ "Playback Options" ]
 
 position = Vector2( 0.666765, -0.170871 )
 scale = Vector2( 3.76172, 4.82166 )
-shape = SubResource( 1 )
+shape = SubResource( 6 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="sprite" type="Sprite" parent="ship" index="2"]

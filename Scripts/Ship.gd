@@ -2,7 +2,8 @@ extends Area2D
 
 const MOVE_SPEED = 200
 const interval_shot = 0.2
-const scn_laser = preload("res://scenes/laser.tscn")
+export var armor = 4 setget set_armor
+const scn_laser = preload("res://scenes/laser_ship.tscn")
 
 var velocity = Vector2()
 var timer_shot = 0
@@ -15,6 +16,7 @@ onready var anim = get_node("anim")
 # var b = "textvar"
 
 func _ready():
+	add_to_group("ship")
 	
 	size.x = size.x * get_node("sprite").scale.x
 	size.y = size.y * get_node("sprite").scale.y
@@ -64,6 +66,12 @@ func shoot():
 	var pos_right= get_node("cannons/right").global_position
 	create_laser(pos_left)
 	create_laser(pos_right)
+	pass
+	
+func set_armor(new_value):
+	armor = new_value
+	if armor <= 0:
+		queue_free()
 	pass
 	
 

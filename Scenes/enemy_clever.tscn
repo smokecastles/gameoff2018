@@ -18,6 +18,7 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
+armor = 6
 velocity = Vector2( 50, 50 )
 
 [node name="sprite" type="Sprite" parent="." index="0"]
