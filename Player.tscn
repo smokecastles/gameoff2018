@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://sprites/player/p2_stand.png" type="Texture" id=2]
@@ -32,6 +32,85 @@ animations = [ {
 } ]
 _sections_unfolded = [ "Resource" ]
 
+[sub_resource type="Gradient" id=2]
+
+offsets = PoolRealArray( 0.0138889, 0.0324074, 0.328704, 0.99537 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 0.922119, 0.09375, 1, 1, 0.304688, 0, 1, 1, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=3]
+
+flags = 4
+gradient = SubResource( 2 )
+width = 2048
+
+[sub_resource type="Curve" id=7]
+
+min_value = -200.0
+max_value = 200.0
+bake_resolution = 100
+_data = [ Vector2( 0.00409589, -200 ), 0.0, 0.0, 0, 0, Vector2( 0.968284, 200 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=8]
+
+flags = 4
+width = 2048
+curve = SubResource( 7 )
+
+[sub_resource type="Curve" id=4]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0, 0.822266 ), 0.0, 0.0, 0, 0, Vector2( 0.998415, 0.199219 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=5]
+
+flags = 4
+width = 2048
+curve = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 2
+emission_box_extents = Vector3( 10, 5, 1 )
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 5.0
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 200.0
+initial_velocity_random = 0.0
+angular_velocity = 350.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+linear_accel_curve = SubResource( 8 )
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 8.0
+scale_random = 0.0
+scale_curve = SubResource( 5 )
+color_ramp = SubResource( 3 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angular Velocity", "Animation", "Color", "Emission Shape", "Flags", "Gravity", "Initial Velocity", "Linear Accel", "Scale", "Spread", "Trail" ]
+
 [node name="Player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
@@ -43,11 +122,14 @@ _sections_unfolded = [ "Collision", "Material", "Pickable", "Transform", "Visibi
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
+modulate = Color( 0.972549, 0.909804, 0.639216, 1 )
 frames = SubResource( 1 )
 animation = "Idle"
+_sections_unfolded = [ "Visibility" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
 
+visible = false
 build_mode = 0
 polygon = PoolVector2Array( 0.59024, -45.6461, 12.561, -43.7049, 20.9729, -38.2048, 29.3847, -28.1753, 32.6201, -13.2927, 29.7083, -0.351379, 24.2082, 8.38403, 19.0317, 12.2664, 19.0317, 18.4136, 25.1788, 25.5313, 26.1494, 33.9432, 14.8257, 45.5904, -21.7336, 46.2375, -29.4984, 35.2373, -28.8513, 26.1784, -22.3806, 19.0606, -19.1453, 13.8841, -27.2336, 6.76636, -31.4396, -3.58672, -33.7043, -15.5575, -30.7925, -27.5282, -24.3218, -36.2636, -12.3511, -44.999 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
@@ -89,6 +171,30 @@ process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
+
+[node name="JetpackParticles" type="Particles2D" parent="." index="5"]
+
+position = Vector2( -25.2701, 19.8551 )
+rotation = 1.5708
+emitting = false
+amount = 200
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 2.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = false
+draw_order = 0
+process_material = SubResource( 6 )
+texture = null
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform" ]
 
 [connection signal="timeout" from="InvulnerableAfterHitTimer" to="." method="_on_InvulnerableAfterHitTimer_timeout"]
 

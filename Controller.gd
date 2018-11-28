@@ -6,11 +6,17 @@ var explosion_scene = preload("Explosion.tscn")
 var current_scene = null
 
 func _ready():
-        var root = get_tree().get_root()
-        current_scene = root.get_child(root.get_child_count() -1)
+	get_current_scene()
 
 func get_current_scene():
+	if not current_scene:
+		var root = get_tree().get_root()
+		current_scene = root.get_child(root.get_child_count() -1)
 	return current_scene
+
+func reload_current_scene():
+	current_scene.get_tree().reload_current_scene()
+	current_scene = null
 
 func goto_scene(path):
     # This function will usually be called from a signal callback,

@@ -86,7 +86,8 @@ func _physics_process(delta):
 		while not invader and last_index > 0:
 			last_index -= last_index
 			invader = invaders[shooter_col][last_index]
-		if invader and invader.state == invader.STATES.IN_FORMATION:
+		var player_alive = !Controller.get_current_scene().player.is_dead
+		if invader and invader.state == invader.STATES.IN_FORMATION and player_alive:
 			invader.shoot_downwards()
 			
 	for col in invaders:

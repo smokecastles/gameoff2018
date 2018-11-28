@@ -15,7 +15,7 @@
 [sub_resource type="Gradient" id=1]
 
 offsets = PoolRealArray( 0 )
-colors = PoolColorArray( 0.274384, 0.648706, 0.949219, 1 )
+colors = PoolColorArray( 0.52549, 0.866667, 0.701961, 1 )
 _sections_unfolded = [ "Resource" ]
 
 [sub_resource type="GradientTexture" id=2]
@@ -27,7 +27,7 @@ width = 2048
 [sub_resource type="Gradient" id=3]
 
 offsets = PoolRealArray( 0 )
-colors = PoolColorArray( 0.396078, 0.588235, 0.372549, 1 )
+colors = PoolColorArray( 0.878431, 0.466667, 0.380392, 1 )
 
 [sub_resource type="GradientTexture" id=4]
 
@@ -99,7 +99,6 @@ _sections_unfolded = [ "Cell", "Collision", "Material", "Occluder", "Transform",
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="2"]
 
-editor/display_folded = true
 layer = -1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -128,16 +127,17 @@ texture = SubResource( 2 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 1024, 600 )
-_sections_unfolded = [ "Animation", "Material", "Offset", "Region" ]
+_sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Visibility" ]
 
 [node name="Cloud3" type="Sprite" parent="ParallaxBackground/ParallaxLayer3" index="1"]
 
+modulate = Color( 0.980392, 0.780392, 0.552941, 1 )
 position = Vector2( 304.674, 118.13 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 centered = false
 flip_h = true
-_sections_unfolded = [ "Offset", "Region", "Transform" ]
+_sections_unfolded = [ "Offset", "Region", "Transform", "Visibility" ]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" index="1"]
 
@@ -155,11 +155,11 @@ texture = SubResource( 4 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 1024, 600 )
-_sections_unfolded = [ "Animation", "Material", "Offset", "Region" ]
+_sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Visibility" ]
 
 [node name="Hills" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="1"]
 
-modulate = Color( 0.396078, 0.588235, 0.372549, 1 )
+modulate = Color( 0.878431, 0.466667, 0.380392, 1 )
 position = Vector2( 512.531, 237.907 )
 scale = Vector2( 1.02601, 1.04418 )
 texture = ExtResource( 5 )
@@ -182,13 +182,15 @@ _sections_unfolded = [ "Motion", "Transform", "Z Index" ]
 
 [node name="Cloud1" type="Sprite" parent="ParallaxBackground/ParallaxLayer2" index="0"]
 
+modulate = Color( 0.980392, 0.780392, 0.552941, 1 )
 position = Vector2( 282.261, -130.786 )
 texture = ExtResource( 4 )
 centered = false
-_sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
+_sections_unfolded = [ "Animation", "Offset", "Region", "Transform", "Visibility" ]
 
 [node name="Cloud2" type="Sprite" parent="ParallaxBackground/ParallaxLayer2" index="1"]
 
+modulate = Color( 0.980392, 0.780392, 0.552941, 1 )
 position = Vector2( 815.049, 62.3509 )
 texture = ExtResource( 7 )
 centered = false

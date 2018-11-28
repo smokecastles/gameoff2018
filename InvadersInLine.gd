@@ -44,13 +44,14 @@ func _physics_process(delta):
 	var will_shoot = false
 	if elapsed_time >= TIME_OFFSET_BETWEEN_SHOTS_MS:
 		time = OS.get_ticks_msec()
-		will_shoot = true
+		var player_alive = !Controller.get_current_scene().player.is_dead
+		will_shoot = player_alive
 		shoot_turn = SHOOT_TURNS.LEFT if shoot_turn == SHOOT_TURNS.RIGHT else SHOOT_TURNS.RIGHT
 	
 	for invader in invaders:
 		if not invader:
 			continue
-			
+		
 		if will_shoot:
 			var must_shoot = invader.pos_in_line % 2 == 0 and shoot_turn == SHOOT_TURNS.RIGHT
 			must_shoot = must_shoot or invader.pos_in_line % 2 != 0 and shoot_turn == SHOOT_TURNS.LEFT
