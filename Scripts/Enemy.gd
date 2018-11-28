@@ -4,6 +4,8 @@ export var armor = 2 setget set_armor
 export var velocity = Vector2()
 onready var size = get_node("sprite").texture.get_size()
 
+const scn_explosion = preload("res://scenes/explosion.tscn")
+
 func _ready():
 	set_process(true)
 	add_to_group("enemy")
@@ -24,7 +26,16 @@ func _on_area_enter(other):
 	pass
 
 func set_armor(new_value):
+	if is_queued_for_deletion():
+		return
 	armor = new_value
 	if armor <=0: 
+		create_explosion()
 		queue_free()
+	pass
+	
+func create_explosion():
+	var explosion = scn_explosion.instance()
+	explosion.position = position
+	get_tree().get_root().add_child(explosion)
 	pass

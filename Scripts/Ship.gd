@@ -4,6 +4,7 @@ const MOVE_SPEED = 200
 const interval_shot = 0.2
 export var armor = 4 setget set_armor
 const scn_laser = preload("res://scenes/laser_ship.tscn")
+const scn_explosion = preload("res://scenes/explosion.tscn")
 
 var velocity = Vector2()
 var timer_shot = 0
@@ -71,6 +72,7 @@ func shoot():
 func set_armor(new_value):
 	armor = new_value
 	if armor <= 0:
+		create_explosion()
 		queue_free()
 	pass
 	
@@ -79,4 +81,10 @@ func create_laser(pos):
 	var laser = scn_laser.instance()
 	laser.position = pos
 	get_tree().get_root().add_child(laser)
+	pass
+	
+func create_explosion():
+	var explosion = scn_explosion.instance()
+	explosion.position = position
+	get_tree().get_root().add_child(explosion)
 	pass
