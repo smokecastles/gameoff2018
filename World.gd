@@ -10,21 +10,20 @@ onready var invaders = $Invaders
 onready var player = $Player
 
 func _ready():
-	var invader = Invader.instance()
-	invader.global_position = Vector2(100,300)
-	invaders.add_child(invader)
-	invaders_formation.add_invader(invader)
-	
-	for i in range(0,9):
+	var invader = null
+	for i in range(0,10):
 		invader = Invader.instance()
-		invader.global_position = Vector2(0,300)
+		invader.global_position = Vector2(200,300)
 		invaders.add_child(invader)
-		invaders_formation.add_invader(invader)
+
+	for node in invaders.get_children():
+		invaders_formation.add_invader(node)
 
 func _physics_process(delta):
 	for node in invaders.get_children():
-		move_invader(node, delta)
-	pass
+		if node.player_discovered:
+			move_invader(node, delta)
+	
 	move_invader_groups_to_follow_player(delta)
 
 func move_invader(invader, delta):
@@ -51,20 +50,12 @@ func set_invader_transitioning_to_formation(invader):
 	var cur_position = invader.global_position
 	invaders_inline.remove_invader(invader)
 	invaders_formation.add_invader(invader)
-	#if invader.get_parent() == invaders_inline:
-	#	invaders_inline.remove_child(invader)
-	#if not invader.get_parent():
-	#	invaders.add_child(invader)
 	invader.global_position = cur_position
 
 func set_invader_transitioning_to_in_line(invader):
 	var cur_position = invader.global_position
 	invaders_formation.remove_invader(invader)
 	invaders_inline.add_invader(invader)
-	#if invader.get_parent() == invaders_formation:
-	#	invaders_formation.remove_child(invader)
-	#if not invader.get_parent():
-	#	invaders.add_child(invader)
 	invader.global_position = cur_position
 
 func _on_HeightDetectionArea2D_body_entered(body):

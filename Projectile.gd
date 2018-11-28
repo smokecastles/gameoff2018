@@ -1,6 +1,6 @@
 extends Area2D
 
-const SPEED = 500
+const SPEED = 800
 const Player = preload("Player.gd")
 const Enemy = preload("Enemy.gd")
 const Invader = preload("Invader.gd")

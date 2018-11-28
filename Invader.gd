@@ -9,6 +9,7 @@ onready var projectile_pos_side = $ProjectilePositionSide
 onready var did_shoot_timer = $DidShootTimer
 onready var dying_timer = $DyingTimer
 onready var collision_shape = $CollisionPolygon2D
+onready var exclamation_sprite = $ExclamationSprite
 
 const UP = Vector2(0, -1)
 const GRAVITY = 30
@@ -19,6 +20,7 @@ var path = Navigation2D.new()
 var pos_in_formation = Vector2(0, 0)
 var pos_in_line = 0
 var did_shoot = false
+var player_discovered = false
 
 var state = STATES.SWITCHING_TO_FORMATION
 var motion = Vector2()
@@ -27,7 +29,6 @@ func _ready():
 	pass
 	
 func _physics_process(delta):
-	#print(get_name() + " %s" % state)
 	match state:
 		DYING:
 			motion.y += GRAVITY
@@ -76,7 +77,7 @@ func move_to_position(pos, delta):
 	else:
 		global_position = global_position.linear_interpolate(final_pos, traversed_distance / distance_between_pos)
 
-func to_formation():
+func to_formation():	
 	match state:
 		IN_LINE, SWITCHING_TO_IN_LINE:
 			state = SWITCHING_TO_FORMATION
@@ -103,3 +104,11 @@ func _on_DidShootTimer_timeout():
 
 func _on_DyingTimer_timeout():
 	state = STATES.DEAD
+
+func _on_DetectionArea_body_entered(body):
+	if not player_discovered and body.get_name() == "Player":
+		exclamation_sprite.visible = true
+		exclamation_sprite.get_node("AnimationPlayer").play()
+		yield(get_tree().create_timer(0.8), "timeout")
+		exclamation_sprite.visible = false
+		player_discovered = true
