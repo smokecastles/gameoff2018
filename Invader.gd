@@ -116,4 +116,4 @@ func _on_DetectionArea_body_entered(body):
 		exclamation_sprite.visible = false
 		player_discovered = true
 		state = SWITCHING_TO_FORMATION
-		Controller.get_current_scene().set_invader_transitioning_to_formation(self)
+		Controller.get_current_scene().set_invader_to_formation(self)

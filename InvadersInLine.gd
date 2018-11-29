@@ -25,8 +25,9 @@ func add_invader(invader):
 
 func remove_invader(invader):
 	var x = invader.pos_in_line
+	print("[-] Removing invader INLINE @ %s..." % x)
 	if len(invaders) > x:
-		print("[-] Removed invader INLINE @ %s" % x)
+		print("[-] Removed invader INLINE @ %s\n" % x)
 		invaders[x] = null
 
 func get_invader_global_pos(invader):

@@ -10,7 +10,7 @@ const ACCELERATION = 50
 const MAX_SPEED = 500
 const JUMP_HEIGHT = -850
 const SUPER_JUMP_HEIGHT = -2500
-const DASH_DISTANCE = 1200
+const DASH_DISTANCE = 1000
 const JETPACK_DOWN_SPEED = -220
 
 const DAMPING_FLOOR = 0.2
@@ -23,9 +23,14 @@ const JETPACK_ENERGY_FOR_SUPERJUMP = 2
 const JETPACK_ENERGY_FOR_DASH = 0.5
 const JETPACK_REGEN_SPEED = 0.3 # points per sec
 
+const DASHING_TIME = 0.2 # sec
+
 const ANIM_IDLE = "Idle"
 const ANIM_WALK = "Walk"
 const ANIM_JUMP = "Jump"
+const ANIM_DASH_FRONT = "DashFront"
+const ANIM_DASH_BACK = "DashBack"
+const ANIM_HIT = "Hit"
 
 onready var projectile = Controller.projectile
 
@@ -48,6 +53,10 @@ var superjumping = false
 var invulnerable = false
 var is_dead = false
 
+var dashing_left = false
+var dashing_right = false
+var dashing_elapsed_time = 0
+
 var elapsed_time = 0
 
 func _physics_process(delta):
@@ -67,17 +76,31 @@ func _physics_process(delta):
 	else:
 		sprite.play(ANIM_IDLE)
 		motion.x = lerp(motion.x, 0, DAMPING_FLOOR if is_on_floor() else DAMPING_SKY)
-		
+	
 	if Input.is_action_just_released("left_dash"):
 		if not just_superjumped_l_pressed and jetpack_energy >= JETPACK_ENERGY_FOR_DASH:
-			motion.x = -DASH_DISTANCE
+			dashing_left = true
 			spend_energy(JETPACK_ENERGY_FOR_DASH)
 		just_superjumped_l_pressed = false
 	elif Input.is_action_just_released("right_dash"):
 		if not just_superjumped_r_pressed and jetpack_energy >= JETPACK_ENERGY_FOR_DASH:
-			motion.x = DASH_DISTANCE
+			dashing_right = true
 			spend_energy(JETPACK_ENERGY_FOR_DASH)
 		just_superjumped_r_pressed = false
+	
+	if dashing_left:
+		motion.x = -DASH_DISTANCE
+		sprite.play(ANIM_DASH_BACK if not sprite.flip_h else ANIM_DASH_FRONT)
+	elif dashing_right:
+		motion.x = DASH_DISTANCE
+		sprite.play(ANIM_DASH_FRONT if not sprite.flip_h else ANIM_DASH_BACK)
+	
+	if dashing_left or dashing_right:
+		dashing_elapsed_time += delta
+		if dashing_elapsed_time > DASHING_TIME:
+			dashing_elapsed_time = 0
+			dashing_left = false
+			dashing_right = false
 	
 	if sprite.flip_h and projectile_pos.position.x > 0 or not sprite.flip_h and projectile_pos.position.x < 0:
 		projectile_pos.position.x *= -1
@@ -93,6 +116,7 @@ func _physics_process(delta):
 		latest_height = self.position.y
 		jetpack_particles.emitting = false
 		superjumping = false
+		sprite.play(ANIM_IDLE)
 		print(position.y)
 		
 	if is_on_floor():
@@ -108,7 +132,6 @@ func _physics_process(delta):
 			just_superjumped_l_pressed = true
 			just_superjumped_r_pressed = true
 	else:
-		sprite.play(ANIM_JUMP)
 		if falling_down and Input.is_action_pressed("ui_accept"):
 			motion.y = lerp(motion.y, JETPACK_DOWN_SPEED, DAMPING_FALLING)
 			jetpack_on = true
@@ -117,6 +140,9 @@ func _physics_process(delta):
 			jetpack_on = false
 			if not superjumping:
 				jetpack_particles.emitting = false
+	
+	if superjumping:
+		sprite.play(ANIM_JUMP)
 	
 	motion = move_and_slide(motion, UP)
 

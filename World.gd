@@ -11,7 +11,7 @@ onready var player = $Player
 
 func _ready():
 	var invader = null
-	for i in range(0,9):
+	for i in range(0,1):
 		invader = Invader.instance()
 		invader.global_position = Vector2(200,300)
 		invaders.add_child(invader)
@@ -43,17 +43,16 @@ func move_invader_groups_to_follow_player(delta):
 		else:
 			node.global_position = node.global_position.linear_interpolate(final_pos, traversed_distance / distance_between_pos)
 
+func set_invader_to_formation(invader):
+	invaders_formation.add_invader(invader)
+	
 func set_invader_transitioning_to_formation(invader):
-	var cur_position = invader.global_position
 	invaders_inline.remove_invader(invader)
 	invaders_formation.add_invader(invader)
-	invader.global_position = cur_position
 
 func set_invader_transitioning_to_in_line(invader):
-	var cur_position = invader.global_position
 	invaders_formation.remove_invader(invader)
 	invaders_inline.add_invader(invader)
-	invader.global_position = cur_position
 
 func _on_HeightDetectionArea2D_body_entered(body):
 	if body.get_name() == "Player":

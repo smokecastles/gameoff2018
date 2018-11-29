@@ -35,8 +35,9 @@ func add_invader(invader):
 func remove_invader(invader):
 	var x = invader.pos_in_formation.x
 	var y = invader.pos_in_formation.y
+	print("[-] Removing invader FORMATION @ (%s, %s)..." % [x,y])
 	if len(invaders) > x and len(invaders[x]) > y:
-		print("[-] Removed invader FORMATION @ (%s, %s)" % [x,y])
+		print("[-] Removed invader FORMATION @ (%s, %s)\n" % [x,y])
 		invaders[x][y] = null
 
 func get_invader_global_pos(invader):

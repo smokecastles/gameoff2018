@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/p2_duck.png-bf6c050d5ea5a1534efef18ec680c2ea.stex"
+path="res://.import/H_01.png-82c06d43e10a0743d977b611f56734fe.stex"
 
 [deps]
 
-source_file="res://sprites/player/p2_duck.png"
-dest_files=[ "res://.import/p2_duck.png-bf6c050d5ea5a1534efef18ec680c2ea.stex" ]
+source_file="res://sprites/player/H_01.png"
+dest_files=[ "res://.import/H_01.png-82c06d43e10a0743d977b611f56734fe.stex" ]
 
 [params]
 
