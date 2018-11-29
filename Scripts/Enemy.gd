@@ -3,6 +3,7 @@ extends Area2D
 export var armor = 2 setget set_armor
 export var velocity = Vector2()
 onready var size = get_node("sprite").texture.get_size()
+onready var camera = get_node("/root/Node2D/camera")
 
 const scn_explosion = preload("res://scenes/explosion.tscn")
 
@@ -22,6 +23,7 @@ func _process(delta):
 func _on_area_enter(other):
 	if other.is_in_group("ship"):
 		other.armor -= 1
+		camera.shake(3, 0.13)
 		queue_free()
 	pass
 

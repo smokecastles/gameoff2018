@@ -1,8 +1,6 @@
 extends "res://scripts/laser.gd"
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+onready var camera = get_node("/root/Node2D/camera")
 
 func _ready():
 	connect("area_entered", self, "_on_area_enter")
@@ -12,5 +10,6 @@ func _on_area_enter(other):
 	if other.is_in_group("enemy"):
 		other.armor -= 1
 		create_flare()
+		camera.shake(1, 0.13)
 		queue_free()
 	pass

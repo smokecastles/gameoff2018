@@ -5,11 +5,13 @@ const interval_shot = 0.2
 export var armor = 4 setget set_armor
 const scn_laser = preload("res://scenes/laser_ship.tscn")
 const scn_explosion = preload("res://scenes/explosion.tscn")
+const scn_flash = preload("res://Scenes/flash.tscn")
 
 var velocity = Vector2()
 var timer_shot = 0
 onready var size = get_node("sprite").texture.get_size()
 onready var anim = get_node("anim")
+onready var camera = get_node("/root/Node2D/camera")
 
 
 # class member variables go here, for example:
@@ -70,8 +72,12 @@ func shoot():
 	pass
 	
 func set_armor(new_value):
+	if new_value < armor:
+		get_tree().get_root().add_child(scn_flash.instance())
+	
 	armor = new_value
 	if armor <= 0:
+		camera.shake( 8, 0.13)
 		create_explosion()
 		queue_free()
 	pass
