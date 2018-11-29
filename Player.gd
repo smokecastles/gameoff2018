@@ -35,6 +35,7 @@ const ANIM_HIT = "Hit"
 onready var projectile = Controller.projectile
 
 onready var sprite = $AnimatedSprite
+onready var collision_polygon = $CollisionPolygon2D
 onready var projectile_pos = $ProjectilePosition
 onready var jetpack_particles = $JetpackParticles
 onready var invulnerable_after_hit_timer = $InvulnerableAfterHitTimer
@@ -69,9 +70,11 @@ func _physics_process(delta):
 		motion.x = min(motion.x + ACCELERATION, MAX_SPEED)
 		sprite.flip_h = false
 		sprite.play(ANIM_WALK)
+		collision_polygon.scale.x = 1
 	elif Input.is_action_pressed("ui_left"):
 		motion.x = max(motion.x - ACCELERATION, -MAX_SPEED)
 		sprite.flip_h = true
+		collision_polygon.scale.x = -1
 		sprite.play(ANIM_WALK)
 	else:
 		sprite.play(ANIM_IDLE)
@@ -90,9 +93,11 @@ func _physics_process(delta):
 	
 	if dashing_left:
 		motion.x = -DASH_DISTANCE
+		motion.y = 0
 		sprite.play(ANIM_DASH_BACK if not sprite.flip_h else ANIM_DASH_FRONT)
 	elif dashing_right:
 		motion.x = DASH_DISTANCE
+		motion.y = 0
 		sprite.play(ANIM_DASH_FRONT if not sprite.flip_h else ANIM_DASH_BACK)
 	
 	if dashing_left or dashing_right:
@@ -116,8 +121,6 @@ func _physics_process(delta):
 		latest_height = self.position.y
 		jetpack_particles.emitting = false
 		superjumping = false
-		sprite.play(ANIM_IDLE)
-		print(position.y)
 		
 	if is_on_floor():
 		jetpack_particles.emitting = false
