@@ -1,14 +1,17 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://Scripts/camera.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/spawner_enemy.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Sprites/purple.png" type="Texture" id=3]
-[ext_resource path="res://Scripts/stars.gd" type="Script" id=4]
-[ext_resource path="res://Scripts/ship.gd" type="Script" id=5]
-[ext_resource path="res://sprites/a-wing_512/A-Wing_down.PNG" type="Texture" id=6]
-[ext_resource path="res://sprites/a-wing_512/A-Wing_still.PNG" type="Texture" id=7]
-[ext_resource path="res://sprites/a-wing_512/A-Wing_turn.PNG" type="Texture" id=8]
-[ext_resource path="res://Sprites/a-wing_512/A-Wing_up.PNG" type="Texture" id=9]
+[ext_resource path="res://Controller.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/camera.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/spawner_enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sprites/purple.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/stars.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/ship.gd" type="Script" id=6]
+[ext_resource path="res://sprites/a-wing_512/A-Wing_down.PNG" type="Texture" id=7]
+[ext_resource path="res://sprites/a-wing_512/A-Wing_still.PNG" type="Texture" id=8]
+[ext_resource path="res://sprites/a-wing_512/A-Wing_turn.PNG" type="Texture" id=9]
+[ext_resource path="res://Sprites/a-wing_512/A-Wing_up.PNG" type="Texture" id=10]
+[ext_resource path="res://GUI.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scripts/shooter_gui.gd" type="Script" id=12]
 
 [sub_resource type="Animation" id=1]
 
@@ -26,7 +29,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 6 ) ]
+"values": [ ExtResource( 7 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -45,7 +48,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 7 ) ]
+"values": [ ExtResource( 8 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -64,7 +67,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 8 ) ]
+"values": [ ExtResource( 9 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("sprite:flip_h")
@@ -94,7 +97,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 8 ) ]
+"values": [ ExtResource( 9 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("sprite:flip_h")
@@ -125,7 +128,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 9 ) ]
+"values": [ ExtResource( 10 ) ]
 }
 
 [sub_resource type="RectangleShape2D" id=6]
@@ -135,6 +138,7 @@ extents = Vector2( 10, 10 )
 
 [node name="Node2D" type="Node2D" index="0"]
 
+script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="camera" type="Camera2D" parent="." index="0"]
@@ -161,10 +165,10 @@ drag_margin_bottom = 0.2
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="spawner_enemy" parent="." index="1" instance=ExtResource( 2 )]
+[node name="spawner_enemy" parent="." index="1" instance=ExtResource( 3 )]
 
 [node name="BackgroundParent" type="Node2D" parent="." index="2"]
 
@@ -174,14 +178,14 @@ editor/display_folded = true
 
 position = Vector2( 513.383, 304.164 )
 scale = Vector2( 3.9964, 2.30608 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="Background" type="Sprite" parent="BackgroundParent" index="1"]
 
 position = Vector2( 255.155, 344.846 )
 scale = Vector2( 2, 2 )
-texture = ExtResource( 3 )
-script = ExtResource( 4 )
+texture = ExtResource( 4 )
+script = ExtResource( 5 )
 _sections_unfolded = [ "Offset", "Transform", "Z Index" ]
 velocity = Vector2( 0, 100 )
 
@@ -189,8 +193,8 @@ velocity = Vector2( 0, 100 )
 
 position = Vector2( 767.071, 344.994 )
 scale = Vector2( 2, 2 )
-texture = ExtResource( 3 )
-script = ExtResource( 4 )
+texture = ExtResource( 4 )
+script = ExtResource( 5 )
 _sections_unfolded = [ "Offset", "Transform", "Z Index" ]
 velocity = Vector2( 0, 100 )
 
@@ -198,8 +202,8 @@ velocity = Vector2( 0, 100 )
 
 position = Vector2( 767.82, -161.682 )
 scale = Vector2( 2, 2 )
-texture = ExtResource( 3 )
-script = ExtResource( 4 )
+texture = ExtResource( 4 )
+script = ExtResource( 5 )
 _sections_unfolded = [ "Offset", "Transform", "Z Index" ]
 velocity = Vector2( 0, 100 )
 
@@ -207,8 +211,8 @@ velocity = Vector2( 0, 100 )
 
 position = Vector2( 255.903, -161.682 )
 scale = Vector2( 2, 2 )
-texture = ExtResource( 3 )
-script = ExtResource( 4 )
+texture = ExtResource( 4 )
+script = ExtResource( 5 )
 _sections_unfolded = [ "Offset", "Transform", "Z Index" ]
 velocity = Vector2( 0, 100 )
 
@@ -216,8 +220,8 @@ velocity = Vector2( 0, 100 )
 
 position = Vector2( 255.704, -672.193 )
 scale = Vector2( 2, 2 )
-texture = ExtResource( 3 )
-script = ExtResource( 4 )
+texture = ExtResource( 4 )
+script = ExtResource( 5 )
 _sections_unfolded = [ "Offset", "Transform", "Z Index" ]
 velocity = Vector2( 0, 100 )
 
@@ -225,8 +229,8 @@ velocity = Vector2( 0, 100 )
 
 position = Vector2( 767.62, -672.193 )
 scale = Vector2( 2, 2 )
-texture = ExtResource( 3 )
-script = ExtResource( 4 )
+texture = ExtResource( 4 )
+script = ExtResource( 5 )
 _sections_unfolded = [ "Offset", "Transform", "Z Index" ]
 velocity = Vector2( 0, 100 )
 
@@ -241,7 +245,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 _sections_unfolded = [ "Transform" ]
 armor = 4
 
@@ -271,7 +275,7 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 position = Vector2( 0.693071, -0.23889 )
 scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 flip_h = true
 _sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Transform", "Visibility", "Z Index" ]
 
@@ -290,5 +294,34 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 628.92, 298.108 )
 _sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="4"]
+
+pause_mode = 2
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+_sections_unfolded = [ "Pause" ]
+
+[node name="GUI" type="MarginContainer" parent="CanvasLayer" index="0" instance=ExtResource( 11 )]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+script = ExtResource( 12 )
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Rect", "Size Flags", "Theme", "Visibility", "custom_constants" ]
 
 

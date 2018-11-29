@@ -15,6 +15,8 @@ func get_current_scene():
 	return current_scene
 
 func reload_current_scene():
+	if(current_scene == null):
+		get_current_scene()
 	current_scene.get_tree().reload_current_scene()
 	current_scene = null
 

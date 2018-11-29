@@ -12,6 +12,7 @@ var timer_shot = 0
 onready var size = get_node("sprite").texture.get_size()
 onready var anim = get_node("anim")
 onready var camera = get_node("/root/Node2D/camera")
+onready var gui = get_node("/root/Node2D/CanvasLayer/GUI")
 
 
 # class member variables go here, for example:
@@ -74,11 +75,17 @@ func shoot():
 func set_armor(new_value):
 	if new_value < armor:
 		get_tree().get_root().add_child(scn_flash.instance())
+#		if(gui !=  null):
+#			gui._on_Player_damage_taken(armor - new_value)
+	
+	if(gui !=  null):
+		gui.update_health(new_value)
 	
 	armor = new_value
 	if armor <= 0:
-		camera.shake( 8, 0.13)
+		camera.shake(8, 0.13)
 		create_explosion()
+		gui._on_Player_player_died()
 		queue_free()
 	pass
 	
