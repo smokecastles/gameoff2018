@@ -93,6 +93,7 @@ func _physics_process(delta):
 		latest_height = self.position.y
 		jetpack_particles.emitting = false
 		superjumping = false
+		print(position.y)
 		
 	if is_on_floor():
 		jetpack_particles.emitting = false

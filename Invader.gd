@@ -77,7 +77,7 @@ func move_to_position(pos, delta):
 	else:
 		global_position = global_position.linear_interpolate(final_pos, traversed_distance / distance_between_pos)
 
-func to_formation():	
+func to_formation():
 	match state:
 		IN_LINE, SWITCHING_TO_IN_LINE:
 			state = SWITCHING_TO_FORMATION
@@ -90,13 +90,16 @@ func to_in_line():
 			Controller.get_current_scene().set_invader_transitioning_to_in_line(self)
 
 func damage():
+	var current_scene = Controller.get_current_scene()
+	match state:
+		IN_FORMATION, SWITCHING_TO_FORMATION:
+			current_scene.invaders_formation.remove_invader(self)
+		IN_LINE, SWITCHING_TO_IN_LINE:
+			current_scene.invaders_inline.remove_invader(self)
 	state = STATES.DYING
 	motion.y = -500
 	collision_shape.disabled = true
 	z_index = -1
-	var main_scene = Controller.get_current_scene()
-	main_scene.invaders_formation.remove_invader(self)
-	main_scene.invaders_inline.remove_invader(self)
 	dying_timer.start()
 
 func _on_DidShootTimer_timeout():
@@ -112,3 +115,5 @@ func _on_DetectionArea_body_entered(body):
 		yield(get_tree().create_timer(0.8), "timeout")
 		exclamation_sprite.visible = false
 		player_discovered = true
+		state = SWITCHING_TO_FORMATION
+		Controller.get_current_scene().set_invader_transitioning_to_formation(self)

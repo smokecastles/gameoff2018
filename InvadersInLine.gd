@@ -13,6 +13,7 @@ onready var path2d = $Path2D
 onready var pathfollow2d = $"Path2D/PathFollow2D"
 
 func add_invader(invader):
+	print("[+] Adding invader INLINE")
 	for i in range(len(invaders)):
 		if invaders[i] == null:
 			invader.pos_in_line = i
@@ -25,6 +26,7 @@ func add_invader(invader):
 func remove_invader(invader):
 	var x = invader.pos_in_line
 	if len(invaders) > x:
+		print("[-] Removed invader INLINE @ %s" % x)
 		invaders[x] = null
 
 func get_invader_global_pos(invader):

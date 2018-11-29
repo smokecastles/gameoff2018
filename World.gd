@@ -11,13 +11,10 @@ onready var player = $Player
 
 func _ready():
 	var invader = null
-	for i in range(0,10):
+	for i in range(0,9):
 		invader = Invader.instance()
 		invader.global_position = Vector2(200,300)
 		invaders.add_child(invader)
-
-	for node in invaders.get_children():
-		invaders_formation.add_invader(node)
 
 func _physics_process(delta):
 	for node in invaders.get_children():

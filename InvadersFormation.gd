@@ -7,6 +7,7 @@ var invaders = []
 var elapsed_time = 0
 
 func add_invader(invader):
+	print("[+] Adding invader FORMATION")
 	# First try to fit it in current empty spots
 	if len(invaders) > 0:
 		var y_len = len(invaders[0])
@@ -35,6 +36,7 @@ func remove_invader(invader):
 	var x = invader.pos_in_formation.x
 	var y = invader.pos_in_formation.y
 	if len(invaders) > x and len(invaders[x]) > y:
+		print("[-] Removed invader FORMATION @ (%s, %s)" % [x,y])
 		invaders[x][y] = null
 
 func get_invader_global_pos(invader):
