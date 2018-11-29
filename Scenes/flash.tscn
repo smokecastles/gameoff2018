@@ -34,7 +34,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 0.773438, 0, 1 ), Color( 1, 0.773438, 0, 0 ) ]
 }
 
-[node name="flash" type="Sprite" index="0"]
+[node name="flash" type="Sprite"]
 
 visible = false
 modulate = Color( 1, 0.773438, 0, 0 )

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/enemy_clever.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/enemyRed1.png" type="Texture" id=2]
+[ext_resource path="res://sprites/ufo1/ufo1_down.PNG" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -21,20 +21,21 @@ script = ExtResource( 1 )
 armor = 6
 velocity = Vector2( 50, 50 )
 
-[node name="sprite" type="Sprite" parent="." index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
-texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
-
-position = Vector2( 1.18542, 0.335324 )
-scale = Vector2( 4.66499, 4.69326 )
+position = Vector2( 0.725709, -1.45716 )
+scale = Vector2( 4.38432, 2.74232 )
 shape = SubResource( 1 )
 
-[node name="cannon" type="Position2D" parent="." index="2"]
+[node name="cannon" type="Position2D" parent="." index="1"]
 
 position = Vector2( -0.735107, 36.6088 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="sprite" type="Sprite" parent="." index="2"]
+
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
 

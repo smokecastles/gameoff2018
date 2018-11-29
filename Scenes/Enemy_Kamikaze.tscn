@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/enemy.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/ufoRed.png" type="Texture" id=2]
+[ext_resource path="res://sprites/ufo2/ufo2_down.PNG" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -19,20 +19,21 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
-_sections_unfolded = [ "Audio Bus", "Collision" ]
+_sections_unfolded = [ "Audio Bus", "Collision", "Transform" ]
 armor = 2
 velocity = Vector2( 0, 100 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
-position = Vector2( 0.575173, 0.514295 )
-scale = Vector2( 2.38086, 2.41219 )
+position = Vector2( 1.14062, 2.29711 )
+scale = Vector2( 4.17073, 1.60413 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="sprite" type="Sprite" parent="." index="1"]
 
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 0.272446, 1.62871 )
+scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 

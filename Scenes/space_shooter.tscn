@@ -133,7 +133,7 @@ tracks/0/keys = {
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -167,6 +167,8 @@ _sections_unfolded = [ "Transform" ]
 [node name="spawner_enemy" parent="." index="1" instance=ExtResource( 2 )]
 
 [node name="BackgroundParent" type="Node2D" parent="." index="2"]
+
+editor/display_folded = true
 
 [node name="AuxBackground" type="Sprite" parent="BackgroundParent" index="0"]
 
