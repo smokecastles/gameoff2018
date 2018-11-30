@@ -4,6 +4,8 @@ var projectile = preload("res://Projectile.tscn")
 var explosion_scene = preload("Explosion.tscn")
 onready var audio_player = get_node("audio_player")
 
+export var playing = false
+
 var current_scene = null
 
 func _ready():
@@ -15,7 +17,10 @@ func _ready():
 func play_music():
 	var nameScene = get_tree().get_current_scene().get_name()
 	if(get_tree().get_current_scene().get_name() == "space_shooter"):
-		audio_player.play_music("main_theme_loop")
+		if(audio_player != null):
+			audio_player.play_music("main_theme_2")
+			yield(audio_player.music_player, "finished")
+			audio_player.play_music("main_theme_2_loop")
 	pass
 
 func get_current_scene():

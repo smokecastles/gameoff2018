@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bee.png-2f03467cc542ae2ebaf0f8bac824ca35.stex"
+path="res://.import/bee.png-e9ef7f0682725246bd197c786ef23656.stex"
 
 [deps]
 
-source_file="res://Sprites/enemies/bee.png"
-dest_files=[ "res://.import/bee.png-2f03467cc542ae2ebaf0f8bac824ca35.stex" ]
+source_file="res://sprites/enemies/bee.png"
+dest_files=[ "res://.import/bee.png-e9ef7f0682725246bd197c786ef23656.stex" ]
 
 [params]
 

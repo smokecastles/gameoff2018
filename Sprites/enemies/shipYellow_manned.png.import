@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/shipYellow_manned.png-76f4b243bb10d98b6c609a97dd0c518b.stex"
+path="res://.import/shipYellow_manned.png-a63cc74375e41aa66d76ed2ed0e3e57b.stex"
 
 [deps]
 
-source_file="res://Sprites/enemies/shipYellow_manned.png"
-dest_files=[ "res://.import/shipYellow_manned.png-76f4b243bb10d98b6c609a97dd0c518b.stex" ]
+source_file="res://sprites/enemies/shipYellow_manned.png"
+dest_files=[ "res://.import/shipYellow_manned.png-a63cc74375e41aa66d76ed2ed0e3e57b.stex" ]
 
 [params]
 

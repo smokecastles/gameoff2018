@@ -14,6 +14,7 @@ onready var anim = get_node("anim")
 onready var camera = get_node("/root/space_shooter/camera_shake")
 onready var gui = get_node("/root/space_shooter/CanvasLayer/GUI")
 onready var audio_player = get_node("/root/space_shooter/audio_player")
+onready var controller = get_node("/root/space_shooter")
 
 
 # class member variables go here, for example:
@@ -28,6 +29,8 @@ func _ready():
 	pass
 
 func _process(delta):
+	if (controller.playing == false):
+		return
 	
 	var is_idle = true
 	
@@ -75,6 +78,12 @@ func shoot():
 	pass
 	
 func set_armor(new_value):
+	if(controller == null):
+		return
+		
+	if (controller.playing == false):
+		return
+		
 	if new_value < armor:
 		get_tree().get_root().add_child(scn_flash.instance())
 		audio_player.play_sfx("player_hit")

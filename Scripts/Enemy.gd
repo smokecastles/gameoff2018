@@ -24,7 +24,8 @@ func _process(delta):
 func _on_area_enter(other):
 	if other.is_in_group("ship"):
 		other.armor -= 1
-		camera.shake(3, 0.13)
+		if(camera != null):
+			camera.shake(3, 0.13)
 		queue_free()
 	pass
 

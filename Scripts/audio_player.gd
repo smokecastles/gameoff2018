@@ -11,7 +11,8 @@ var sfx_library = { "player_shoot": preload("res://Sounds/sfx/P1-DISPARO.ogg"),
 "enemy_explosion": preload("res://Sounds/sfx/NAVE-DESTRUIDA.ogg"),
 }
 
-var music_library ={"main_theme_loop": preload("res://Sounds/music/TEMA2-SIN-INTRO.ogg")}
+var music_library ={"main_theme_2_loop": preload("res://Sounds/music/TEMA2-SIN-INTRO.ogg"),
+"main_theme_2": preload("res://Sounds/music/TEMA2.ogg")}
 
 func play_music(var music):
 	if music_library.has(music):

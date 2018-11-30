@@ -8,8 +8,14 @@ func _ready():
 
 func _on_area_enter(other):
 	if other.is_in_group("enemy"):
+		controller = get_node("/root/space_shooter")
+		if(controller == null):
+			return
+		if (controller.playing == false):
+			return
 		other.armor -= 1
 		create_flare()
+		camera = get_node("/root/space_shooter/camera_shake")
 		camera.shake(1, 0.13)       
 		queue_free()
 	pass

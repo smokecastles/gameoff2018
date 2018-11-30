@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sonicExplosion08.png-04b493d11afb7042028d84721af93b91.stex"
+path="res://.import/sonicExplosion08.png-530dbfc9c7ad66c57ed45d8a8ef58868.stex"
 
 [deps]
 
-source_file="res://Sprites/fx/sonicExplosion08.png"
-dest_files=[ "res://.import/sonicExplosion08.png-04b493d11afb7042028d84721af93b91.stex" ]
+source_file="res://sprites/fx/sonicExplosion08.png"
+dest_files=[ "res://.import/sonicExplosion08.png-530dbfc9c7ad66c57ed45d8a8ef58868.stex" ]
 
 [params]
 

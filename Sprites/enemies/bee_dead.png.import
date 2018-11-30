@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bee_dead.png-d3c3e8c76d76586bb5a7ab7b4330919c.stex"
+path="res://.import/bee_dead.png-a67cb14f7a12ba4b801bd1156dd51f3c.stex"
 
 [deps]
 
-source_file="res://Sprites/enemies/bee_dead.png"
-dest_files=[ "res://.import/bee_dead.png-d3c3e8c76d76586bb5a7ab7b4330919c.stex" ]
+source_file="res://sprites/enemies/bee_dead.png"
+dest_files=[ "res://.import/bee_dead.png-a67cb14f7a12ba4b801bd1156dd51f3c.stex" ]
 
 [params]
 

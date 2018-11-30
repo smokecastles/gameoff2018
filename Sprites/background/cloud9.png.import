@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cloud9.png-fd760513b11f6de56f69631323df35e6.stex"
+path="res://.import/cloud9.png-51a78d567726b1fc8cb1830c82f749d4.stex"
 
 [deps]
 
-source_file="res://Sprites/background/cloud9.png"
-dest_files=[ "res://.import/cloud9.png-fd760513b11f6de56f69631323df35e6.stex" ]
+source_file="res://sprites/background/cloud9.png"
+dest_files=[ "res://.import/cloud9.png-51a78d567726b1fc8cb1830c82f749d4.stex" ]
 
 [params]
 

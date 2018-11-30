@@ -4,12 +4,21 @@ const enemies = [
 preload("res://scenes/enemy_kamikaze.tscn")
 ,preload("res://scenes/enemy_clever.tscn")]
 
+export var begin_spawn = false
+export var spawn = false
+
 func _ready():
-	spawn()
+	pass
+	
+func _process(delta):
+	if(begin_spawn == true):
+		begin_spawn = false
+		spawn = true
+		spawn()
 	pass
 
 func spawn():
-	while true:
+	while spawn:
 		randomize()
 		var rand = randi()%2
 		var enemy = enemies[rand].instance()

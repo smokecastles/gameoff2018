@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/lifebar_fill.png-feaebad0ebd0171c24581723ffb9c7d7.stex"
+path="res://.import/lifebar_fill.png-240639fc9e087cebb104d2c27fcaa9d4.stex"
 
 [deps]
 
-source_file="res://Sprites/gui/lifebar_fill.png"
-dest_files=[ "res://.import/lifebar_fill.png-feaebad0ebd0171c24581723ffb9c7d7.stex" ]
+source_file="res://sprites/gui/lifebar_fill.png"
+dest_files=[ "res://.import/lifebar_fill.png-240639fc9e087cebb104d2c27fcaa9d4.stex" ]
 
 [params]
 

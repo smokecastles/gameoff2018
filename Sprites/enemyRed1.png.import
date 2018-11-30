@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/enemyRed1.png-3d59e5cf395025122e553e4620a307aa.stex"
+path="res://.import/enemyRed1.png-8d72722671052babda724ddb7174ef78.stex"
 
 [deps]
 
-source_file="res://Sprites/enemyRed1.png"
-dest_files=[ "res://.import/enemyRed1.png-3d59e5cf395025122e553e4620a307aa.stex" ]
+source_file="res://sprites/enemyRed1.png"
+dest_files=[ "res://.import/enemyRed1.png-8d72722671052babda724ddb7174ef78.stex" ]
 
 [params]
 

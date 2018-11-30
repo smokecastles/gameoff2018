@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/hills2.png-e1b3636c26e2c57e7e397460e86985de.stex"
+path="res://.import/hills2.png-0361c348cfd896fa31d85f03d7c9ec26.stex"
 
 [deps]
 
-source_file="res://Sprites/background/hills2.png"
-dest_files=[ "res://.import/hills2.png-e1b3636c26e2c57e7e397460e86985de.stex" ]
+source_file="res://sprites/background/hills2.png"
+dest_files=[ "res://.import/hills2.png-0361c348cfd896fa31d85f03d7c9ec26.stex" ]
 
 [params]
 

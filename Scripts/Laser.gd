@@ -2,6 +2,7 @@ extends Area2D
 
 export var velocity = Vector2()
 const scn_flare = preload("res://scenes/Flare.tscn")
+onready var controller = get_node("/root/space_shooter")
 
 func _ready():
 	set_process(true)

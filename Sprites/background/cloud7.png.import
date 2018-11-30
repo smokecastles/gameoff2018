@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cloud7.png-e608329303ec8385581c521581c20527.stex"
+path="res://.import/cloud7.png-95ebaaf74fa9aadfa0dc7a7c80beccd0.stex"
 
 [deps]
 
-source_file="res://Sprites/background/cloud7.png"
-dest_files=[ "res://.import/cloud7.png-e608329303ec8385581c521581c20527.stex" ]
+source_file="res://sprites/background/cloud7.png"
+dest_files=[ "res://.import/cloud7.png-95ebaaf74fa9aadfa0dc7a7c80beccd0.stex" ]
 
 [params]
 
