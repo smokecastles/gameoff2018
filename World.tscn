@@ -3,14 +3,14 @@
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://tiles/GroundTiles.tres" type="TileSet" id=3]
-[ext_resource path="res://sprites/background/bg.png" type="Texture" id=4]
-[ext_resource path="res://sprites/background/NubeAltaA.png" type="Texture" id=5]
-[ext_resource path="res://sprites/background/NubeAltaB.png" type="Texture" id=6]
-[ext_resource path="res://sprites/background/hills1.png" type="Texture" id=7]
-[ext_resource path="res://sprites/background/castle_grey.png" type="Texture" id=8]
-[ext_resource path="res://sprites/background/NubeBajaA.png" type="Texture" id=9]
-[ext_resource path="res://sprites/background/NubeBajaB.png" type="Texture" id=10]
-[ext_resource path="res://sprites/background/NubeBajaC.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/background/bg.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/background/NubeAltaA.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/background/NubeAltaB.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/background/hills1.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/background/castle_grey.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/background/NubeBajaA.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/background/NubeBajaB.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/background/NubeBajaC.png" type="Texture" id=11]
 [ext_resource path="res://InvadersFormation.tscn" type="PackedScene" id=12]
 [ext_resource path="res://InvadersInLine.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Invader.tscn" type="PackedScene" id=14]
@@ -42,7 +42,7 @@ tracks/0/keys = {
 "values": [ 0.0, 1.0 ]
 }
 
-[node name="World" type="Node"]
+[node name="World" type="Node" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]

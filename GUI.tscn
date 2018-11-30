@@ -1,13 +1,14 @@
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://GUI.gd" type="Script" id=1]
-[ext_resource path="res://sprites/fonts/VeraMono.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://sprites/gui/hud_heartFull.png" type="Texture" id=3]
-[ext_resource path="res://sprites/gui/lifebar_bg.png" type="Texture" id=4]
-[ext_resource path="res://sprites/gui/lifebar_fill.png" type="Texture" id=5]
-[ext_resource path="res://sprites/gui/jetpack_item.png" type="Texture" id=6]
-[ext_resource path="res://sprites/gui/energy_bar_bg.png" type="Texture" id=7]
-[ext_resource path="res://sprites/gui/energy_bar_fill.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/fonts/VeraMono.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Sprites/gui/hud_heartFull.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/gui/lifebar_bg.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/gui/lifebar_fill.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/gui/jetpack_item.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/gui/energy_bar_bg.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/gui/energy_bar_fill.png" type="Texture" id=8]
+
 
 [sub_resource type="StyleBoxFlat" id=1]
 
