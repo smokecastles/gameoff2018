@@ -11,7 +11,7 @@ onready var player = $Player
 
 func _ready():
 	var invader = null
-	for i in range(0,1):
+	for i in range(0,3):
 		invader = Invader.instance()
 		invader.global_position = Vector2(200,300)
 		invaders.add_child(invader)
@@ -22,6 +22,11 @@ func _physics_process(delta):
 			move_invader(node, delta)
 	
 	move_invader_groups_to_follow_player(delta)
+	
+	if player.global_position.y < invaders_formation.global_position.y:
+		invaders_formation.switch_all_to_in_line()
+	else:
+		invaders_inline.switch_all_to_formation()
 
 func move_invader(invader, delta):
 	match invader.state:
@@ -34,7 +39,12 @@ func move_invader_groups_to_follow_player(delta):
 	for node in [invaders_inline, invaders_path2d]:
 		var traversed_distance = 400 * delta
 		var current_pos = node.global_position
-		var final_pos = Vector2(player.global_position.x, current_pos.y) 
+		
+		var pos_y = current_pos.y
+		if player.is_on_floor():
+			pos_y = player.global_position.y - (270 if node == invaders_path2d else 1300)
+		
+		var final_pos = Vector2(player.global_position.x, pos_y) 
 	
 		var distance_between_pos = current_pos.distance_to(final_pos)
 	
@@ -53,13 +63,3 @@ func set_invader_transitioning_to_formation(invader):
 func set_invader_transitioning_to_in_line(invader):
 	invaders_formation.remove_invader(invader)
 	invaders_inline.add_invader(invader)
-
-func _on_HeightDetectionArea2D_body_entered(body):
-	if body.get_name() == "Player":
-		if body.motion.y < 0:
-			invaders_formation.switch_all_to_in_line()
-
-func _on_HeightDetectionArea2D_body_exited(body):
-	if body.get_name() == "Player":
-		if body.motion.y > 0:
-			invaders_inline.switch_all_to_formation()
