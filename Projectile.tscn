@@ -1,8 +1,9 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Projectile.gd" type="Script" id=1]
-[ext_resource path="res://sprites/weapons/laserGreen04.png" type="Texture" id=2]
-[ext_resource path="res://sprites/weapons/laserGreen05.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/weapons/laserGreen04.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/weapons/laserGreen05.png" type="Texture" id=3]
+
 
 [sub_resource type="SpriteFrames" id=1]
 

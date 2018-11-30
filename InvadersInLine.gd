@@ -13,6 +13,7 @@ onready var path2d = $Path2D
 onready var pathfollow2d = $"Path2D/PathFollow2D"
 
 func add_invader(invader):
+	#print("[+] Adding invader INLINE")
 	for i in range(len(invaders)):
 		if invaders[i] == null:
 			invader.pos_in_line = i
@@ -24,11 +25,17 @@ func add_invader(invader):
 
 func remove_invader(invader):
 	var x = invader.pos_in_line
+	#print("[-] Removing invader INLINE @ %s..." % x)
 	if len(invaders) > x:
+		#print("[-] Removed invader INLINE @ %s\n" % x)
 		invaders[x] = null
 
 func get_invader_global_pos(invader):
-	var unit_offset = float(invader.pos_in_line) / (len(invaders))
+	var len_invaders = 0
+	for invader in invaders:
+		if invader:
+			len_invaders += 1
+	var unit_offset = float(invader.pos_in_line) / len_invaders
 	pathfollow2d.unit_offset = unit_offset
 	var even = invader.pos_in_line % 2 == 0
 	var local_pos = pathfollow2d.position + Vector2(H_OFFSET if even else -H_OFFSET, 0)

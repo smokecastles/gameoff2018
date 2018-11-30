@@ -7,6 +7,7 @@ var invaders = []
 var elapsed_time = 0
 
 func add_invader(invader):
+	#print("[+] Adding invader FORMATION")
 	# First try to fit it in current empty spots
 	if len(invaders) > 0:
 		var y_len = len(invaders[0])
@@ -34,12 +35,17 @@ func add_invader(invader):
 func remove_invader(invader):
 	var x = invader.pos_in_formation.x
 	var y = invader.pos_in_formation.y
+	#print("[-] Removing invader FORMATION @ (%s, %s)..." % [x,y])
 	if len(invaders) > x and len(invaders[x]) > y:
+		#print("[-] Removed invader FORMATION @ (%s, %s)\n" % [x,y])
 		invaders[x][y] = null
 
 func get_invader_global_pos(invader):
 	var frame_size = invader.get_node("AnimatedSprite").frames.get_frame("default",0).get_size()
-	var local_pos = Vector2(0,-frame_size.y * invader.scale.y * (max(1,len(invaders[0])-1))) + invader.pos_in_formation * frame_size * invader.scale
+	var y_len = len(invaders[0])
+	while not invaders[0][y_len-1] and y_len > 0:
+		y_len -= 1
+	var local_pos = Vector2(0,-frame_size.y * invader.scale.y * (max(1,y_len-1))) + invader.pos_in_formation * frame_size * invader.scale
 	return to_global(local_pos)
 
 func switch_all_to_in_line():
@@ -82,10 +88,12 @@ func _physics_process(delta):
 		if col_length == 0:
 			return
 		var last_index = col_length - 1
+		while not invaders[shooter_col][last_index] and last_index > 0:
+			print("No invader at %s" % last_index)
+			_debug_print_invaders()
+			last_index -= 1
 		var invader = invaders[shooter_col][last_index]
-		while not invader and last_index > 0:
-			last_index -= last_index
-			invader = invaders[shooter_col][last_index]
+		print("Shooting invader: (%s, %s)" % [shooter_col, last_index])
 		var player_alive = !Controller.get_current_scene().player.is_dead
 		if invader and invader.state == invader.STATES.IN_FORMATION and player_alive:
 			invader.shoot_downwards()

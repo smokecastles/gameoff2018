@@ -1,15 +1,16 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://sprites/fx/sonicExplosion00.png" type="Texture" id=1]
-[ext_resource path="res://sprites/fx/sonicExplosion01.png" type="Texture" id=2]
-[ext_resource path="res://sprites/fx/sonicExplosion02.png" type="Texture" id=3]
-[ext_resource path="res://sprites/fx/sonicExplosion03.png" type="Texture" id=4]
-[ext_resource path="res://sprites/fx/sonicExplosion04.png" type="Texture" id=5]
-[ext_resource path="res://sprites/fx/sonicExplosion05.png" type="Texture" id=6]
-[ext_resource path="res://sprites/fx/sonicExplosion06.png" type="Texture" id=7]
-[ext_resource path="res://sprites/fx/sonicExplosion07.png" type="Texture" id=8]
-[ext_resource path="res://sprites/fx/sonicExplosion08.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/fx/sonicExplosion00.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/fx/sonicExplosion01.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/fx/sonicExplosion02.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/fx/sonicExplosion03.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/fx/sonicExplosion04.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/fx/sonicExplosion05.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/fx/sonicExplosion06.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/fx/sonicExplosion07.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/fx/sonicExplosion08.png" type="Texture" id=9]
 [ext_resource path="res://Explosion.gd" type="Script" id=10]
+
 
 [sub_resource type="SpriteFrames" id=1]
 
