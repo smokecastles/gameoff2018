@@ -42,11 +42,6 @@ tracks/0/keys = {
 "values": [ 0.0, 1.0 ]
 }
 
-[sub_resource type="RectangleShape2D" id=7]
-
-custom_solver_bias = 0.0
-extents = Vector2( 768.802, 10 )
-
 [node name="World" type="Node"]
 
 script = ExtResource( 1 )
