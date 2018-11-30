@@ -1,0 +1,32 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://sprites/fx/sonicExplosion00.png" type="Texture" id=1]
+[ext_resource path="res://sprites/fx/sonicExplosion01.png" type="Texture" id=2]
+[ext_resource path="res://sprites/fx/sonicExplosion02.png" type="Texture" id=3]
+[ext_resource path="res://sprites/fx/sonicExplosion03.png" type="Texture" id=4]
+[ext_resource path="res://sprites/fx/sonicExplosion04.png" type="Texture" id=5]
+[ext_resource path="res://sprites/fx/sonicExplosion05.png" type="Texture" id=6]
+[ext_resource path="res://sprites/fx/sonicExplosion06.png" type="Texture" id=7]
+[ext_resource path="res://sprites/fx/sonicExplosion07.png" type="Texture" id=8]
+[ext_resource path="res://sprites/fx/sonicExplosion08.png" type="Texture" id=9]
+[ext_resource path="res://Explosion.gd" type="Script" id=10]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 15.0
+} ]
+
+[node name="ExplosionSprite" type="AnimatedSprite"]
+
+position = Vector2( -35.8988, -36.4045 )
+scale = Vector2( 0.494382, 0.494382 )
+frames = SubResource( 1 )
+animation = "default"
+script = ExtResource( 10 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+

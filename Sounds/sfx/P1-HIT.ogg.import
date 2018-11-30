@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/P1-HIT.ogg-192bc6ba898fcde683511b90a5665515.oggstr"
+
+[deps]
+
+source_file="res://Sounds/sfx/P1-HIT.ogg"
+dest_files=[ "res://.import/P1-HIT.ogg-192bc6ba898fcde683511b90a5665515.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
