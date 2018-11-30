@@ -21,7 +21,7 @@ const MAX_HEALTH = 4
 const MAX_JETPACK_ENERGY = 3
 const JETPACK_ENERGY_FOR_SUPERJUMP = 2
 const JETPACK_ENERGY_FOR_DASH = 0.5
-const JETPACK_REGEN_SPEED = 0.3 # points per sec
+const JETPACK_REGEN_SPEED = 0.4 # points per sec
 
 const DASHING_TIME = 0.2 # sec
 const ANIM_TIME_HIT = 0.3 # sec

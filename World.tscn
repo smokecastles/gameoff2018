@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -6,16 +6,18 @@
 [ext_resource path="res://Sprites/background/bg.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/background/NubeAltaA.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/background/NubeAltaB.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/background/hills1.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/background/castle_grey.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/background/NubeBajaA.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/background/NubeBajaB.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/background/NubeBajaC.png" type="Texture" id=11]
-[ext_resource path="res://InvadersFormation.tscn" type="PackedScene" id=12]
-[ext_resource path="res://InvadersInLine.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Invader.tscn" type="PackedScene" id=14]
-[ext_resource path="res://InvaderVariant.tscn" type="PackedScene" id=15]
-[ext_resource path="res://GUI.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Sprites/background/Dunas_Atras.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/background/Dunas_Medio.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/background/NubeBajaC.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/background/Duna_Frontal_A.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/background/Duna_Frontal_B.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/background/NubeBajaA.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/background/NubeBajaB.png" type="Texture" id=13]
+[ext_resource path="res://InvadersFormation.tscn" type="PackedScene" id=14]
+[ext_resource path="res://InvadersInLine.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Invader.tscn" type="PackedScene" id=16]
+[ext_resource path="res://InvaderVariant.tscn" type="PackedScene" id=17]
+[ext_resource path="res://GUI.tscn" type="PackedScene" id=18]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -43,7 +45,7 @@ tracks/0/keys = {
 "values": [ 0.0, 1.0 ]
 }
 
-[node name="World" type="Node" index="0"]
+[node name="World" type="Node"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
@@ -88,33 +90,35 @@ scroll_limit_end = Vector2( 0, 0 )
 scroll_ignore_camera_zoom = true
 _sections_unfolded = [ "Scroll" ]
 
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
 
 motion_scale = Vector2( 0.1, 0.3 )
 motion_offset = Vector2( -500, 100 )
 motion_mirroring = Vector2( 0, 0 )
 _sections_unfolded = [ "Motion" ]
 
-[node name="Background" type="Sprite" parent="ParallaxBackground/ParallaxLayer3" index="0"]
+[node name="Background" type="Sprite" parent="ParallaxBackground/ParallaxLayer4" index="0"]
 
 texture = ExtResource( 4 )
 centered = false
-offset = Vector2( 0, -3400 )
+offset = Vector2( 0, -3700 )
 _sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
 
-[node name="Cloud3" type="Sprite" parent="ParallaxBackground/ParallaxLayer3" index="1"]
+[node name="Cloud3" type="Sprite" parent="ParallaxBackground/ParallaxLayer4" index="1"]
 
 position = Vector2( 840.855, -95.6662 )
+scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 5 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Cloud4" type="Sprite" parent="ParallaxBackground/ParallaxLayer3" index="2"]
+[node name="Cloud4" type="Sprite" parent="ParallaxBackground/ParallaxLayer4" index="2"]
 
-position = Vector2( 1176.69, 125.482 )
+position = Vector2( 1240.69, -402.518 )
+scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 6 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" index="1"]
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground" index="1"]
 
 position = Vector2( 0, 100 )
 motion_scale = Vector2( 0.3, 0.3 )
@@ -122,50 +126,83 @@ motion_offset = Vector2( 0, -150 )
 motion_mirroring = Vector2( 1024, 0 )
 _sections_unfolded = [ "Material", "Motion", "Transform", "Visibility", "Z Index" ]
 
-[node name="Hills" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="0"]
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground" index="2"]
 
-visible = false
-modulate = Color( 0.878431, 0.466667, 0.380392, 1 )
-position = Vector2( 512.531, 237.907 )
-scale = Vector2( 1.02601, 1.04418 )
-texture = ExtResource( 7 )
-_sections_unfolded = [ "Material", "Offset", "Transform", "Visibility", "Z Index" ]
-
-[node name="Castle" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="1"]
-
-visible = false
-position = Vector2( 660.546, 169.154 )
-rotation = 0.149658
-scale = Vector2( 0.523403, 0.523403 )
-texture = ExtResource( 8 )
-_sections_unfolded = [ "Animation", "Offset", "Region", "Visibility", "Z Index" ]
-
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground" index="2"]
-
-motion_scale = Vector2( 0.5, 0.5 )
+position = Vector2( 0, 64 )
+motion_scale = Vector2( 0.3, 0.3 )
 motion_offset = Vector2( 0, -100 )
-motion_mirroring = Vector2( 1300, 900 )
+motion_mirroring = Vector2( 1000, 0 )
 _sections_unfolded = [ "Motion", "Transform", "Z Index" ]
 
-[node name="Cloud1" type="Sprite" parent="ParallaxBackground/ParallaxLayer2" index="0"]
+[node name="Dune" type="Sprite" parent="ParallaxBackground/ParallaxLayer5" index="0"]
 
-position = Vector2( 109.584, -69.44 )
+position = Vector2( 504, 204 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 7 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="ParallaxBackground" index="3"]
+
+motion_scale = Vector2( 0.4, 0.4 )
+motion_offset = Vector2( 0, -100 )
+motion_mirroring = Vector2( 1000, 0 )
+_sections_unfolded = [ "Motion", "Transform", "Z Index" ]
+
+[node name="Dune" type="Sprite" parent="ParallaxBackground/ParallaxLayer6" index="0"]
+
+position = Vector2( 504, 332 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 8 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Cloud3" type="Sprite" parent="ParallaxBackground/ParallaxLayer6" index="1"]
+
+position = Vector2( 495.049, -98 )
+scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 9 )
-centered = false
-_sections_unfolded = [ "Animation", "Offset", "Region", "Transform", "Visibility" ]
-
-[node name="Cloud2" type="Sprite" parent="ParallaxBackground/ParallaxLayer2" index="1"]
-
-position = Vector2( 812.049, 158 )
-texture = ExtResource( 10 )
 centered = false
 flip_h = true
 _sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform", "Visibility", "Z Index" ]
 
-[node name="Cloud3" type="Sprite" parent="ParallaxBackground/ParallaxLayer2" index="2"]
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground" index="4"]
 
-position = Vector2( 623.049, -290 )
+motion_scale = Vector2( 0.5, 0.5 )
+motion_offset = Vector2( 0, -100 )
+motion_mirroring = Vector2( 2600, 0 )
+_sections_unfolded = [ "Motion", "Transform", "Z Index" ]
+
+[node name="Dune" type="Sprite" parent="ParallaxBackground/ParallaxLayer2" index="0"]
+
+position = Vector2( 384, 422 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 10 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Dune2" type="Sprite" parent="ParallaxBackground/ParallaxLayer2" index="1"]
+
+position = Vector2( 1060, 421 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 11 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" index="5"]
+
+motion_scale = Vector2( 0.5, 0.5 )
+motion_offset = Vector2( 0, -100 )
+motion_mirroring = Vector2( 2600, 900 )
+_sections_unfolded = [ "Motion", "Transform", "Z Index" ]
+
+[node name="Cloud1" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="0"]
+
+position = Vector2( 109.584, -69.44 )
+texture = ExtResource( 12 )
+centered = false
+_sections_unfolded = [ "Animation", "Offset", "Region", "Transform", "Visibility" ]
+
+[node name="Cloud2" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="1"]
+
+position = Vector2( 812.049, 158 )
+texture = ExtResource( 13 )
 centered = false
 flip_h = true
 _sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform", "Visibility", "Z Index" ]
@@ -199,19 +236,19 @@ playback_speed = 1.0
 anims/Move = SubResource( 2 )
 blend_times = [  ]
 
-[node name="InvadersFormation" parent="InvadersPath2D/InvadersPathFollow2D" index="1" instance=ExtResource( 12 )]
+[node name="InvadersFormation" parent="InvadersPath2D/InvadersPathFollow2D" index="1" instance=ExtResource( 14 )]
 
-[node name="InvadersInLine" parent="." index="4" instance=ExtResource( 13 )]
+[node name="InvadersInLine" parent="." index="4" instance=ExtResource( 15 )]
 
 position = Vector2( 748.863, -854.332 )
 
 [node name="Invaders" type="Node" parent="." index="5"]
 
-[node name="Invader" parent="Invaders" index="0" instance=ExtResource( 14 )]
+[node name="Invader" parent="Invaders" index="0" instance=ExtResource( 16 )]
 
 position = Vector2( 1311.19, 149.726 )
 
-[node name="Invader2" parent="Invaders" index="1" instance=ExtResource( 15 )]
+[node name="Invader2" parent="Invaders" index="1" instance=ExtResource( 17 )]
 
 position = Vector2( 600, 0 )
 
@@ -225,7 +262,7 @@ scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 _sections_unfolded = [ "Pause" ]
 
-[node name="GUI" parent="CanvasLayer" index="0" instance=ExtResource( 16 )]
+[node name="GUI" parent="CanvasLayer" index="0" instance=ExtResource( 18 )]
 
 [connection signal="damage_taken" from="Player" to="CanvasLayer/GUI" method="_on_Player_damage_taken"]
 

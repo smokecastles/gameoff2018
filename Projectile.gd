@@ -1,6 +1,6 @@
 extends Area2D
 
-const SPEED = 800
+const SPEED = 600
 const Player = preload("Player.gd")
 const Enemy = preload("Enemy.gd")
 const Invader = preload("Invader.gd")
@@ -48,7 +48,7 @@ func _on_Projectile_body_entered(body):
 		else:
 			body.damage()
 		
-	if body is Invader:
+	if body is Invader and from_player:
 		body.damage()
 		add_explosion()
 	

@@ -37,7 +37,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
 }
 
-[node name="Invader" type="KinematicBody2D"]
+[node name="Invader" type="KinematicBody2D" index="0"]
 
 scale = Vector2( 0.7, 0.7 )
 input_pickable = false
@@ -66,7 +66,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="ProjectilePositionSide" type="Position2D" parent="." index="3"]
 
-position = Vector2( 89.8571, 0 )
+position = Vector2( 101.286, 0 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="DidShootTimer" type="Timer" parent="." index="4"]

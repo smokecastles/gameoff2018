@@ -3,7 +3,6 @@
 [ext_resource path="res://MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/fonts/VeraMono.ttf" type="DynamicFontData" id=2]
 
-
 [sub_resource type="DynamicFont" id=1]
 
 size = 40
@@ -12,7 +11,7 @@ use_filter = true
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Extra Spacing", "Resource", "Settings" ]
 
-[sub_resource type="Theme" id=4]
+[sub_resource type="Theme" id=2]
 
 Button/colors/font_color = Color( 0, 0, 0, 1 )
 Button/colors/font_color_disabled = Color( 0, 0, 0, 1 )
@@ -406,7 +405,7 @@ WindowDialog/icons/close_highlight = null
 WindowDialog/styles/panel = null
 _sections_unfolded = [ "Label", "Label/colors", "Label/constants", "Label/fonts", "Label/styles" ]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 
 size = 30
 use_mipmaps = false
@@ -414,7 +413,7 @@ use_filter = true
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Extra Spacing", "Resource", "Settings" ]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 
 size = 18
 use_mipmaps = false
@@ -422,7 +421,7 @@ use_filter = true
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Extra Spacing", "Resource", "Settings" ]
 
-[node name="MainMenu" type="MarginContainer" index="0"]
+[node name="MainMenu" type="MarginContainer"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -531,8 +530,8 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 0
 size_flags_vertical = 4
-theme = SubResource( 4 )
-custom_fonts/font = SubResource( 2 )
+theme = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "New Game"
 percent_visible = 1.0
 lines_skipped = 0
@@ -554,7 +553,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 0
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "About"
 percent_visible = 1.0
 lines_skipped = 0
@@ -576,7 +575,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "v 1.0
 2018 Smoke Castles"
 percent_visible = 1.0

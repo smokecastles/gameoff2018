@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cloud9.png-fd760513b11f6de56f69631323df35e6.stex"
+path="res://.import/Dunas_Medio.png-4eed286dad6f8591e747cd2841002079.stex"
 
 [deps]
 
-source_file="res://Sprites/background/cloud9.png"
-dest_files=[ "res://.import/cloud9.png-fd760513b11f6de56f69631323df35e6.stex" ]
+source_file="res://Sprites/background/Dunas_Medio.png"
+dest_files=[ "res://.import/Dunas_Medio.png-4eed286dad6f8591e747cd2841002079.stex" ]
 
 [params]
 
