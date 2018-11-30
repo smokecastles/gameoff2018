@@ -1,9 +1,8 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Invader.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/enemies/shipYellow_manned.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/ufo1/ufo1_up.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/fx/exclamation.png" type="Texture" id=3]
-
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -40,7 +39,6 @@ tracks/0/keys = {
 
 [node name="Invader" type="KinematicBody2D"]
 
-modulate = Color( 0.439216, 0.188235, 0.203922, 1 )
 scale = Vector2( 0.7, 0.7 )
 input_pickable = false
 collision_layer = 2
@@ -53,22 +51,22 @@ _sections_unfolded = [ "Collision", "Material", "Transform", "Visibility", "Z In
 
 frames = SubResource( 1 )
 animation = "default"
-_sections_unfolded = [ "Transform", "Z Index" ]
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
 
 build_mode = 0
-polygon = PoolVector2Array( 0.118881, -53.4537, 18.1641, -48.6123, 33.1284, -29.2467, 28.7271, -6.80023, 59.0959, 2.88255, 62.6169, 26.2093, 37.9698, 53.4971, -37.732, 54.3774, -62.3791, 28.4099, -59.7383, 2.88255, -29.8097, -3.71935, -35.5314, -27.0461, -18.3664, -50.8129 )
+polygon = PoolVector2Array( 4.71272, -39.7582, 16.4915, -33.1006, 22.1249, -19.2733, 67.1917, -9.03087, 74.3614, -2.88539, 65.6553, 6.33281, 54.3886, 9.91767, 75.3857, 39.1087, 68.7281, 39.6208, 49.2674, 10.9419, 2.1521, 15.0389, -45.9874, 10.9419, -69.5451, 40.1329, -76.7148, 39.6208, -52.1329, 8.3813, -67.4966, -1.34903, -54.1814, -13.1279, -14.2358, -18.7612, -2.96912, -37.7097 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="ProjectilePositionDown" type="Position2D" parent="." index="2"]
 
-position = Vector2( 0, 87 )
+position = Vector2( 0, 85.5714 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="ProjectilePositionSide" type="Position2D" parent="." index="3"]
 
-position = Vector2( 87, 0 )
+position = Vector2( 89.8571, 0 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="DidShootTimer" type="Timer" parent="." index="4"]

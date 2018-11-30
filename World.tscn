@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -14,7 +14,8 @@
 [ext_resource path="res://InvadersFormation.tscn" type="PackedScene" id=12]
 [ext_resource path="res://InvadersInLine.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Invader.tscn" type="PackedScene" id=14]
-[ext_resource path="res://GUI.tscn" type="PackedScene" id=15]
+[ext_resource path="res://InvaderVariant.tscn" type="PackedScene" id=15]
+[ext_resource path="res://GUI.tscn" type="PackedScene" id=16]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -210,6 +211,10 @@ position = Vector2( 748.863, -854.332 )
 
 position = Vector2( 1311.19, 149.726 )
 
+[node name="Invader2" parent="Invaders" index="1" instance=ExtResource( 15 )]
+
+position = Vector2( 600, 0 )
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="6"]
 
 pause_mode = 2
@@ -220,7 +225,7 @@ scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 _sections_unfolded = [ "Pause" ]
 
-[node name="GUI" parent="CanvasLayer" index="0" instance=ExtResource( 15 )]
+[node name="GUI" parent="CanvasLayer" index="0" instance=ExtResource( 16 )]
 
 [connection signal="damage_taken" from="Player" to="CanvasLayer/GUI" method="_on_Player_damage_taken"]
 
