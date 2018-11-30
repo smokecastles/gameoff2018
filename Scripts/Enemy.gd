@@ -4,6 +4,7 @@ export var armor = 2 setget set_armor
 export var velocity = Vector2()
 onready var size = get_node("sprite").texture.get_size()
 onready var camera = get_node("/root/Node2D/camera")
+onready var audio_player = get_node("/root/space_shooter/audio_player")
 
 const scn_explosion = preload("res://scenes/explosion.tscn")
 
@@ -28,6 +29,8 @@ func _on_area_enter(other):
 	pass
 
 func set_armor(new_value):
+	if new_value < armor:
+		audio_player.play_sfx("enemy_hit")
 	if is_queued_for_deletion():
 		return
 	armor = new_value
@@ -40,4 +43,5 @@ func create_explosion():
 	var explosion = scn_explosion.instance()
 	explosion.position = position
 	get_tree().get_root().add_child(explosion)
+	audio_player.play_sfx("enemy_explosion")
 	pass

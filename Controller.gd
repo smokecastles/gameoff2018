@@ -2,11 +2,21 @@ extends Node
 
 var projectile = preload("res://Projectile.tscn")
 var explosion_scene = preload("Explosion.tscn")
+onready var audio_player = get_node("audio_player")
 
 var current_scene = null
 
 func _ready():
 	get_current_scene()
+	audio_player = get_node("audio_player")
+	play_music()
+	pass
+	
+func play_music():
+	var nameScene = get_tree().get_current_scene().get_name()
+	if(get_tree().get_current_scene().get_name() == "space_shooter"):
+		audio_player.play_music("main_theme_loop")
+	pass
 
 func get_current_scene():
 	if not current_scene:

@@ -25,6 +25,7 @@ func _process(delta):
 	
 func shoot():
 	while true:
+		audio_player.play_sfx("enemy_shoot")
 		var laser = scn_laser.instance()
 		laser.position = get_node("cannon").global_position
 		get_tree().get_root().add_child(laser)

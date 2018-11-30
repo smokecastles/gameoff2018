@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Controller.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/camera.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Sprites/a-wing_512/A-Wing_up.PNG" type="Texture" id=10]
 [ext_resource path="res://GUI.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scripts/shooter_gui.gd" type="Script" id=12]
+[ext_resource path="res://Scripts/audio_player.gd" type="Script" id=13]
 
 [sub_resource type="Animation" id=1]
 
@@ -136,12 +137,12 @@ tracks/0/keys = {
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="space_shooter" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="camera" type="Camera2D" parent="." index="0"]
+[node name="camera_shake" type="Camera2D" parent="." index="0"]
 
 anchor_mode = 0
 rotating = false
@@ -305,23 +306,26 @@ scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 _sections_unfolded = [ "Pause" ]
 
-[node name="GUI" type="MarginContainer" parent="CanvasLayer" index="0" instance=ExtResource( 11 )]
+[node name="GUI" parent="CanvasLayer" index="0" instance=ExtResource( 11 )]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-custom_constants/margin_right = 20
-custom_constants/margin_top = 20
-custom_constants/margin_left = 20
-custom_constants/margin_bottom = 20
 script = ExtResource( 12 )
-_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Rect", "Size Flags", "Theme", "Visibility", "custom_constants" ]
+
+[node name="audio_player" type="Node" parent="." index="5"]
+
+script = ExtResource( 13 )
+_sections_unfolded = [ "Pause" ]
+
+[node name="music_player" type="AudioStreamPlayer2D" parent="audio_player" index="0"]
+
+position = Vector2( 500.689, 309.829 )
+stream = null
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 

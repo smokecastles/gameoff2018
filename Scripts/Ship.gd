@@ -11,8 +11,9 @@ var velocity = Vector2()
 var timer_shot = 0
 onready var size = get_node("sprite").texture.get_size()
 onready var anim = get_node("anim")
-onready var camera = get_node("/root/Node2D/camera")
-onready var gui = get_node("/root/Node2D/CanvasLayer/GUI")
+onready var camera = get_node("/root/space_shooter/camera_shake")
+onready var gui = get_node("/root/space_shooter/CanvasLayer/GUI")
+onready var audio_player = get_node("/root/space_shooter/audio_player")
 
 
 # class member variables go here, for example:
@@ -70,13 +71,13 @@ func shoot():
 	var pos_right= get_node("cannons/right").global_position
 	create_laser(pos_left)
 	create_laser(pos_right)
+	audio_player.play_sfx("player_shoot")
 	pass
 	
 func set_armor(new_value):
 	if new_value < armor:
 		get_tree().get_root().add_child(scn_flash.instance())
-#		if(gui !=  null):
-#			gui._on_Player_damage_taken(armor - new_value)
+		audio_player.play_sfx("player_hit")
 	
 	if(gui !=  null):
 		gui.update_health(new_value)
@@ -100,4 +101,5 @@ func create_explosion():
 	var explosion = scn_explosion.instance()
 	explosion.position = position
 	get_tree().get_root().add_child(explosion)
+	audio_player.play_sfx("player_explosion")
 	pass
