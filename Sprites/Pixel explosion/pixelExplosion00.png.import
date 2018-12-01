@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pixelExplosion00.png-7c0fa130dd2eb47e96a981035c731711.stex"
+path="res://.import/pixelExplosion00.png-fbae2b7b99dcabbc272702c90e3601bb.stex"
 
 [deps]
 
-source_file="res://sprites/Pixel explosion/pixelExplosion00.png"
-dest_files=[ "res://.import/pixelExplosion00.png-7c0fa130dd2eb47e96a981035c731711.stex" ]
+source_file="res://Sprites/Pixel explosion/pixelExplosion00.png"
+dest_files=[ "res://.import/pixelExplosion00.png-fbae2b7b99dcabbc272702c90e3601bb.stex" ]
 
 [params]
 

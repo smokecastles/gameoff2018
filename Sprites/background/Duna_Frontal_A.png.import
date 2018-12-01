@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Duna_Frontal_A.png-474cbef1cfb1d6267a8163c639c118f9.stex"
+path="res://.import/Duna_Frontal_A.png-428a8eba6f62a4a10278053f9e70f207.stex"
 
 [deps]
 
-source_file="res://sprites/background/Duna_Frontal_A.png"
-dest_files=[ "res://.import/Duna_Frontal_A.png-474cbef1cfb1d6267a8163c639c118f9.stex" ]
+source_file="res://Sprites/background/Duna_Frontal_A.png"
+dest_files=[ "res://.import/Duna_Frontal_A.png-428a8eba6f62a4a10278053f9e70f207.stex" ]
 
 [params]
 
