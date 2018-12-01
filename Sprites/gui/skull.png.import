@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/skull.png-63b401c67e4ed0056f82c63acaa9465f.stex"
+path="res://.import/skull.png-19f8117816661d9f35ece13591d8f6ad.stex"
 
 [deps]
 
-source_file="res://Sprites/gui/skull.png"
-dest_files=[ "res://.import/skull.png-63b401c67e4ed0056f82c63acaa9465f.stex" ]
+source_file="res://sprites/gui/skull.png"
+dest_files=[ "res://.import/skull.png-19f8117816661d9f35ece13591d8f6ad.stex" ]
 
 [params]
 

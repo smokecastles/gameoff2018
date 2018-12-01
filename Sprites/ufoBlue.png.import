@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ufoBlue.png-5067fa33a97d40c1f18ccf241440247a.stex"
+path="res://.import/ufoBlue.png-84f6f5bf89b270acab303c899c01a0f1.stex"
 
 [deps]
 
-source_file="res://Sprites/ufoBlue.png"
-dest_files=[ "res://.import/ufoBlue.png-5067fa33a97d40c1f18ccf241440247a.stex" ]
+source_file="res://sprites/ufoBlue.png"
+dest_files=[ "res://.import/ufoBlue.png-84f6f5bf89b270acab303c899c01a0f1.stex" ]
 
 [params]
 
