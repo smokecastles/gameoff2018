@@ -1,9 +1,8 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Projectile.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/weapons/laserGreen04.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/weapons/laserGreen05.png" type="Texture" id=3]
-
+[ext_resource path="res://Sprites/weapons/laserRed01.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/weapons/laserRed02.png" type="Texture" id=3]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -17,8 +16,8 @@ animations = [ {
 [sub_resource type="CapsuleShape2D" id=2]
 
 custom_solver_bias = 0.0
-radius = 5.30071
-height = 25.4126
+radius = 9.11957
+height = 48.2391
 
 [node name="Projectile" type="Area2D"]
 
@@ -31,7 +30,7 @@ collision_mask = 3
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision" ]
+_sections_unfolded = [ "Collision", "Pickable" ]
 
 [node name="Sprite" type="AnimatedSprite" parent="." index="0"]
 

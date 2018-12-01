@@ -42,7 +42,7 @@ func move_invader_groups_to_follow_player(delta):
 		
 		var pos_y = current_pos.y
 		if player.is_on_floor():
-			pos_y = player.global_position.y - (270 if node == invaders_path2d else 1300)
+			pos_y = player.global_position.y - (270 if node == invaders_path2d else 1250)
 		
 		var final_pos = Vector2(player.global_position.x, pos_y) 
 	

@@ -93,7 +93,7 @@ func _physics_process(delta):
 			_debug_print_invaders()
 			last_index -= 1
 		var invader = invaders[shooter_col][last_index]
-		print("Shooting invader: (%s, %s)" % [shooter_col, last_index])
+		#print("Shooting invader: (%s, %s)" % [shooter_col, last_index])
 		var player_alive = !Controller.get_current_scene().player.is_dead
 		if invader and invader.state == invader.STATES.IN_FORMATION and player_alive:
 			invader.shoot_downwards()
