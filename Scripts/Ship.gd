@@ -5,7 +5,7 @@ const interval_shot = 0.2
 export var armor = 4 setget set_armor
 const scn_laser = preload("res://scenes/laser_ship.tscn")
 const scn_explosion = preload("res://scenes/explosion.tscn")
-const scn_flash = preload("res://Scenes/flash.tscn")
+const scn_flash = preload("res://scenes/flash.tscn")
 
 var velocity = Vector2()
 var timer_shot = 0

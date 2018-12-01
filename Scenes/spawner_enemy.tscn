@@ -5,6 +5,9 @@
 [node name="spawner_enemy" type="Node"]
 
 script = ExtResource( 1 )
+begin_spawn = false
+spawn = false
+time_for_boss = 1
 
 [node name="Container" type="Node" parent="." index="0"]
 
