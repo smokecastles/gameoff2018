@@ -65,6 +65,11 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
+"name": "DashFront",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
 "name": "Walk",
 "speed": 12.0
 }, {
