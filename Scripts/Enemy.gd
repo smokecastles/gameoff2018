@@ -3,10 +3,10 @@ extends Area2D
 export var armor = 2 setget set_armor
 export var velocity = Vector2()
 onready var size = get_node("sprite").texture.get_size()
-onready var camera = get_node("/root/Node2D/camera")
+onready var camera = get_node("/root/space_shooter/camera_shake")
 onready var audio_player = get_node("/root/space_shooter/audio_player")
 
-const scn_explosion = preload("res://scenes/explosion.tscn")
+const scn_explosion = preload("res://Scenes/explosion.tscn")
 
 func _ready():
 	set_process(true)

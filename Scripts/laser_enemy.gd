@@ -1,4 +1,4 @@
-extends "res://scripts/laser.gd"
+extends "res://Scripts/Laser.gd"
 
 onready var camera = get_node("/root/space_shooter/camera_shake")
 

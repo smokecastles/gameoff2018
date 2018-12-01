@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/boss.gd" type="Script" id=1]
-[ext_resource path="res://sprites/final_boss/final_boss_turn512.png" type="Texture" id=2]
-[ext_resource path="res://sprites/final_boss/final_boss_512.png" type="Texture" id=3]
-[ext_resource path="res://sprites/weapons/laserRed02.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/final_boss/final_boss_512.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/weapons/laserRed01.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -26,7 +25,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 3 ) ]
+"values": [ ExtResource( 2 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("sprite:scale")
@@ -128,7 +127,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 3 ) ]
+"values": [ ExtResource( 2 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("sprite:scale")
@@ -325,12 +324,12 @@ tracks/6/keys = {
 "values": [ Vector2( -523.446, 442.848 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=6]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 
 resource_name = "active"
 length = 1.0
@@ -373,9 +372,8 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=8]
 
-resource_name = "inactive"
 length = 1.0
 loop = true
 step = 0.1
@@ -472,7 +470,7 @@ audio_bus_name = "Master"
 script = ExtResource( 1 )
 _sections_unfolded = [ "Audio Bus", "Collision", "Transform" ]
 armor = 100
-velocity = Vector2( 100, 0 )
+velocity = Vector2( 200, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
@@ -530,13 +528,12 @@ _sections_unfolded = [ "Transform" ]
 visible = false
 position = Vector2( 534.825, -247.634 )
 scale = Vector2( 3.53478, 6.71141 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Animation", "Offset", "Region", "Transform", "Visibility", "Z Index" ]
 
 [node name="mega_laser_area" type="Area2D" parent="Position2D" index="1"]
 
 position = Vector2( 0, 3.05176e-005 )
-scale = Vector2( 1, 1 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -549,7 +546,7 @@ audio_bus_name = "Master"
 
 position = Vector2( 534.63, -247.627 )
 scale = Vector2( 1.93591, 22.0406 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 disabled = true
 _sections_unfolded = [ "Visibility" ]
 
@@ -560,8 +557,8 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/active = SubResource( 8 )
-anims/inactive = SubResource( 6 )
+anims/active = SubResource( 7 )
+anims/inactive = SubResource( 8 )
 anims/warning = SubResource( 9 )
 blend_times = [  ]
 
