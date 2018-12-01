@@ -59,7 +59,7 @@ func _process(delta):
 	if is_idle == true:
 		anim.play("idle")
 		
-	if Input.is_key_pressed(32) && timer_shot <= 0:
+	if (Input.is_key_pressed(32) || Input.is_action_pressed("shoot")) && timer_shot <= 0:
 		shoot()
 	
 	timer_shot -= delta;
