@@ -11,6 +11,7 @@ var sfx_library = {
 	"player_jetpack": preload("res://Sounds/sfx/P1-JETPACK.ogg"),
 	"player_death": preload("res://Sounds/sfx/P1-MUERTE.ogg"),
 	"player_jump": preload("res://Sounds/sfx/P1-SALTO.ogg"),
+	"player_falling": preload("res://Sounds/sfx/fall.ogg"),
 	"enemy_shoot": preload("res://Sounds/sfx/NAVE-DISPARO.ogg"),
 	"enemy_hit": preload("res://Sounds/sfx/NAVE-HIT.ogg"),
 	"enemy_explosion": preload("res://Sounds/sfx/NAVE-DESTRUIDA.ogg"),
