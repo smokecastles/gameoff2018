@@ -1,6 +1,6 @@
-extends "res://scripts/enemy.gd"
+extends "res://Scripts/Enemy.gd"
 
-const scn_laser = preload("res://scenes/laser_enemy.tscn")
+const scn_laser = preload("res://Scenes/laser_enemy.tscn")
 
 # class member variables go here, for example:
 # var a = 2

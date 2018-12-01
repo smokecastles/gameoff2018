@@ -7,7 +7,7 @@
 script = ExtResource( 1 )
 begin_spawn = false
 spawn = false
-time_for_boss = 1
+time_for_boss = 30
 
 [node name="Container" type="Node" parent="." index="0"]
 

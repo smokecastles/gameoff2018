@@ -9,7 +9,6 @@
 [ext_resource path="res://Sprites/Pixel explosion/pixelExplosion05.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/Pixel explosion/pixelExplosion06.png" type="Texture" id=8]
 
-
 [sub_resource type="Animation" id=1]
 
 resource_name = "explosion"
@@ -69,7 +68,7 @@ anim_offset_random = 0.0
 anim_loop = true
 _sections_unfolded = [ "Angular Velocity", "Animation", "Emission Shape", "Flags", "Hue Variation", "Initial Velocity", "Orbit Velocity", "Scale", "Spread", "Trail" ]
 
-[node name="sprite" type="Sprite" index="0"]
+[node name="sprite" type="Sprite"]
 
 position = Vector2( 493.124, 284.287 )
 texture = ExtResource( 1 )

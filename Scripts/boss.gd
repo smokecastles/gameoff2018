@@ -1,6 +1,6 @@
-extends "res://scripts/enemy.gd"
+extends "res://Scripts/Enemy.gd"
 
-const scn_laser = preload("res://scenes/laser_enemy.tscn")
+const scn_laser = preload("res://Scenes/laser_enemy.tscn")
 
 onready var gui = get_node("/root/space_shooter/CanvasLayer/GUI")
 onready var boss_animation = get_node("boss_animation")

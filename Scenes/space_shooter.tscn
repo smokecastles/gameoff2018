@@ -4,14 +4,14 @@
 [ext_resource path="res://Scripts/camera.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/spawner_enemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/red.png" type="Texture" id=4]
-[ext_resource path="res://sprites/background/bg.png" type="Texture" id=5]
-[ext_resource path="res://Scripts/stars.gd" type="Script" id=6]
+[ext_resource path="res://Sprites/background/bg.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/Stars.gd" type="Script" id=6]
 [ext_resource path="res://Sprites/background/Fondo_B_SinTile.png" type="Texture" id=7]
-[ext_resource path="res://Scripts/ship.gd" type="Script" id=8]
-[ext_resource path="res://sprites/a-wing_512/A-Wing_down.PNG" type="Texture" id=9]
-[ext_resource path="res://sprites/a-wing_512/A-Wing_still.PNG" type="Texture" id=10]
-[ext_resource path="res://sprites/a-wing_512/A-Wing_turn.PNG" type="Texture" id=11]
-[ext_resource path="res://Sprites/a-wing_512/A-Wing_up.PNG" type="Texture" id=12]
+[ext_resource path="res://Scripts/Ship.gd" type="Script" id=8]
+[ext_resource path="res://Sprites/a-wing/A-Wing_down.PNG" type="Texture" id=9]
+[ext_resource path="res://Sprites/a-wing/A-Wing_still.PNG" type="Texture" id=10]
+[ext_resource path="res://Sprites/a-wing/A-Wing_turn.PNG" type="Texture" id=11]
+[ext_resource path="res://Sprites/a-wing/A-Wing_up.PNG" type="Texture" id=12]
 [ext_resource path="res://GUI.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scripts/shooter_gui.gd" type="Script" id=14]
 [ext_resource path="res://Scripts/audio_player.gd" type="Script" id=15]
@@ -243,6 +243,11 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 27 ) ],
 "loop": true,
+"name": "DashFront",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 27 ) ],
+"loop": true,
 "name": "Walk",
 "speed": 12.0
 }, {
@@ -251,9 +256,9 @@ animations = [ {
 "name": "DashBack",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 25 ) ],
+"frames": [ ExtResource( 28 ) ],
 "loop": true,
-"name": "Falling",
+"name": "Hit",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 29 ) ],
@@ -261,14 +266,9 @@ animations = [ {
 "name": "Jump",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 28 ) ],
+"frames": [ ExtResource( 25 ) ],
 "loop": true,
-"name": "Hit",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 27 ) ],
-"loop": true,
-"name": "DashFront",
+"name": "Falling",
 "speed": 5.0
 } ]
 _sections_unfolded = [ "Resource" ]
@@ -387,7 +387,7 @@ tracks/8/keys = {
 "values": [ false, true ]
 }
 
-[node name="space_shooter" type="Node2D"]
+[node name="space_shooter" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "Visibility" ]
@@ -421,9 +421,6 @@ script = ExtResource( 2 )
 _sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Offset", "Smoothing", "Transform", "Visibility" ]
 
 [node name="spawner_enemy" parent="." index="1" instance=ExtResource( 3 )]
-
-spawn = true
-time_for_boss = 30
 
 [node name="BackgroundParent" type="Node2D" parent="." index="2"]
 
@@ -555,7 +552,6 @@ script = ExtResource( 14 )
 
 [node name="audio_player" type="Node" parent="." index="5"]
 
-editor/display_folded = true
 script = ExtResource( 15 )
 _sections_unfolded = [ "Pause" ]
 

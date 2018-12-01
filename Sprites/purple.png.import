@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/purple.png-844a0d700820f7245b6d600a65da611a.stex"
+path="res://.import/purple.png-cba87f6ef4617549cfd2fac40a706bc9.stex"
 
 [deps]
 
-source_file="res://sprites/purple.png"
-dest_files=[ "res://.import/purple.png-844a0d700820f7245b6d600a65da611a.stex" ]
+source_file="res://Sprites/purple.png"
+dest_files=[ "res://.import/purple.png-cba87f6ef4617549cfd2fac40a706bc9.stex" ]
 
 [params]
 

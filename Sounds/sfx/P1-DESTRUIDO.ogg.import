@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/P1-DESTRUIDO.ogg-3b986251eea1ea11b66d1140fdc9665f.oggstr"
+path="res://.import/P1-DESTRUIDO.ogg-4c4f097f25ddec005d875c2ab60de98c.oggstr"
 
 [deps]
 
-source_file="res://sounds/sfx/P1-DESTRUIDO.ogg"
-dest_files=[ "res://.import/P1-DESTRUIDO.ogg-3b986251eea1ea11b66d1140fdc9665f.oggstr" ]
+source_file="res://Sounds/sfx/P1-DESTRUIDO.ogg"
+dest_files=[ "res://.import/P1-DESTRUIDO.ogg-4c4f097f25ddec005d875c2ab60de98c.oggstr" ]
 
 [params]
 

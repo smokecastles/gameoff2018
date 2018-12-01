@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/hud_heartFull.png-676a41a4cec63d26a82b5fb4ad74c885.stex"
+path="res://.import/hud_heartFull.png-3f4c838c6f03ffca835006b3a7a415ff.stex"
 
 [deps]
 
-source_file="res://sprites/gui/hud_heartFull.png"
-dest_files=[ "res://.import/hud_heartFull.png-676a41a4cec63d26a82b5fb4ad74c885.stex" ]
+source_file="res://Sprites/gui/hud_heartFull.png"
+dest_files=[ "res://.import/hud_heartFull.png-3f4c838c6f03ffca835006b3a7a415ff.stex" ]
 
 [params]
 

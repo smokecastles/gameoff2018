@@ -1,9 +1,9 @@
 extends Node
 
-const scn_boss = preload("res://scenes/boss.tscn")
+const scn_boss = preload("res://Scenes/boss.tscn")
 const enemies = [
-preload("res://scenes/enemy_kamikaze.tscn")
-,preload("res://scenes/enemy_clever.tscn"),
+preload("res://Scenes/Enemy_Kamikaze.tscn")
+,preload("res://Scenes/enemy_clever.tscn"),
 ]
 
 
