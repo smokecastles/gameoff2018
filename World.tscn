@@ -151,7 +151,7 @@ _sections_unfolded = [ "Motion", "Transform", "Z Index" ]
 
 [node name="Dune" type="Sprite" parent="ParallaxBackground/ParallaxLayer6" index="0"]
 
-position = Vector2( 504, 332 )
+position = Vector2( 504, 348 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
@@ -169,19 +169,19 @@ _sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform",
 
 motion_scale = Vector2( 0.5, 0.5 )
 motion_offset = Vector2( 0, -100 )
-motion_mirroring = Vector2( 2600, 0 )
+motion_mirroring = Vector2( 1400, 0 )
 _sections_unfolded = [ "Motion", "Transform", "Z Index" ]
 
 [node name="Dune" type="Sprite" parent="ParallaxBackground/ParallaxLayer2" index="0"]
 
-position = Vector2( 384, 422 )
+position = Vector2( 384, 415 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 10 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Dune2" type="Sprite" parent="ParallaxBackground/ParallaxLayer2" index="1"]
 
-position = Vector2( 1060, 421 )
+position = Vector2( 932, 446 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 11 )
 _sections_unfolded = [ "Transform" ]
