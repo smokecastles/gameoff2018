@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/enemy_clever.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/ufo1/ufo1_down.PNG" type="Texture" id=2]
+[ext_resource path="res://Sprites/ufo1/ufo_turn.PNG" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -29,7 +29,7 @@ shape = SubResource( 1 )
 
 [node name="cannon" type="Position2D" parent="." index="1"]
 
-position = Vector2( -0.735107, 36.6088 )
+position = Vector2( -0.25946, 10.9236 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="sprite" type="Sprite" parent="." index="2"]

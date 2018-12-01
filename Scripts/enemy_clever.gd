@@ -11,6 +11,7 @@ func _ready():
 	var rand = randi()%2
 	if(rand == 0):
 		velocity.x = -velocity.x
+		scale.x = -abs(scale.x)
 		
 	yield(get_tree().create_timer(.5), "timeout")
 	shoot()
@@ -19,8 +20,10 @@ func _ready():
 func _process(delta):
 	if position.x <= 0 + size.x/2:
 		velocity.x = abs(velocity.x)
+		scale.x = abs(scale.x)
 	if position.x >= get_viewport().get_visible_rect().size.x - size.x/2:
 		velocity.x = -abs(velocity.x)
+		scale.x = -abs(scale.x)
 	pass
 	
 func shoot():

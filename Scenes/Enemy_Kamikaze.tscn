@@ -3,13 +3,12 @@
 [ext_resource path="res://Scripts/enemy.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/ufo2/ufo2_down.PNG" type="Texture" id=2]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="enemy_kamikaze" type="Area2D"]
+[node name="enemy_kamikaze" type="Area2D" index="0"]
 
 position = Vector2( 246.065, 71.7691 )
 input_pickable = true
@@ -22,7 +21,7 @@ audio_bus_name = "Master"
 script = ExtResource( 1 )
 _sections_unfolded = [ "Audio Bus", "Collision", "Transform" ]
 armor = 2
-velocity = Vector2( 0, 100 )
+velocity = Vector2( 0, 200 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
