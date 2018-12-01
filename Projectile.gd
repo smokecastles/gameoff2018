@@ -1,6 +1,7 @@
 extends Area2D
 
-const SPEED = 600
+const SPEED_FROM_ENEMY = 600
+const SPEED_FROM_PLAYER = 1200
 const Player = preload("Player.gd")
 const Enemy = preload("Enemy.gd")
 const Invader = preload("Invader.gd")
@@ -9,13 +10,18 @@ const motion = Vector2()
 var direction_x = 1
 var direction_y = 0
 var from_player = false
+var speed = 0
 
 func _ready():
 	$Sprite.play("Shoot")
+	if from_player:
+		speed = SPEED_FROM_PLAYER
+	else:
+		speed = SPEED_FROM_ENEMY
 
 func _physics_process(delta):
-	motion.x = SPEED * delta * direction_x
-	motion.y = SPEED * delta * direction_y
+	motion.x = speed * delta * direction_x
+	motion.y = speed * delta * direction_y
 	translate(motion)
 	pass
 

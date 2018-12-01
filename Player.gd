@@ -33,15 +33,17 @@ const ANIM_DASH_FRONT = "DashFront"
 const ANIM_DASH_BACK = "DashBack"
 const ANIM_HIT = "Hit"
 
-onready var projectile = Controller.projectile
+onready var projectile = Controller.projectile_player
 
 onready var sprite = $AnimatedSprite
 onready var collision_polygon = $CollisionPolygon2D
 onready var projectile_pos = $ProjectilePosition
 onready var jetpack_particles = $JetpackParticles
+onready var shot_particles = $ShotParticles
 onready var dash_effect_right_particles = $DashEffectRightParticles
 onready var dash_effect_left_particles = $DashEffectLeftParticles
 onready var invulnerable_after_hit_timer = $InvulnerableAfterHitTimer
+onready var shot_particles_timer = $"ShotParticles/ShotParticlesTimer"
 
 var motion = Vector2()
 var falling_down = false
@@ -126,6 +128,7 @@ func _physics_process(delta):
 	if sprite.flip_h and projectile_pos.position.x > 0 or not sprite.flip_h and projectile_pos.position.x < 0:
 		projectile_pos.position.x *= -1
 		jetpack_particles.position.x *= -1
+		shot_particles.position.x *= -1
 	
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
@@ -188,6 +191,10 @@ func shoot():
 	node.set_direction_x(-1 if sprite.flip_h else 1)
 	get_parent().add_child(node)
 	node.position = projectile_pos.global_position
+	shot_particles.emitting = true
+	shot_particles_timer.start()
+	yield(shot_particles_timer, "timeout")
+	shot_particles.emitting = false
 
 func damage():
 	if not invulnerable:

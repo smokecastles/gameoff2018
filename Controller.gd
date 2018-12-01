@@ -1,6 +1,7 @@
 extends Node
 
 var projectile = preload("res://ProjectileEnemy.tscn")
+var projectile_player = preload("res://ProjectilePlayer.tscn")
 var explosion_scene = preload("Explosion.tscn")
 onready var audio_player = get_node("audio_player")
 
