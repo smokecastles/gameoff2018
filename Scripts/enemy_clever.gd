@@ -7,6 +7,8 @@ const scn_laser = preload("res://Scenes/laser_enemy.tscn")
 # var b = "textvar"
 
 func _ready():
+	size.x = size.x * get_node("sprite").scale.x
+	size.y = size.y * get_node("sprite").scale.y
 	randomize()
 	var rand = randi()%2
 	if(rand == 0):

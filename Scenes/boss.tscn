@@ -469,8 +469,8 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
 _sections_unfolded = [ "Audio Bus", "Collision", "Transform" ]
-armor = 2
-velocity = Vector2( 0, 0 )
+armor = 100
+velocity = Vector2( 200, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
@@ -533,7 +533,7 @@ _sections_unfolded = [ "Animation", "Offset", "Region", "Transform", "Visibility
 
 [node name="mega_laser_area" type="Area2D" parent="Position2D" index="1"]
 
-position = Vector2( 0, 3.05176e-05 )
+position = Vector2( 0, 3.05176e-005 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0

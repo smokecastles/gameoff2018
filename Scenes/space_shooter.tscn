@@ -26,8 +26,8 @@
 [ext_resource path="res://Sprites/player/H_07.png" type="Texture" id=24]
 [ext_resource path="res://Sprites/player/H_08.png" type="Texture" id=25]
 [ext_resource path="res://Sprites/player/H_09.png" type="Texture" id=26]
-[ext_resource path="res://Sprites/player/F_00.png" type="Texture" id=27]
-[ext_resource path="res://Sprites/player/B_00.png" type="Texture" id=28]
+[ext_resource path="res://Sprites/player/B_00.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/player/F_00.png" type="Texture" id=28]
 [ext_resource path="res://Sprites/player/J_00.png" type="Texture" id=29]
 [ext_resource path="res://Scripts/AnimationPlayer.gd" type="Script" id=30]
 
@@ -251,10 +251,15 @@ animations = [ {
 "name": "Walk",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 28 ) ],
+"frames": [ ExtResource( 27 ) ],
 "loop": true,
 "name": "DashBack",
 "speed": 1.0
+}, {
+"frames": [ ExtResource( 25 ) ],
+"loop": true,
+"name": "Falling",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 28 ) ],
 "loop": true,
@@ -264,11 +269,6 @@ animations = [ {
 "frames": [ ExtResource( 29 ) ],
 "loop": true,
 "name": "Jump",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 25 ) ],
-"loop": true,
-"name": "Falling",
 "speed": 5.0
 } ]
 _sections_unfolded = [ "Resource" ]
@@ -300,7 +300,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ "Walk", "Idle" ]
+"values": [ "Hit", "Idle" ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Player:visible")
@@ -391,7 +391,7 @@ tracks/8/keys = {
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "Visibility" ]
-start_game = false
+start_game = true
 
 [node name="camera_shake" type="Camera2D" parent="." index="0"]
 
@@ -421,6 +421,8 @@ script = ExtResource( 2 )
 _sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Offset", "Smoothing", "Transform", "Visibility" ]
 
 [node name="spawner_enemy" parent="." index="1" instance=ExtResource( 3 )]
+
+begin_spawn = true
 
 [node name="BackgroundParent" type="Node2D" parent="." index="2"]
 
@@ -516,7 +518,7 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 position = Vector2( 0.240967, 20.5208 )
 rotation = 1.5708
-emitting = false
+emitting = true
 amount = 200
 lifetime = 1.0
 one_shot = false
@@ -570,6 +572,7 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="TileMap" type="TileMap" parent="." index="6"]
 
+position = Vector2( 0, 100 )
 mode = 0
 tile_set = ExtResource( 16 )
 cell_size = Vector2( 64, 64 )
@@ -591,11 +594,13 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Player" type="AnimatedSprite" parent="." index="7"]
 
+visible = false
 modulate = Color( 0.972549, 0.909804, 0.639216, 1 )
-position = Vector2( -52.5605, 460.789 )
+position = Vector2( 510.632, 460.789 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 14 )
-animation = "Walk"
+animation = "Idle"
+frame = 7
 playing = true
 _sections_unfolded = [ "Transform", "Visibility" ]
 

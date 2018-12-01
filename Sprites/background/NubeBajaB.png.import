@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/NubeBajaB.png-300049f6cf7f7113cedc8a3882c15fff.stex"
+path="res://.import/NubeBajaB.png-537b1b6bc4f5c8f8d94f44ef2dddae2e.stex"
 
 [deps]
 
-source_file="res://Sprites/background/NubeBajaB.png"
-dest_files=[ "res://.import/NubeBajaB.png-300049f6cf7f7113cedc8a3882c15fff.stex" ]
+source_file="res://sprites/background/NubeBajaB.png"
+dest_files=[ "res://.import/NubeBajaB.png-537b1b6bc4f5c8f8d94f44ef2dddae2e.stex" ]
 
 [params]
 

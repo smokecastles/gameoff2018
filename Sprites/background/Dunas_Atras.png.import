@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Dunas_Atras.png-4e6b7024cb6a3f4baa0ff4d8f7e4911e.stex"
+path="res://.import/Dunas_Atras.png-6888b841be5999becce41761f46f62ed.stex"
 
 [deps]
 
-source_file="res://Sprites/background/Dunas_Atras.png"
-dest_files=[ "res://.import/Dunas_Atras.png-4e6b7024cb6a3f4baa0ff4d8f7e4911e.stex" ]
+source_file="res://sprites/background/Dunas_Atras.png"
+dest_files=[ "res://.import/Dunas_Atras.png-6888b841be5999becce41761f46f62ed.stex" ]
 
 [params]
 

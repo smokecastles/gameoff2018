@@ -37,6 +37,7 @@ func _ready():
 
 func do_animation_intro():
 	boss_animation.play("intro_boss")
+	audio_player.play_music("final_boss_theme")
 	pass
 
 func start_boss_battle():

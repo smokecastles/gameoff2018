@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Flipped_H_05.png-3b8a2194987e4d972f8b873915cd29fd.stex"
+path="res://.import/Flipped_H_05.png-8dcca9f38a57a7775a13ce3593cc3bb2.stex"
 
 [deps]
 
-source_file="res://Sprites/player/Flipped_H_05.png"
-dest_files=[ "res://.import/Flipped_H_05.png-3b8a2194987e4d972f8b873915cd29fd.stex" ]
+source_file="res://sprites/player/Flipped_H_05.png"
+dest_files=[ "res://.import/Flipped_H_05.png-8dcca9f38a57a7775a13ce3593cc3bb2.stex" ]
 
 [params]
 
