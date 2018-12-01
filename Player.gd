@@ -138,15 +138,19 @@ func _physics_process(delta):
 	
 	if not prev_falling_down and falling_down:
 		latest_height = self.position.y
+		Controller.stop_sfx_w_loop()
 		jetpack_particles.emitting = false
 		superjumping = false
 		
 	if is_on_floor():
+		Controller.stop_sfx_w_loop()
 		jetpack_particles.emitting = false
 		if Input.is_action_just_pressed("ui_accept"):
+			Controller.play_sfx("player_jump")
 			motion.y = JUMP_HEIGHT
 		elif Input.is_action_pressed("left_dash") and Input.is_action_pressed("right_dash"):
 			if jetpack_energy >= JETPACK_ENERGY_FOR_SUPERJUMP:
+				Controller.play_sfx_w_loop("player_jetpack")
 				spend_energy(JETPACK_ENERGY_FOR_SUPERJUMP)
 				motion.y = SUPER_JUMP_HEIGHT
 				superjumping = true
@@ -156,11 +160,13 @@ func _physics_process(delta):
 	else:
 		if falling_down and Input.is_action_pressed("ui_accept"):
 			motion.y = lerp(motion.y, JETPACK_DOWN_SPEED, DAMPING_FALLING)
+			Controller.play_sfx_w_loop("player_jetpack")
 			jetpack_on = true
 			jetpack_particles.emitting = true
 		else:
 			jetpack_on = false
 			if not superjumping:
+				Controller.stop_sfx_w_loop()
 				jetpack_particles.emitting = false
 	
 	if just_hit:
@@ -192,7 +198,8 @@ func shoot():
 	get_parent().add_child(node)
 	node.position = projectile_pos.global_position
 	shot_particles.emitting = true
-	shot_particles_timer.start()
+	shot_particles_timer.start()	
+	Controller.play_sfx("player_shoot")
 	yield(shot_particles_timer, "timeout")
 	shot_particles.emitting = false
 
@@ -201,11 +208,13 @@ func damage():
 		health -= 1
 		emit_signal("damage_taken", health)
 		if health > 0:
+			Controller.play_sfx("player_hit")
 			invulnerable = true
 			modulate = Color(1.0, 1.0, 1.0, 0.5)
 			invulnerable_after_hit_timer.start()
 			just_hit = true
 		else:
+			Controller.play_sfx("player_explosion")
 			var explosion = Controller.explosion_scene.instance()
 			explosion.position = position
 			Controller.get_current_scene().add_child(explosion)

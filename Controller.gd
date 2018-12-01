@@ -3,21 +3,33 @@ extends Node
 var projectile = preload("res://ProjectileEnemy.tscn")
 var projectile_player = preload("res://ProjectilePlayer.tscn")
 var explosion_scene = preload("Explosion.tscn")
-onready var audio_player = get_node("audio_player")
 
 var current_scene = null
 
 func _ready():
 	get_current_scene()
-	audio_player = get_node("audio_player")
-	play_music()
+	#play_music()
 	pass
-	
+
+func get_audio_player():
+	return get_current_scene().get_node("audio_player")
+
 func play_music():
-	var nameScene = get_tree().get_current_scene().get_name()
-	if(get_tree().get_current_scene().get_name() == "space_shooter"):
+	var audio_player = get_audio_player()
+	var nameScene = get_current_scene().get_name()
+	if(nameScene == "space_shooter"):
 		audio_player.play_music("main_theme_loop")
-	pass
+	elif nameScene == "World":
+		audio_player.play_music("platformer_loop")
+
+func play_sfx(sound):
+	get_audio_player().play_sfx(sound)
+
+func play_sfx_w_loop(sound):
+	get_audio_player().play_sfx_w_loop(sound)
+
+func stop_sfx_w_loop():
+	get_audio_player().stop_sfx_w_loop()
 
 func get_current_scene():
 	if not current_scene:
@@ -42,7 +54,6 @@ func goto_scene(path):
     # it is ensured that no code from the current scene is running:
 
     call_deferred("_deferred_goto_scene", path)
-
 
 func _deferred_goto_scene(path):
     # Immediately free the current scene,

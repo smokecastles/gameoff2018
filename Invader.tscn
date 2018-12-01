@@ -37,7 +37,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
 }
 
-[node name="Invader" type="KinematicBody2D" index="0"]
+[node name="Invader" type="KinematicBody2D"]
 
 scale = Vector2( 0.7, 0.7 )
 input_pickable = false
