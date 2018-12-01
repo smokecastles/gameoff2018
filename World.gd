@@ -11,11 +11,6 @@ onready var player = $Player
 
 func _ready():
 	Controller.play_music()
-#	var invader = null
-#	for i in range(0,3):
-#		invader = Invader.instance()
-#		invader.global_position = Vector2(200,300)
-#		invaders.add_child(invader)
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_exit"):

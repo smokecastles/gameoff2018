@@ -14,6 +14,7 @@ var animated_health = 0
 var animated_energy = 0
 
 var retry_shown = false
+var player_text_container_shown = false
 
 func _ready():
 	var player_max_health = $"../../Player".MAX_HEALTH
@@ -55,6 +56,7 @@ func _on_Player_player_died():
 func _on_Text_show_text_box(text):
 	player_text.text = text
 	player_text_container.visible = true
-	yield(get_tree().create_timer(3.0), "timeout")
+	player_text_timer.start()
+	yield(player_text_timer, "timeout")
 	player_text_container.visible = false
 	pass

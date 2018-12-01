@@ -1,15 +1,8 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://MainMenu.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/fonts/VeraMono.ttf" type="DynamicFontData" id=2]
-
-[sub_resource type="DynamicFont" id=1]
-
-size = 40
-use_mipmaps = false
-use_filter = true
-font_data = ExtResource( 2 )
-_sections_unfolded = [ "Extra Spacing", "Resource", "Settings" ]
+[ext_resource path="res://Sprites/gui/main_menu.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/fonts/VeraMono.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="Theme" id=2]
 
@@ -410,7 +403,7 @@ _sections_unfolded = [ "Label", "Label/colors", "Label/constants", "Label/fonts"
 size = 30
 use_mipmaps = false
 use_filter = true
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 _sections_unfolded = [ "Extra Spacing", "Resource", "Settings" ]
 
 [sub_resource type="DynamicFont" id=4]
@@ -418,7 +411,7 @@ _sections_unfolded = [ "Extra Spacing", "Resource", "Settings" ]
 size = 18
 use_mipmaps = false
 use_filter = true
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 _sections_unfolded = [ "Extra Spacing", "Resource", "Settings" ]
 
 [node name="MainMenu" type="MarginContainer"]
@@ -440,7 +433,13 @@ custom_constants/margin_bottom = 80
 script = ExtResource( 1 )
 _sections_unfolded = [ "custom_constants" ]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." index="0"]
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -465,7 +464,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 288.0
+margin_right = 198.0
 margin_bottom = 440.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -475,35 +474,13 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
 
-[node name="Title" type="Label" parent="HBoxContainer/VBoxContainer" index="0"]
+[node name="MenuOptions" type="VBoxContainer" parent="HBoxContainer/VBoxContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 288.0
-margin_bottom = 48.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 1 )
-text = "Gameoff 2018"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_fonts" ]
-
-[node name="MenuOptions" type="VBoxContainer" parent="HBoxContainer/VBoxContainer" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 52.0
-margin_right = 288.0
+margin_right = 198.0
 margin_bottom = 389.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -521,9 +498,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 127.0
+margin_top = 153.0
 margin_right = 144.0
-margin_bottom = 163.0
+margin_bottom = 189.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -544,9 +521,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 173.0
+margin_top = 199.0
 margin_right = 90.0
-margin_bottom = 209.0
+margin_bottom = 235.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -560,14 +537,14 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
-[node name="Version" type="Label" parent="HBoxContainer/VBoxContainer" index="2"]
+[node name="Version" type="Label" parent="HBoxContainer/VBoxContainer" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 393.0
-margin_right = 288.0
+margin_right = 198.0
 margin_bottom = 440.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -589,8 +566,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 292.0
-margin_right = 292.0
+margin_left = 202.0
+margin_right = 202.0
 margin_bottom = 440.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false

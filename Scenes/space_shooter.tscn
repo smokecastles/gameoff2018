@@ -246,6 +246,11 @@ animations = [ {
 "name": "DashFront",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 28 ) ],
+"loop": true,
+"name": "Hit",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 27 ) ],
 "loop": true,
 "name": "Walk",
@@ -256,19 +261,14 @@ animations = [ {
 "name": "DashBack",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 25 ) ],
-"loop": true,
-"name": "Falling",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 28 ) ],
-"loop": true,
-"name": "Hit",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 29 ) ],
 "loop": true,
 "name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 25 ) ],
+"loop": true,
+"name": "Falling",
 "speed": 5.0
 } ]
 _sections_unfolded = [ "Resource" ]
@@ -387,7 +387,7 @@ tracks/8/keys = {
 "values": [ false, true ]
 }
 
-[node name="space_shooter" type="Node2D" index="0"]
+[node name="space_shooter" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "Visibility" ]
@@ -600,7 +600,7 @@ position = Vector2( 510.632, 460.789 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 14 )
 animation = "Idle"
-frame = 2
+frame = 3
 playing = true
 _sections_unfolded = [ "Transform", "Visibility" ]
 
