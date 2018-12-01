@@ -28,6 +28,10 @@ func _physics_process(delta):
 		invaders_formation.switch_all_to_in_line()
 	else:
 		invaders_inline.switch_all_to_formation()
+	
+	if not player.is_dead and player.position.y > 1000:
+		Controller.play_sfx("player_falling")
+		player.die()
 
 func move_invader(invader, delta):
 	match invader.state:
