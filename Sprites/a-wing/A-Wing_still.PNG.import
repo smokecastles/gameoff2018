@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/A-Wing_still.PNG-3f03cd000ee56587a6b6c5cf0ce6e6b6.stex"
+path="res://.import/A-Wing_still.PNG-63bcdf2d18aebe3d3d2b1e94cd7ffc28.stex"
 
 [deps]
 
-source_file="res://Sprites/a-wing/A-Wing_still.PNG"
-dest_files=[ "res://.import/A-Wing_still.PNG-3f03cd000ee56587a6b6c5cf0ce6e6b6.stex" ]
+source_file="res://sprites/a-wing/A-Wing_still.PNG"
+dest_files=[ "res://.import/A-Wing_still.PNG-63bcdf2d18aebe3d3d2b1e94cd7ffc28.stex" ]
 
 [params]
 

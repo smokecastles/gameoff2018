@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Fondo_B_SinTile.png-57d6ade6e686750988e5b7d65946095b.stex"
+path="res://.import/Fondo_B_SinTile.png-9b6f2139d930209355608aa83582aa3a.stex"
 
 [deps]
 
-source_file="res://Sprites/background/Fondo_B_SinTile.png"
-dest_files=[ "res://.import/Fondo_B_SinTile.png-57d6ade6e686750988e5b7d65946095b.stex" ]
+source_file="res://sprites/background/Fondo_B_SinTile.png"
+dest_files=[ "res://.import/Fondo_B_SinTile.png-9b6f2139d930209355608aa83582aa3a.stex" ]
 
 [params]
 

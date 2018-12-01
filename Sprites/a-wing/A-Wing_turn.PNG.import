@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/A-Wing_turn.PNG-c04809969ccda39b8401f2b95c653745.stex"
+path="res://.import/A-Wing_turn.PNG-49023c426d7029fcde6d57843fa35b5c.stex"
 
 [deps]
 
-source_file="res://Sprites/a-wing/A-Wing_turn.PNG"
-dest_files=[ "res://.import/A-Wing_turn.PNG-c04809969ccda39b8401f2b95c653745.stex" ]
+source_file="res://sprites/a-wing/A-Wing_turn.PNG"
+dest_files=[ "res://.import/A-Wing_turn.PNG-49023c426d7029fcde6d57843fa35b5c.stex" ]
 
 [params]
 
