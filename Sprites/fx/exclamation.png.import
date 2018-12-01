@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/exclamation.png-7fab8a9f064e38291ffdf368915b46aa.stex"
+path="res://.import/exclamation.png-c8c34249b527e971b72855c4fcbedf8e.stex"
 
 [deps]
 
-source_file="res://sprites/fx/exclamation.png"
-dest_files=[ "res://.import/exclamation.png-7fab8a9f064e38291ffdf368915b46aa.stex" ]
+source_file="res://Sprites/fx/exclamation.png"
+dest_files=[ "res://.import/exclamation.png-c8c34249b527e971b72855c4fcbedf8e.stex" ]
 
 [params]
 

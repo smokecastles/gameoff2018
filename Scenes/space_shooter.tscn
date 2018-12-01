@@ -1,33 +1,35 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://Scenes/space_shooter_world.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/camera.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/spawner_enemy.tscn" type="PackedScene" id=3]
-[ext_resource path="res://sprites/background/bg.png" type="Texture" id=4]
-[ext_resource path="res://Scripts/stars.gd" type="Script" id=5]
-[ext_resource path="res://Scripts/ship.gd" type="Script" id=6]
-[ext_resource path="res://sprites/a-wing_512/A-Wing_down.PNG" type="Texture" id=7]
-[ext_resource path="res://sprites/a-wing_512/A-Wing_still.PNG" type="Texture" id=8]
-[ext_resource path="res://sprites/a-wing_512/A-Wing_turn.PNG" type="Texture" id=9]
-[ext_resource path="res://Sprites/a-wing_512/A-Wing_up.PNG" type="Texture" id=10]
-[ext_resource path="res://GUI.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Scripts/shooter_gui.gd" type="Script" id=12]
-[ext_resource path="res://Scripts/audio_player.gd" type="Script" id=13]
-[ext_resource path="res://tiles/GroundTiles.tres" type="TileSet" id=14]
-[ext_resource path="res://Sprites/player/H_00.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/player/H_01.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/player/H_02.png" type="Texture" id=17]
-[ext_resource path="res://Sprites/player/H_03.png" type="Texture" id=18]
-[ext_resource path="res://Sprites/player/H_04.png" type="Texture" id=19]
-[ext_resource path="res://Sprites/player/H_05.png" type="Texture" id=20]
-[ext_resource path="res://Sprites/player/H_06.png" type="Texture" id=21]
-[ext_resource path="res://Sprites/player/H_07.png" type="Texture" id=22]
-[ext_resource path="res://Sprites/player/H_08.png" type="Texture" id=23]
-[ext_resource path="res://Sprites/player/H_09.png" type="Texture" id=24]
-[ext_resource path="res://Sprites/player/F_00.png" type="Texture" id=25]
-[ext_resource path="res://Sprites/player/B_00.png" type="Texture" id=26]
-[ext_resource path="res://Sprites/player/J_00.png" type="Texture" id=27]
-[ext_resource path="res://Scripts/AnimationPlayer.gd" type="Script" id=28]
+[ext_resource path="res://Sprites/red.png" type="Texture" id=4]
+[ext_resource path="res://sprites/background/bg.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/stars.gd" type="Script" id=6]
+[ext_resource path="res://Sprites/background/Fondo_B_SinTile.png" type="Texture" id=7]
+[ext_resource path="res://Scripts/ship.gd" type="Script" id=8]
+[ext_resource path="res://sprites/a-wing_512/A-Wing_down.PNG" type="Texture" id=9]
+[ext_resource path="res://sprites/a-wing_512/A-Wing_still.PNG" type="Texture" id=10]
+[ext_resource path="res://sprites/a-wing_512/A-Wing_turn.PNG" type="Texture" id=11]
+[ext_resource path="res://Sprites/a-wing_512/A-Wing_up.PNG" type="Texture" id=12]
+[ext_resource path="res://GUI.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scripts/shooter_gui.gd" type="Script" id=14]
+[ext_resource path="res://Scripts/audio_player.gd" type="Script" id=15]
+[ext_resource path="res://tiles/GroundTiles.tres" type="TileSet" id=16]
+[ext_resource path="res://Sprites/player/H_00.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/player/H_01.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/player/H_02.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/player/H_03.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/player/H_04.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/player/H_05.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/player/H_06.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/player/H_07.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/player/H_08.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/player/H_09.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/player/F_00.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/player/B_00.png" type="Texture" id=28]
+[ext_resource path="res://Sprites/player/J_00.png" type="Texture" id=29]
+[ext_resource path="res://Scripts/AnimationPlayer.gd" type="Script" id=30]
 
 [sub_resource type="Animation" id=1]
 
@@ -45,7 +47,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 7 ) ]
+"values": [ ExtResource( 9 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -64,7 +66,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 8 ) ]
+"values": [ ExtResource( 10 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -83,7 +85,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 9 ) ]
+"values": [ ExtResource( 11 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("sprite:flip_h")
@@ -113,7 +115,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 9 ) ]
+"values": [ ExtResource( 11 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("sprite:flip_h")
@@ -144,7 +146,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 10 ) ]
+"values": [ ExtResource( 12 ) ]
 }
 
 [sub_resource type="RectangleShape2D" id=6]
@@ -234,40 +236,40 @@ _sections_unfolded = [ "Angular Velocity", "Animation", "Color", "Emission Shape
 [sub_resource type="SpriteFrames" id=14]
 
 animations = [ {
-"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ],
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 25 ) ],
+"frames": [ ExtResource( 27 ) ],
 "loop": true,
 "name": "DashFront",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 26 ) ],
+"frames": [ ExtResource( 27 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 28 ) ],
 "loop": true,
 "name": "Hit",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 26 ) ],
+"frames": [ ExtResource( 28 ) ],
 "loop": true,
 "name": "DashBack",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 27 ) ],
-"loop": true,
-"name": "Jump",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 23 ) ],
+"frames": [ ExtResource( 25 ) ],
 "loop": true,
 "name": "Falling",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 25 ) ],
+"frames": [ ExtResource( 29 ) ],
 "loop": true,
-"name": "Walk",
-"speed": 12.0
+"name": "Jump",
+"speed": 5.0
 } ]
 _sections_unfolded = [ "Resource" ]
 
@@ -385,7 +387,7 @@ tracks/8/keys = {
 "values": [ false, true ]
 }
 
-[node name="space_shooter" type="Node2D"]
+[node name="space_shooter" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "Visibility" ]
@@ -416,7 +418,7 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
 script = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Offset", "Smoothing", "Transform", "Visibility" ]
 
 [node name="spawner_enemy" parent="." index="1" instance=ExtResource( 3 )]
 
@@ -425,16 +427,53 @@ time_for_boss = 30
 
 [node name="BackgroundParent" type="Node2D" parent="." index="2"]
 
-editor/display_folded = true
+[node name="Sprite" type="Sprite" parent="BackgroundParent" index="0"]
 
-[node name="Background" type="Sprite" parent="BackgroundParent" index="0"]
-
-position = Vector2( 511.353, -494.106 )
-scale = Vector2( 0.55, 0.55 )
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 511.52, 316.155 )
+scale = Vector2( 3.98923, 2.44996 )
 texture = ExtResource( 4 )
-script = ExtResource( 5 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Background" type="Sprite" parent="BackgroundParent" index="1"]
+
+position = Vector2( 511, -494.106 )
+scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 5 )
+script = ExtResource( 6 )
 _sections_unfolded = [ "Offset", "Transform", "Z Index" ]
-velocity = Vector2( 0, 100 )
+velocity = Vector2( 0, 500 )
+loop = false
+
+[node name="Background2" type="Sprite" parent="BackgroundParent" index="2"]
+
+position = Vector2( 511, -2693.61 )
+scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 7 )
+script = ExtResource( 6 )
+_sections_unfolded = [ "Offset", "Transform", "Z Index" ]
+velocity = Vector2( 0, 500 )
+loop = false
+
+[node name="Background3" type="Sprite" parent="BackgroundParent" index="3"]
+
+position = Vector2( 511, -4887.95 )
+scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 7 )
+script = ExtResource( 6 )
+_sections_unfolded = [ "Offset", "Transform", "Z Index" ]
+velocity = Vector2( 0, 500 )
+loop = true
+
+[node name="Background4" type="Sprite" parent="BackgroundParent" index="4"]
+
+position = Vector2( 511, -7089.74 )
+scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 7 )
+script = ExtResource( 6 )
+_sections_unfolded = [ "Offset", "Transform", "Z Index" ]
+velocity = Vector2( 0, 500 )
+loop = true
 
 [node name="ship" type="Area2D" parent="." index="3"]
 
@@ -447,7 +486,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 6 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 armor = 4
 
@@ -477,7 +516,7 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 position = Vector2( 0.693071, -0.23889 )
 scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 7 )
+texture = ExtResource( 9 )
 flip_h = true
 _sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Transform", "Visibility", "Z Index" ]
 
@@ -530,14 +569,14 @@ scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 _sections_unfolded = [ "Pause" ]
 
-[node name="GUI" parent="CanvasLayer" index="0" instance=ExtResource( 11 )]
+[node name="GUI" parent="CanvasLayer" index="0" instance=ExtResource( 13 )]
 
-script = ExtResource( 12 )
+script = ExtResource( 14 )
 
 [node name="audio_player" type="Node" parent="." index="5"]
 
 editor/display_folded = true
-script = ExtResource( 13 )
+script = ExtResource( 15 )
 _sections_unfolded = [ "Pause" ]
 
 [node name="music_player" type="AudioStreamPlayer2D" parent="audio_player" index="0"]
@@ -556,7 +595,7 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 [node name="TileMap" type="TileMap" parent="." index="6"]
 
 mode = 0
-tile_set = ExtResource( 14 )
+tile_set = ExtResource( 16 )
 cell_size = Vector2( 64, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -593,7 +632,7 @@ playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/intro = SubResource( 15 )
 blend_times = [  ]
-script = ExtResource( 28 )
+script = ExtResource( 30 )
 _sections_unfolded = [ "Playback Options" ]
 
 

@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/H_02.png-d80b07350444cc4e72473c1719b95d8d.stex"
+path="res://.import/H_02.png-e5f97fa5f01256eab992b30fbf2491e5.stex"
 
 [deps]
 
-source_file="res://sprites/player/H_02.png"
-dest_files=[ "res://.import/H_02.png-d80b07350444cc4e72473c1719b95d8d.stex" ]
+source_file="res://Sprites/player/H_02.png"
+dest_files=[ "res://.import/H_02.png-e5f97fa5f01256eab992b30fbf2491e5.stex" ]
 
 [params]
 

@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/final_boss_turn512.png-cb56b45801bfc7c5b7702e843ef3653a.stex"
+path="res://.import/final_boss_turn512.png-d7290870e73386e135167b6e03c5fca9.stex"
 
 [deps]
 
-source_file="res://sprites/final_boss/final_boss_turn512.png"
-dest_files=[ "res://.import/final_boss_turn512.png-cb56b45801bfc7c5b7702e843ef3653a.stex" ]
+source_file="res://Sprites/final_boss/final_boss_turn512.png"
+dest_files=[ "res://.import/final_boss_turn512.png-d7290870e73386e135167b6e03c5fca9.stex" ]
 
 [params]
 
