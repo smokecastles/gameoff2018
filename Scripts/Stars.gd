@@ -9,7 +9,7 @@ func _ready():
 	pass
 	
 func _process(delta):
-	if (controller.playing == false):
+	if (Controller.playing == false):
 		return
 	translate(velocity * delta)
 	

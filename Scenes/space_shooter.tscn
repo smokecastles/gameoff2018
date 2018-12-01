@@ -1,6 +1,6 @@
 [gd_scene load_steps=44 format=2]
 
-[ext_resource path="res://Controller.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/space_shooter_world.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/camera.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/spawner_enemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://sprites/background/bg.png" type="Texture" id=4]
@@ -372,12 +372,24 @@ tracks/7/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/8/type = "value"
+tracks/8/path = NodePath(".:start_game")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 4.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
 
-[node name="space_shooter" type="Node2D" index="0"]
+[node name="space_shooter" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "Visibility" ]
-playing = false
+start_game = false
 
 [node name="camera_shake" type="Camera2D" parent="." index="0"]
 
@@ -413,9 +425,11 @@ time_for_boss = 30
 
 [node name="BackgroundParent" type="Node2D" parent="." index="2"]
 
+editor/display_folded = true
+
 [node name="Background" type="Sprite" parent="BackgroundParent" index="0"]
 
-position = Vector2( 511.353, -567.114 )
+position = Vector2( 511.353, -494.106 )
 scale = Vector2( 0.55, 0.55 )
 texture = ExtResource( 4 )
 script = ExtResource( 5 )
@@ -424,6 +438,7 @@ velocity = Vector2( 0, 100 )
 
 [node name="ship" type="Area2D" parent="." index="3"]
 
+editor/display_folded = true
 position = Vector2( 510.409, 460.646 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -556,7 +571,7 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( 524288, 1, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 589824, 3, 0, 589825, 3, 0, 589826, 3, 0, 589827, 3, 0, 589828, 3, 0, 589829, 3, 0, 589830, 3, 0, 589831, 3, 0, 589832, 3, 0, 589833, 3, 0, 589834, 3, 0, 589835, 3, 0, 589836, 3, 0, 589837, 3, 0, 589838, 3, 0, 589839, 3, 0 )
+tile_data = PoolIntArray( 524288, 1, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 589824, 4, 0, 589825, 4, 0, 589826, 4, 0, 589827, 4, 0, 589828, 4, 0, 589829, 4, 0, 589830, 4, 0, 589831, 4, 0, 589832, 4, 0, 589833, 4, 0, 589834, 4, 0, 589835, 4, 0, 589836, 4, 0, 589837, 4, 0, 589838, 4, 0, 589839, 4, 0 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Player" type="AnimatedSprite" parent="." index="7"]

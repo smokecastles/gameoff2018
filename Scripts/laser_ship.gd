@@ -8,10 +8,7 @@ func _ready():
 
 func _on_area_enter(other):
 	if other.is_in_group("enemy") || other.is_in_group("boss") :
-		controller = get_node("/root/space_shooter")
-		if(controller == null):
-			return
-		if (controller.playing == false):
+		if (Controller.playing == false):
 			return
 		other.armor -= 1
 		create_flare()

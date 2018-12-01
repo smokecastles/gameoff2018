@@ -459,7 +459,7 @@ tracks/3/keys = {
 "values": [ true ]
 }
 
-[node name="boss" type="Area2D" index="0"]
+[node name="boss" type="Area2D"]
 
 position = Vector2( -340.39, 8.20215 )
 input_pickable = true

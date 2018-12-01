@@ -20,7 +20,9 @@ func play_music():
 	var audio_player = get_audio_player()
 	var nameScene = get_current_scene().get_name()
 	if(nameScene == "space_shooter"):
-		audio_player.play_music("main_theme_loop")
+		audio_player.play_music("shooter_theme")
+		yield(audio_player.music_player, "finished")
+		audio_player.play_music("shooter_theme_loop")
 	elif nameScene == "World":
 		audio_player.play_music("platformer_loop")
 

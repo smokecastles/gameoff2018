@@ -29,7 +29,7 @@ func _ready():
 	pass
 
 func _process(delta):
-	if (controller.playing == false):
+	if (Controller.playing == false):
 		return
 	
 	var is_idle = true
@@ -78,10 +78,8 @@ func shoot():
 	pass
 	
 func set_armor(new_value):
-	if(controller == null):
-		return
 		
-	if (controller.playing == false):
+	if (Controller.playing == false):
 		return
 		
 	if new_value < armor:
