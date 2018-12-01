@@ -11,11 +11,11 @@ onready var player = $Player
 
 func _ready():
 	Controller.play_music()
-	var invader = null
-	for i in range(0,3):
-		invader = Invader.instance()
-		invader.global_position = Vector2(200,300)
-		invaders.add_child(invader)
+#	var invader = null
+#	for i in range(0,3):
+#		invader = Invader.instance()
+#		invader.global_position = Vector2(200,300)
+#		invaders.add_child(invader)
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_exit"):
@@ -46,7 +46,7 @@ func move_invader(invader, delta):
 
 func move_invader_groups_to_follow_player(delta):
 	for node in [invaders_inline, invaders_path2d]:
-		var traversed_distance = 400 * delta
+		var traversed_distance = 500 * delta
 		var current_pos = node.global_position
 		
 		var pos_y = current_pos.y
