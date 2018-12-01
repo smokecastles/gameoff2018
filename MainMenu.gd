@@ -6,10 +6,11 @@ onready var newgame_label = $HBoxContainer/VBoxContainer/MenuOptions/NewGame
 onready var about_label = $HBoxContainer/VBoxContainer/MenuOptions/About
 onready var highlighted_theme = newgame_label.theme
 
-func _physics_process(delta):
+func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		match position:
 			0: Controller.goto_scene("res://World.tscn")
+			1: Controller.goto_scene("res://About.tscn")
 	
 	if Input.is_action_just_pressed("ui_down"):
 		if position == 0:

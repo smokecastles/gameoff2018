@@ -10,13 +10,18 @@ onready var invaders = $Invaders
 onready var player = $Player
 
 func _ready():
+	Controller.play_music()
 	var invader = null
 	for i in range(0,3):
 		invader = Invader.instance()
 		invader.global_position = Vector2(200,300)
 		invaders.add_child(invader)
 
-func _physics_process(delta):
+func _process(delta):
+	if Input.is_action_just_pressed("ui_exit"):
+		Controller.goto_scene("res://MainMenu.tscn")
+
+func _physics_process(delta):	
 	for node in invaders.get_children():
 		if node.player_discovered:
 			move_invader(node, delta)
@@ -27,6 +32,10 @@ func _physics_process(delta):
 		invaders_formation.switch_all_to_in_line()
 	else:
 		invaders_inline.switch_all_to_formation()
+	
+	if not player.is_dead and player.position.y > 1000:
+		Controller.play_sfx("player_falling")
+		player.die()
 
 func move_invader(invader, delta):
 	match invader.state:

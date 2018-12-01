@@ -65,16 +65,6 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
-"name": "DashFront",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 11 ) ],
-"loop": true,
-"name": "Falling",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
 "name": "Walk",
 "speed": 12.0
 }, {
@@ -91,6 +81,11 @@ animations = [ {
 "frames": [ ExtResource( 15 ) ],
 "loop": true,
 "name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "Falling",
 "speed": 5.0
 } ]
 _sections_unfolded = [ "Resource" ]
@@ -296,7 +291,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 visible = false
 build_mode = 0
 polygon = PoolVector2Array( -11.0196, -84.4488, -0.2948, -83.2571, 32.2769, -58.6298, 39.0295, -43.9328, 29.0992, -6.99178, 19.566, 6.11635, 27.9075, 38.688, 8.84117, 81.9845, -14.5946, 81.9845, -24.1277, 39.0852, -19.7584, 28.7576, -30.4832, 20.8133, -22.9361, -3.01961, -2.6781, -10.5667, -13.4029, -34.0024, -16.1834, -48.3022, -34.8526, -73.724, -12.6085, -73.3268 )
-_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
 [node name="ProjectilePosition" type="Position2D" parent="." index="4"]
 

@@ -48,6 +48,7 @@ func shoot_sidewards(x):
 		projectile_pos_side.position.x *= -1
 	var node = projectile.instance()
 	node.set_direction_x(x)
+	Controller.play_sfx("enemy_shoot")
 	Controller.get_current_scene().add_child(node)
 	node.position = projectile_pos_side.global_position
 	did_shoot = true
@@ -58,6 +59,7 @@ func shoot_downwards():
 		return
 	var node = projectile.instance()
 	node.set_direction_y(1)
+	Controller.play_sfx("enemy_shoot")
 	Controller.get_current_scene().add_child(node)
 	node.position = projectile_pos_down.global_position
 	did_shoot = true
@@ -96,6 +98,7 @@ func damage():
 			current_scene.invaders_formation.remove_invader(self)
 		IN_LINE, SWITCHING_TO_IN_LINE:
 			current_scene.invaders_inline.remove_invader(self)
+	Controller.play_sfx("enemy_explosion")
 	state = STATES.DYING
 	motion.y = -500
 	collision_shape.disabled = true
