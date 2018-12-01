@@ -11,5 +11,5 @@ dest_files=[ "res://.import/TEMA2-SIN-INTRO.ogg-95800ebe8b6455ed9875087bc5a34cff
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

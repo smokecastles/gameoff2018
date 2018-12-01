@@ -387,7 +387,7 @@ tracks/8/keys = {
 "values": [ false, true ]
 }
 
-[node name="space_shooter" type="Node2D"]
+[node name="space_shooter" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "Visibility" ]
@@ -555,7 +555,6 @@ script = ExtResource( 14 )
 
 [node name="audio_player" type="Node" parent="." index="5"]
 
-editor/display_folded = true
 script = ExtResource( 15 )
 _sections_unfolded = [ "Pause" ]
 

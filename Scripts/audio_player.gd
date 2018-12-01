@@ -20,7 +20,8 @@ var sfx_library = {
 var music_library = {
 	"platformer_loop": preload("res://Sounds/music/TEMA1.ogg"),
 	"shooter_theme_loop": preload("res://Sounds/music/TEMA2-SIN-INTRO.ogg"),
-	"shooter_theme": preload("res://Sounds/music/TEMA2.ogg")
+	"shooter_theme": preload("res://Sounds/music/TEMA2.ogg"),
+	"final_boss_theme": preload("res://Sounds/music/final_boss.ogg")
 }
 
 func play_music(var music):
