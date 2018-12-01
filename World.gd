@@ -72,3 +72,6 @@ func set_invader_transitioning_to_formation(invader):
 func set_invader_transitioning_to_in_line(invader):
 	invaders_formation.remove_invader(invader)
 	invaders_inline.add_invader(invader)
+
+func _on_FinishLevelArea2D_body_entered(body):
+	Controller.goto_scene("res://Scenes/space_shooter.tscn")

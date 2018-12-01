@@ -26,8 +26,8 @@
 [ext_resource path="res://Sprites/player/H_07.png" type="Texture" id=24]
 [ext_resource path="res://Sprites/player/H_08.png" type="Texture" id=25]
 [ext_resource path="res://Sprites/player/H_09.png" type="Texture" id=26]
-[ext_resource path="res://Sprites/player/F_00.png" type="Texture" id=27]
-[ext_resource path="res://Sprites/player/B_00.png" type="Texture" id=28]
+[ext_resource path="res://Sprites/player/B_00.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/player/F_00.png" type="Texture" id=28]
 [ext_resource path="res://Sprites/player/J_00.png" type="Texture" id=29]
 [ext_resource path="res://Scripts/AnimationPlayer.gd" type="Script" id=30]
 
@@ -241,20 +241,25 @@ animations = [ {
 "name": "Idle",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 27 ) ],
-"loop": true,
-"name": "Walk",
-"speed": 12.0
-}, {
-"frames": [ ExtResource( 28 ) ],
-"loop": true,
-"name": "DashBack",
-"speed": 1.0
-}, {
 "frames": [ ExtResource( 25 ) ],
 "loop": true,
 "name": "Falling",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 27 ) ],
+"loop": true,
+"name": "Hit",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 28 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 27 ) ],
+"loop": true,
+"name": "DashBack",
+"speed": 1.0
 }, {
 "frames": [ ExtResource( 29 ) ],
 "loop": true,
@@ -262,11 +267,6 @@ animations = [ {
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 28 ) ],
-"loop": true,
-"name": "Hit",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 27 ) ],
 "loop": true,
 "name": "DashFront",
 "speed": 5.0

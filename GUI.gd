@@ -19,6 +19,7 @@ func _ready():
 	var player_max_energy = $"../../Player".MAX_JETPACK_ENERGY
 	bar_energy.max_value = player_max_energy
 	update_energy(player_max_energy)
+	$"VBoxContainer/boss_health/".visible = false
 
 func _process(delta):
 	bar_health.value = animated_health

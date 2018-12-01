@@ -12,8 +12,8 @@
 [ext_resource path="res://Sprites/player/H_07.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/player/H_08.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/player/H_09.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/player/F_00.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/player/B_00.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/player/B_00.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/player/F_00.png" type="Texture" id=14]
 [ext_resource path="res://Sprites/player/J_00.png" type="Texture" id=15]
 
 [sub_resource type="ParticlesMaterial" id=1]
@@ -63,29 +63,29 @@ animations = [ {
 "name": "Idle",
 "speed": 8.0
 }, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "Falling",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "DashFront",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "Walk",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 14 ) ],
+"frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "DashBack",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 14 ) ],
-"loop": true,
-"name": "Hit",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 15 ) ],
 "loop": true,
 "name": "Jump",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 11 ) ],
-"loop": true,
-"name": "Falling",
 "speed": 5.0
 } ]
 _sections_unfolded = [ "Resource" ]
@@ -222,7 +222,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angle", "Angular Velocity", "Damping", "Emission Shape", "Flags", "Gravity", "Initial Velocity", "Linear Accel", "Orbit Velocity", "Radial Accel", "Scale", "Spread", "Tangential Accel", "Trail" ]
 
-[node name="Player" type="KinematicBody2D" index="0"]
+[node name="Player" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -306,7 +306,7 @@ current = true
 zoom = Vector2( 1, 1 )
 limit_left = 0
 limit_top = -10000000
-limit_right = 10000000
+limit_right = 10048
 limit_bottom = 550
 limit_smoothed = false
 drag_margin_h_enabled = true
