@@ -117,6 +117,8 @@ func _on_DetectionArea_body_entered(body):
 		exclamation_sprite.get_node("AnimationPlayer").play()
 		yield(get_tree().create_timer(0.8), "timeout")
 		exclamation_sprite.visible = false
+		if state in [STATES.DYING, STATES.DEAD]:
+			return # maybe died in the meantime...
 		player_discovered = true
 		state = SWITCHING_TO_FORMATION
 		Controller.get_current_scene().set_invader_to_formation(self)
