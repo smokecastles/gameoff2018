@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://Invader.tscn" type="PackedScene" id=16]
 [ext_resource path="res://InvaderVariant.tscn" type="PackedScene" id=17]
 [ext_resource path="res://GUI.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenes/audio_player.tscn" type="PackedScene" id=19]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -45,7 +46,7 @@ tracks/0/keys = {
 "values": [ 0.0, 1.0 ]
 }
 
-[node name="World" type="Node"]
+[node name="World" type="Node" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
@@ -92,7 +93,6 @@ _sections_unfolded = [ "Scroll" ]
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
 
-editor/display_folded = true
 motion_scale = Vector2( 0.1, 0.3 )
 motion_offset = Vector2( -500, 100 )
 motion_mirroring = Vector2( 0, 0 )
@@ -129,7 +129,6 @@ _sections_unfolded = [ "Material", "Motion", "Transform", "Visibility", "Z Index
 
 [node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground" index="2"]
 
-editor/display_folded = true
 position = Vector2( 0, 64 )
 motion_scale = Vector2( 0.3, 0.3 )
 motion_offset = Vector2( 0, -100 )
@@ -145,7 +144,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="ParallaxLayer6" type="ParallaxLayer" parent="ParallaxBackground" index="3"]
 
-editor/display_folded = true
 motion_scale = Vector2( 0.4, 0.4 )
 motion_offset = Vector2( 0, -100 )
 motion_mirroring = Vector2( 1000, 0 )
@@ -169,7 +167,6 @@ _sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform",
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground" index="4"]
 
-editor/display_folded = true
 motion_scale = Vector2( 0.5, 0.5 )
 motion_offset = Vector2( 0, -100 )
 motion_mirroring = Vector2( 1400, 0 )
@@ -191,7 +188,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" index="5"]
 
-editor/display_folded = true
 motion_scale = Vector2( 0.5, 0.5 )
 motion_offset = Vector2( 0, -100 )
 motion_mirroring = Vector2( 2600, 900 )
@@ -268,6 +264,8 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 _sections_unfolded = [ "Pause" ]
 
 [node name="GUI" parent="CanvasLayer" index="0" instance=ExtResource( 18 )]
+
+[node name="audio_player" parent="." index="7" instance=ExtResource( 19 )]
 
 [connection signal="damage_taken" from="Player" to="CanvasLayer/GUI" method="_on_Player_damage_taken"]
 
