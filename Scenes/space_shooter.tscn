@@ -243,18 +243,8 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 27 ) ],
 "loop": true,
-"name": "DashFront",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 27 ) ],
-"loop": true,
 "name": "Walk",
 "speed": 12.0
-}, {
-"frames": [ ExtResource( 28 ) ],
-"loop": true,
-"name": "Hit",
-"speed": 5.0
 }, {
 "frames": [ ExtResource( 28 ) ],
 "loop": true,
@@ -269,6 +259,16 @@ animations = [ {
 "frames": [ ExtResource( 29 ) ],
 "loop": true,
 "name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 28 ) ],
+"loop": true,
+"name": "Hit",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 27 ) ],
+"loop": true,
+"name": "DashFront",
 "speed": 5.0
 } ]
 _sections_unfolded = [ "Resource" ]
@@ -387,7 +387,7 @@ tracks/8/keys = {
 "values": [ false, true ]
 }
 
-[node name="space_shooter" type="Node2D" index="0"]
+[node name="space_shooter" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "Visibility" ]
@@ -442,8 +442,8 @@ scale = Vector2( 0.55, 0.55 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
 _sections_unfolded = [ "Offset", "Transform", "Z Index" ]
-velocity = Vector2( 0, 500 )
-loop = false
+velocity = Vector2( 0, 100 )
+stay_fixed = false
 
 [node name="Background2" type="Sprite" parent="BackgroundParent" index="2"]
 
@@ -452,28 +452,8 @@ scale = Vector2( 0.55, 0.55 )
 texture = ExtResource( 7 )
 script = ExtResource( 6 )
 _sections_unfolded = [ "Offset", "Transform", "Z Index" ]
-velocity = Vector2( 0, 500 )
-loop = false
-
-[node name="Background3" type="Sprite" parent="BackgroundParent" index="3"]
-
-position = Vector2( 511, -4887.95 )
-scale = Vector2( 0.55, 0.55 )
-texture = ExtResource( 7 )
-script = ExtResource( 6 )
-_sections_unfolded = [ "Offset", "Transform", "Z Index" ]
-velocity = Vector2( 0, 500 )
-loop = true
-
-[node name="Background4" type="Sprite" parent="BackgroundParent" index="4"]
-
-position = Vector2( 511, -7089.74 )
-scale = Vector2( 0.55, 0.55 )
-texture = ExtResource( 7 )
-script = ExtResource( 6 )
-_sections_unfolded = [ "Offset", "Transform", "Z Index" ]
-velocity = Vector2( 0, 500 )
-loop = true
+velocity = Vector2( 0, 100 )
+stay_fixed = true
 
 [node name="ship" type="Area2D" parent="." index="3"]
 

@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spring_out.png-1246700f2224a8ddc0543eda2e739416.stex"
+path="res://.import/spring_out.png-f356b34921c89baf327a894388964cfc.stex"
 
 [deps]
 
-source_file="res://Sprites/items/spring_out.png"
-dest_files=[ "res://.import/spring_out.png-1246700f2224a8ddc0543eda2e739416.stex" ]
+source_file="res://sprites/items/spring_out.png"
+dest_files=[ "res://.import/spring_out.png-f356b34921c89baf327a894388964cfc.stex" ]
 
 [params]
 

@@ -1,7 +1,7 @@
 extends Sprite
 
 export var velocity = Vector2()
-export var loop = true
+export var stay_fixed = true
 onready var size = texture.get_size()
 onready var controller = get_node("/root/space_shooter")
 
@@ -16,7 +16,7 @@ func _process(delta):
 		return
 	translate(velocity * delta)
 	
-	if(loop):
-		if position.y >= (get_viewport().get_visible_rect().size.y + size.y/2):
-			position = Vector2(position.x, -2694)
+	if(stay_fixed):
+		if position.y >= (get_viewport().get_visible_rect().size.y):
+			velocity = Vector2(0,0)
 	pass

@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/speed.png-86fd173cf6e77e17f88aeb476c409f84.stex"
+path="res://.import/speed.png-462c29ddb117a19e2cfb603050be1e2a.stex"
 
 [deps]
 
-source_file="res://Sprites/Effects/speed.png"
-dest_files=[ "res://.import/speed.png-86fd173cf6e77e17f88aeb476c409f84.stex" ]
+source_file="res://sprites/Effects/speed.png"
+dest_files=[ "res://.import/speed.png-462c29ddb117a19e2cfb603050be1e2a.stex" ]
 
 [params]
 

@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/jetpack_item.png-901577bee2dc1503874bffa5d9fbfdd5.stex"
+path="res://.import/jetpack_item.png-e914be73748a57730cd59f719db753b7.stex"
 
 [deps]
 
-source_file="res://Sprites/gui/jetpack_item.png"
-dest_files=[ "res://.import/jetpack_item.png-901577bee2dc1503874bffa5d9fbfdd5.stex" ]
+source_file="res://sprites/gui/jetpack_item.png"
+dest_files=[ "res://.import/jetpack_item.png-e914be73748a57730cd59f719db753b7.stex" ]
 
 [params]
 
