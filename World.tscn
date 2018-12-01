@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://Invader.tscn" type="PackedScene" id=16]
 [ext_resource path="res://InvaderVariant.tscn" type="PackedScene" id=17]
 [ext_resource path="res://GUI.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenes/audio_player.tscn" type="PackedScene" id=19]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -263,6 +264,8 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 _sections_unfolded = [ "Pause" ]
 
 [node name="GUI" parent="CanvasLayer" index="0" instance=ExtResource( 18 )]
+
+[node name="audio_player" parent="." index="7" instance=ExtResource( 19 )]
 
 [connection signal="damage_taken" from="Player" to="CanvasLayer/GUI" method="_on_Player_damage_taken"]
 

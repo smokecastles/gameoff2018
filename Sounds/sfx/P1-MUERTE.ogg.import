@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/P1-MUERTE.ogg-52c7b664c0dbef992dc94372ba2f96e5.oggstr"
+
+[deps]
+
+source_file="res://Sounds/sfx/P1-MUERTE.ogg"
+dest_files=[ "res://.import/P1-MUERTE.ogg-52c7b664c0dbef992dc94372ba2f96e5.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

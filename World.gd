@@ -10,6 +10,7 @@ onready var invaders = $Invaders
 onready var player = $Player
 
 func _ready():
+	Controller.play_music()
 	var invader = null
 	for i in range(0,3):
 		invader = Invader.instance()

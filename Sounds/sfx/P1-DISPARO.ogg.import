@@ -12,4 +12,4 @@ dest_files=[ "res://.import/P1-DISPARO.ogg-36de578446be67da9f57488b81dca2f9.oggs
 [params]
 
 loop=false
-loop_offset=0
+loop_offset=0.0
