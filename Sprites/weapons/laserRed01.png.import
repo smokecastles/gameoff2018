@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/laserRed01.png-ffb68f6e3cfb8148e6dffa08563b80dd.stex"
+path="res://.import/laserRed01.png-3d145a0276d7e368bdece50fc6e3db07.stex"
 
 [deps]
 
-source_file="res://sprites/weapons/laserRed01.png"
-dest_files=[ "res://.import/laserRed01.png-ffb68f6e3cfb8148e6dffa08563b80dd.stex" ]
+source_file="res://Sprites/weapons/laserRed01.png"
+dest_files=[ "res://.import/laserRed01.png-3d145a0276d7e368bdece50fc6e3db07.stex" ]
 
 [params]
 

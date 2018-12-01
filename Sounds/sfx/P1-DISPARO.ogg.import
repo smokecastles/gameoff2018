@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/P1-DISPARO.ogg-41bac53d3cb6cf9a5268411de718febf.oggstr"
+path="res://.import/P1-DISPARO.ogg-36de578446be67da9f57488b81dca2f9.oggstr"
 
 [deps]
 
-source_file="res://sounds/sfx/P1-DISPARO.ogg"
-dest_files=[ "res://.import/P1-DISPARO.ogg-41bac53d3cb6cf9a5268411de718febf.oggstr" ]
+source_file="res://Sounds/sfx/P1-DISPARO.ogg"
+dest_files=[ "res://.import/P1-DISPARO.ogg-36de578446be67da9f57488b81dca2f9.oggstr" ]
 
 [params]
 
