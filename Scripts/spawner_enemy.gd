@@ -50,6 +50,7 @@ func spawn_boss():
 	var camera = get_node("/root/space_shooter/camera_shake")
 	camera.shake(5, 5)
 	var gui  = get_node("/root/space_shooter/CanvasLayer/GUI")
+	yield(get_tree().create_timer(5), "timeout")
 	gui.show_boss_health(boss.armor)
 	gui.update_health_boss(boss.armor)
 	boss.start_boss_battle()

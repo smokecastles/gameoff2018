@@ -7,7 +7,7 @@ func _ready():
 	pass
 
 func _on_area_enter(other):
-	if other.is_in_group("enemy"):
+	if other.is_in_group("enemy") || other.is_in_group("boss") :
 		controller = get_node("/root/space_shooter")
 		if(controller == null):
 			return
