@@ -218,9 +218,12 @@ func damage():
 			var explosion = Controller.explosion_scene.instance()
 			explosion.position = position
 			Controller.get_current_scene().add_child(explosion)
-			visible = false
-			is_dead = true
-			emit_signal("player_died")
+			die()
+
+func die():
+	visible = false
+	is_dead = true
+	emit_signal("player_died")
 
 func spend_energy(value):
 	jetpack_energy -= value
