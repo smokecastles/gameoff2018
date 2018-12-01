@@ -9,7 +9,7 @@ preload("res://scenes/enemy_kamikaze.tscn")
 
 export var begin_spawn = false
 export var spawn = false
-export var time_for_boss = 1
+export var time_for_boss = 30
 var timer = 0
 
 func _ready():

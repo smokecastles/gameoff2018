@@ -3,7 +3,7 @@
 [ext_resource path="res://Controller.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/camera.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/spawner_enemy.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Sprites/purple.png" type="Texture" id=4]
+[ext_resource path="res://sprites/background/bg.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/stars.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/ship.gd" type="Script" id=6]
 [ext_resource path="res://sprites/a-wing_512/A-Wing_down.PNG" type="Texture" id=7]
@@ -373,7 +373,7 @@ tracks/7/keys = {
 "values": [ true ]
 }
 
-[node name="space_shooter" type="Node2D"]
+[node name="space_shooter" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "Visibility" ]
@@ -409,66 +409,14 @@ _sections_unfolded = [ "Transform" ]
 [node name="spawner_enemy" parent="." index="1" instance=ExtResource( 3 )]
 
 spawn = true
+time_for_boss = 30
 
 [node name="BackgroundParent" type="Node2D" parent="." index="2"]
 
-editor/display_folded = true
+[node name="Background" type="Sprite" parent="BackgroundParent" index="0"]
 
-[node name="AuxBackground" type="Sprite" parent="BackgroundParent" index="0"]
-
-position = Vector2( 513.383, 304.164 )
-scale = Vector2( 3.9964, 2.30608 )
-texture = ExtResource( 4 )
-
-[node name="Background" type="Sprite" parent="BackgroundParent" index="1"]
-
-position = Vector2( 255.155, 344.846 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 4 )
-script = ExtResource( 5 )
-_sections_unfolded = [ "Offset", "Transform", "Z Index" ]
-velocity = Vector2( 0, 100 )
-
-[node name="Background2" type="Sprite" parent="BackgroundParent" index="2"]
-
-position = Vector2( 767.071, 344.994 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 4 )
-script = ExtResource( 5 )
-_sections_unfolded = [ "Offset", "Transform", "Z Index" ]
-velocity = Vector2( 0, 100 )
-
-[node name="Background3" type="Sprite" parent="BackgroundParent" index="3"]
-
-position = Vector2( 767.82, -161.682 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 4 )
-script = ExtResource( 5 )
-_sections_unfolded = [ "Offset", "Transform", "Z Index" ]
-velocity = Vector2( 0, 100 )
-
-[node name="Background4" type="Sprite" parent="BackgroundParent" index="4"]
-
-position = Vector2( 255.903, -161.682 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 4 )
-script = ExtResource( 5 )
-_sections_unfolded = [ "Offset", "Transform", "Z Index" ]
-velocity = Vector2( 0, 100 )
-
-[node name="Background5" type="Sprite" parent="BackgroundParent" index="5"]
-
-position = Vector2( 255.704, -672.193 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 4 )
-script = ExtResource( 5 )
-_sections_unfolded = [ "Offset", "Transform", "Z Index" ]
-velocity = Vector2( 0, 100 )
-
-[node name="Background6" type="Sprite" parent="BackgroundParent" index="6"]
-
-position = Vector2( 767.62, -672.193 )
-scale = Vector2( 2, 2 )
+position = Vector2( 511.353, -567.114 )
+scale = Vector2( 0.55, 0.55 )
 texture = ExtResource( 4 )
 script = ExtResource( 5 )
 _sections_unfolded = [ "Offset", "Transform", "Z Index" ]

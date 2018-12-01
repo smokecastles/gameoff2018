@@ -13,6 +13,6 @@ func _process(delta):
 		return
 	translate(velocity * delta)
 	
-	if position.y >= (get_viewport().get_visible_rect().size.y + size.y):
-		position = Vector2(position.x, -672.193)
+#	if position.y >= (get_viewport().get_visible_rect().size.y + size.y):
+#		position = Vector2(position.x, -672.193)
 	pass
