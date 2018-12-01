@@ -51,11 +51,13 @@ func _on_Player_damage_taken(health):
 	update_health(health)
 
 func _on_Player_player_died():
-	retry_container.visible = true
-	retry_shown = true
+	if(victory_container.visible == false):
+		retry_container.visible = true
+		retry_shown = true
 
 func _on_player_won():
-	victory_container.visible = true
+	if(retry_container.visible == false):
+		victory_container.visible = true
 	pass
 	
 func _on_boss_damage_taken(health):
