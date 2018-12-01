@@ -42,7 +42,7 @@ _sections_unfolded = [ "Border", "Border Width", "Content Margin", "Corner Radiu
 
 [sub_resource type="DynamicFont" id=2]
 
-size = 38
+size = 20
 use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 5 )
@@ -190,7 +190,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 3
 use_top_left = false
-_sections_unfolded = [ "Anchor", "Margin", "Size Flags", "Visibility" ]
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Mouse", "Rect", "Size Flags", "Theme", "Visibility" ]
 
 [node name="Label" type="Label" parent="VBoxContainer/Container/RetryContainer" index="0"]
 
@@ -198,10 +198,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 250.0
-margin_top = 173.0
-margin_right = 733.0
-margin_bottom = 314.0
+margin_left = 366.0
+margin_top = 205.0
+margin_right = 618.0
+margin_bottom = 283.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -217,7 +217,7 @@ align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Margin", "Rect", "Theme", "custom_constants", "custom_fonts", "custom_styles" ]
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Mouse", "Rect", "Size Flags", "Theme", "Visibility", "custom_constants", "custom_fonts", "custom_styles" ]
 
 [node name="victory_container" type="CenterContainer" parent="VBoxContainer/Container" index="1"]
 
@@ -236,7 +236,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 3
 use_top_left = false
-_sections_unfolded = [ "Anchor", "Margin", "Size Flags", "Visibility" ]
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Mouse", "Rect", "Size Flags", "Theme", "Visibility" ]
 
 [node name="Label" type="Label" parent="VBoxContainer/Container/victory_container" index="0"]
 
@@ -244,10 +244,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 193.0
-margin_top = 173.0
-margin_right = 791.0
-margin_bottom = 314.0
+margin_left = 336.0
+margin_top = 205.0
+margin_right = 648.0
+margin_bottom = 283.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -263,7 +263,50 @@ align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Margin", "Rect", "Theme", "custom_constants", "custom_fonts", "custom_styles" ]
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Theme", "custom_constants", "custom_fonts", "custom_styles" ]
+
+[node name="PlayerTextContainer" type="CenterContainer" parent="VBoxContainer/Container" index="2"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 4.0
+margin_right = 984.0
+margin_bottom = 164.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 3
+use_top_left = false
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Mouse", "Rect", "Size Flags", "Theme", "Visibility" ]
+
+[node name="PlayerText" type="Label" parent="VBoxContainer/Container/PlayerTextContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 462.0
+margin_top = 68.0
+margin_right = 522.0
+margin_bottom = 92.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_styles/normal = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Dummy"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Mouse", "Rect", "Size Flags", "Theme", "Visibility", "custom_constants", "custom_fonts", "custom_styles" ]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" index="2"]
 

@@ -1,11 +1,14 @@
 extends MarginContainer
 
 onready var retry_container = $"VBoxContainer/Container/RetryContainer"
+onready var player_text_container = $"VBoxContainer/Container/PlayerTextContainer"
 
 onready var bar_health = $"VBoxContainer/HBoxContainer/TextureProgress"
 onready var bar_energy = $"VBoxContainer/HBoxContainer2/TextureProgress"
 onready var tween_health = $TweenHealth
 onready var tween_energy = $TweenEnergy
+onready var player_text = $"VBoxContainer/Container/PlayerTextContainer/PlayerText"
+onready var player_text_timer = $"VBoxContainer/Container/PlayerTextContainer/PlayerTextTimer"
 
 var animated_health = 0
 var animated_energy = 0
@@ -48,3 +51,10 @@ func _on_Player_energy_spent(new_value):
 func _on_Player_player_died():
 	retry_container.visible = true
 	retry_shown = true
+
+func _on_Text_show_text_box(text):
+	player_text.text = text
+	player_text_container.visible = true
+	yield(get_tree().create_timer(3.0), "timeout")
+	player_text_container.visible = false
+	pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://InvaderVariant.tscn" type="PackedScene" id=17]
 [ext_resource path="res://GUI.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/audio_player.tscn" type="PackedScene" id=19]
+[ext_resource path="res://ShowTextArea2D.tscn" type="PackedScene" id=20]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -315,6 +316,11 @@ audio_bus_name = "Master"
 position = Vector2( 10081.2, -444.531 )
 shape = SubResource( 3 )
 
+[node name="Text1" parent="." index="9" instance=ExtResource( 20 )]
+
+position = Vector2( 220.097, 333.94 )
+text = "Bla"
+
 [connection signal="damage_taken" from="Player" to="CanvasLayer/GUI" method="_on_Player_damage_taken"]
 
 [connection signal="energy_spent" from="Player" to="CanvasLayer/GUI" method="_on_Player_energy_spent"]
@@ -322,5 +328,7 @@ shape = SubResource( 3 )
 [connection signal="player_died" from="Player" to="CanvasLayer/GUI" method="_on_Player_player_died"]
 
 [connection signal="body_entered" from="FinishLevelArea2D" to="." method="_on_FinishLevelArea2D_body_entered"]
+
+[connection signal="show_text_box" from="Text1" to="CanvasLayer/GUI" method="_on_Text_show_text_box"]
 
 
