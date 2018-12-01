@@ -1,13 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Sprites/fonts/VeraMono.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://About.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/fonts/VeraMono.ttf" type="DynamicFontData" id=2]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 40
 use_mipmaps = false
 use_filter = true
-font_data = ExtResource( 1 )
+font_data = ExtResource( 2 )
 _sections_unfolded = [ "Extra Spacing", "Resource", "Settings" ]
 
 [sub_resource type="DynamicFont" id=2]
@@ -15,7 +16,7 @@ _sections_unfolded = [ "Extra Spacing", "Resource", "Settings" ]
 size = 30
 use_mipmaps = false
 use_filter = true
-font_data = ExtResource( 1 )
+font_data = ExtResource( 2 )
 _sections_unfolded = [ "Extra Spacing", "Resource", "Settings" ]
 
 [sub_resource type="DynamicFont" id=3]
@@ -23,7 +24,7 @@ _sections_unfolded = [ "Extra Spacing", "Resource", "Settings" ]
 size = 18
 use_mipmaps = false
 use_filter = true
-font_data = ExtResource( 1 )
+font_data = ExtResource( 2 )
 _sections_unfolded = [ "Extra Spacing", "Resource", "Settings" ]
 
 [node name="MainMenu" type="MarginContainer" index="0"]
@@ -42,6 +43,7 @@ custom_constants/margin_right = 120
 custom_constants/margin_top = 80
 custom_constants/margin_left = 120
 custom_constants/margin_bottom = 80
+script = ExtResource( 1 )
 _sections_unfolded = [ "custom_constants" ]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." index="0"]

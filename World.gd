@@ -17,7 +17,11 @@ func _ready():
 		invader.global_position = Vector2(200,300)
 		invaders.add_child(invader)
 
-func _physics_process(delta):
+func _process(delta):
+	if Input.is_action_just_pressed("ui_exit"):
+		Controller.goto_scene("res://MainMenu.tscn")
+
+func _physics_process(delta):	
 	for node in invaders.get_children():
 		if node.player_discovered:
 			move_invader(node, delta)
